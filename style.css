@@ -1,0 +1,1266 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,400;1,100;1,200;1,400;1,500;1,600;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid goldenrod;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 25px;
+}
+
+button:hover {
+    background-color: wheat;
+}
+
+.nav-buttons {
+    margin-left: 50%;
+}
+
+body {
+    font-family: "poppins", sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+h6 {
+    color: goldenrod;
+}
+
+.navbar {
+    font-size: 18px;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    top: 0;
+    left: 0;
+    box-shadow: 0 25px 20px goldenrod;
+    background-color: black;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    padding: 0 20px;
+    color: white;
+    transition: 0.4s ease;
+    font-size: 16px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active .navbar i:hover {
+    color: #DAAB2D;
+}
+
+.navbar i {
+    font-size: 1.2rem;
+    padding: 0 0.7px;
+    transition: 0.4s ease;
+    cursor: pointer;
+    margin-left: 20px;
+    color: white;
+}
+
+@media only screen and (max-width: 990px) {
+    .nav-buttons {
+        margin: 10px;
+    }
+    .nav-buttons ul {
+        margin: 1rem;
+        justify-content: flex start;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .nav-buttons ul .fa {
+        margin: 20px 5px 10px 20px;
+    }
+}
+
+#home {
+    background-image: url(../imgs/male1.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#home span {
+    color: black;
+}
+
+#home h1 {
+    color: goldenrod;
+}
+
+#new .one img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#new .one {
+    position: relative;
+}
+
+#new .one .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: goldenrod;
+    font-weight: bold;
+    transition: 0.4s ease;
+    opacity: 0.5;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+#new .one:nth-child(1) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#new .one:nth-child(2) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#new .one:nth-child(3) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* PRODUCT */
+
+.product {
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.product img {
+    transition: 0.3s all;
+}
+
+.product:hover img {
+    opacity: 0.8;
+}
+
+.product .buy-btn {
+    transform: translate(50px);
+    opacity: 0;
+    transition: 0.3s all;
+}
+
+.product:hover .buy-btn {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+hr {
+    width: 30px;
+    height: 3px;
+    opacity: 1;
+    background-color: goldenrod;
+}
+
+.star {
+    padding: 10px 0;
+}
+
+.star i {
+    font-size: 0.9rem;
+    color: goldenrod;
+}
+
+#banner {
+    background-image: url(../imgs/background2.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#banner h4 {
+    color: goldenrod;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: black;
+}
+
+footer p {
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+footer li {
+    padding-bottom: 4px;
+}
+
+footer li a {
+    font-size: 0.8rem;
+    color: white;
+    text-decoration: none;
+}
+
+footer li a:hover {
+    color: goldenrod;
+}
+
+footer ul {
+    color: black;
+}
+
+footer .copyright a {
+    color: black;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    margin: 0 5px;
+}
+
+footer .copyright a:hover {
+    color: white;
+    background-color: goldenrod
+}
+
+footer p {
+    color: white;
+}
+
+footer p:hover {
+    color: goldenrod;
+}
+
+footer a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.7rem
+}
+
+footer a:hover {
+    color: goldenrod;
+    font-size: 0.7rem
+}
+
+footer .copyright img {
+    width: 30%;
+}
+
+
+/* BACKTOTOP */
+
+.scrollToTop.filling {
+    opacity: 1;
+}
+
+.scrollToTop {
+    width: 45px;
+    height: 45px;
+    z-index: 999999;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    color: goldenrod;
+    border: 3px solid goldenrod;
+    box-shadow: 0 20px 20px goldenrod;
+    border-radius: 50%;
+    text-decoration: none;
+    background-color: #fff;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    opacity: 0;
+    outline: 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.scrollToTop:hover {
+    color: white;
+    background-color: wheat;
+    text-align: center;
+}
+
+.scrollToTop .fa-chevron-up {
+    color: black;
+    text-align: center;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo {
+    width: 210px;
+    height: 210px;
+}
+
+.brand {
+    color: goldenrod;
+    margin: 3px 5px;
+    font-size: 1.5rem;
+}
+
+.small-img-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.single-product input {
+    width: 10%;
+    height: 10%;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.single-product input:focus {
+    outline: none;
+}
+
+
+/* CART */
+
+.cart table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart .product-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart th {
+    text-align: left;
+    padding: 5px 10px;
+    color: goldenrod;
+    background-color: black;
+}
+
+.cart td {
+    padding: 10px 20px;
+}
+
+.cart td img {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+}
+
+.cart td input {
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.cart td a {
+    color: goldenrod;
+}
+
+.cart .remove-btn {
+    color: goldenrod;
+    text-decoration: none;
+}
+
+.cart .edit-btn {
+    color: goldenrod;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cart .product-info p {
+    margin: 3px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-total table {
+    width: 100%;
+    max-width: 500px;
+    border-top: 3px solid goldenrod;
+}
+
+td:last-child {
+    text-align: right;
+}
+
+th:last-child {
+    text-align: right;
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkout-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid green;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 25px;
+}
+
+.checkout-btn:hover {
+    background-color: #9FF086;
+}
+
+
+/* LOGIN */
+
+#login-form {
+    width: 40%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 45px;
+    box-shadow: 10px 10px 10px 10px goldenrod;
+    background-color: black;
+}
+
+#login-form input {
+    width: 70%;
+    margin: 25px auto;
+}
+
+.form-control {
+    width: 100%;
+    height: 100%;
+    flex-shrink: center;
+    text-align: center;
+}
+
+#login-form #login-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid green;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 45px;
+}
+
+#login-form #login-btn:hover {
+    background-color: #9FF086;
+}
+
+#login-form #register-url {
+    color: goldenrod;
+}
+
+label {
+    color: goldenrod;
+}
+
+
+/* REGISTER */
+
+#register-form {
+    width: 40%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 45px;
+    box-shadow: 10px 10px 10px 10px goldenrod;
+    background-color: black;
+}
+
+#register-form input {
+    width: 70%;
+    margin: 25px auto;
+}
+
+#register-form #register-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid green;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 45px;
+}
+
+#register-form #register-btn:hover {
+    background-color: #9FF086;
+}
+
+#register-form #login-url {
+    color: goldenrod;
+}
+
+
+/* ACCOUNT */
+
+#account-form {
+    width: 70%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 45px;
+    box-shadow: 10px 10px 10px 10px goldenrod;
+    background-color: black;
+}
+
+#account-form h3 {
+    color: goldenrod;
+}
+
+#account-form input {
+    width: 70%;
+    margin: 25px auto;
+}
+
+#change-pass-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid goldenrod;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 45px;
+}
+
+#change-pass-btn:hover {
+    background-color: wheat;
+}
+
+#account-form #orders-btn,
+#logout-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid red;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 45px;
+}
+
+#account-form #orders-btn,
+#logout-btn:hover {
+    background-color: #F8665E;
+}
+
+#account-form #account-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid goldenrod;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 45px;
+}
+
+#account-form #account-btn:hover {
+    background-color: goldenrod;
+}
+
+#register-form #login-url {
+    color: goldenrod;
+}
+
+#orders-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid green;
+    background-color: white;
+    color: black;
+    padding: 13px 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 45px;
+}
+
+#orders-btn:hover {
+    background-color: #9FF086;
+}
+
+
+/* ORDERS */
+
+.orders table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders .product-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.orders th {
+    padding: 5px 10px;
+    color: goldenrod;
+    background-color: black;
+    text-align: left;
+}
+
+.orders th:nth-child(2) {
+    text-align: right;
+}
+
+.orders td {
+    padding: 10px 20px;
+}
+
+.orders td img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+
+/* CHECKOUT */
+
+#checkout-form {
+    width: 40%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 45px;
+    box-shadow: 10px 10px 10px 10px goldenrod;
+    background-color: black;
+}
+
+#checkout-form input {
+    width: 70%;
+    margin: 25px auto;
+}
+
+#checkout-form #checkout-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid green;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 45px;
+}
+
+#checkout-form #checkout-btn:hover {
+    background-color: #9FF086;
+}
+
+#checkout-form #login-url {
+    color: goldenrod;
+}
+
+
+/* CONTACT */
+
+.contact1 {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url(../imgs/bg.jpg);
+    background-size: cover;
+}
+
+.contact1 .content1 {
+    max-width: 800px;
+    text-align: center;
+}
+
+.contact1 .content1 h2 {
+    font-size: 36px;
+    font-weight: 500;
+    color: white;
+}
+
+.contact1 .content1 p {
+    font-weight: 300;
+    color: white;
+}
+
+.container1 {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.container1 .contactInfo1 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container1 .contactInfo1 .box1 {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    color: white;
+}
+
+.container1 .contactInfo1 .box1 .icon1 {
+    min-width: 60px;
+    height: 60px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+.container1 .contactInfo1 .box1 .icon1:hover {
+    background: goldenrod;
+}
+
+.container1 .contactInfo1 .box1 .text1 {
+    display: flex;
+    margin: left 20px;
+    font-size: 16px;
+    color: white;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.container1 .contactInfo1 .box1 .text1 h3 {
+    font-weight: 500;
+    color: white;
+}
+
+.contactForm1 {
+    width: 40%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 45px;
+    box-shadow: 5px 5px 5px 5px goldenrod;
+    background-color: black;
+}
+
+.contactForm1 h1 {
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+}
+
+.contactForm1 h2 {
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+}
+
+.contactForm1 h3 {
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+}
+
+.contactForm1 h4 {
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+}
+
+.contactForm1 h5 {
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+}
+
+.contactForm1 h6 {
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
+}
+
+.contactForm1 .inputBox1 {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contactForm1 .inputBox1 input,
+.contactForm1 .inputBox1 textarea {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid white;
+    border-radius: 45px;
+    outline: none;
+    resize: none;
+    text-align: center;
+}
+
+.contactForm1 .inputBox1 span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 20px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: goldenrod;
+}
+
+.contactForm1 .inputBox1 input:focus~span,
+.contactForm1 .inputBox1 input:valid~span,
+.contactForm1 .inputBox1 textarea:focus~span,
+.contactForm1 .inputBox1 textarea:valid~span {
+    color: white;
+    font: 20px;
+    transform: translate(-140px);
+}
+
+.contactForm1 .inputBox1 input {
+    width: 55%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: 6px solid goldenrod;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    transition: 0.3s ease;
+    border-radius: 45px;
+    text-align: center;
+}
+
+.contactForm1 .inputBox2 input {
+    width: 35%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: 6px solid green;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    transition: 0.3s ease;
+    border-radius: 45px;
+    text-align: center;
+}
+
+.contactForm1 .inputBox2 input:hover {
+    color: black;
+    background-color: greenyellow;
+}
+
+
+/* OBUHVAĆA SVA 4 (FUL NAME EMAIL MESSAGE I SEND MAIL) */
+
+.contactForm1 .inputBox1 input,
+.contactForm1 .inputBox1 textarea {
+    width: 45%;
+    padding: 4px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border: 2px solid goldenrod;
+    border-radius: 25px;
+    outline: none;
+    resize: none;
+}
+
+.contactForm1 .inputBox1 input:hover {
+    background-color: wheat;
+}
+
+
+/* PAYMENT */
+
+.container3 {
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    background: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding-bottom: 300px;
+    padding-top: 300px;
+}
+
+.container3 form {
+    background-color: white;
+    border: solid #999;
+    border-radius: 73px;
+    box-shadow: 0 10px 15px rgb(0 0 0 / 10%);
+    padding: 20px;
+    padding-bottom: 30px;
+    width: 580px;
+    padding-top: 145px;
+}
+
+.container3 form .inputBox2 {
+    margin-top: px;
+}
+
+.container3 form .inputBox2 span {
+    display: block;
+    color: #999;
+    padding-bottom: 5px;
+    margin-left: 100px;
+}
+
+.container3 form .inputBox2 input,
+.container3 form .inputBox2 select {
+    width: 40%;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    color: #444;
+    margin-left: 100px;
+}
+
+
+/* CVV */
+
+.container3 form .inputBox2 .cvv-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    text-align: center;
+}
+
+.container3 form .inputBox2 .card-number-input {
+    width: 55%;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    border-color: solid black;
+    box-shadow: 0 15px 15px #eeeeee;
+    text-align: center;
+}
+
+.container3 form .inputBox2 .card-holder-input {
+    width: 55%;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    border-color: solid black;
+    box-shadow: 0 15px 15px #eeeeee;
+    text-align: center;
+}
+
+.container3 form .flexbox2 {
+    display: flex;
+}
+
+.container3 form .flexbox2 .inputBox2 {
+    flex: 1 1 150px;
+}
+
+.container3 form .submit-btn {
+    width: 20%;
+    margin-top: 80px;
+    margin-left: 220px;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+    border: 4px solid goldenrod;
+    border-radius: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.container3 form .submit-btn:hover {
+    background-color: wheat;
+}
+
+.container3 .card-container3 {
+    margin-bottom: -150px;
+    position: relative;
+    height: 450px;
+    width: 550px;
+}
+
+
+/* FRONT OF THE CARD */
+
+.container3 .card-container3 .front .imagepayment {
+    border: 2px solid gray;
+    box-shadow: 0 5px 35px black;
+    background: url(../imgs/18.jpeg);
+    border-radius: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 300px;
+    transition: transform .0001s ease-out;
+    transform: perspective(100px) rotateY(0deg);
+}
+
+
+/* XXXX XXXX XXXX XXXX = font-size: 22px */
+
+
+/* CARD HOLDER = font-size: 13px */
+
+
+/* FULL NAME = font-size: 18px */
+
+
+/* EXPIRES = font-size: 13px */
+
+
+/* MM / YY = font-size: 18px */
+
+.container3 .card-container3 .imagepayment img {
+    height: 70px;
+}
+
+
+/* XXXX XXXX XXXX XXXX = font-size: 22px */
+
+.container3 .card-container3 .front .card-number-box {
+    color: goldenrod;
+    font-size: bold;
+    font-size: 22px;
+    padding: 60px;
+}
+
+.container3 .card-container3 .front .flexbox2 {
+    display: flex;
+}
+
+
+/* CARD HOLDER = font-size: 13px */
+
+
+/* FULL NAME = font-size: 18px */
+
+.container3 .card-container3 .front .flexbox2 .box1:nth-child(1) {
+    color: goldenrod;
+    font-size: bold;
+    margin-right: auto;
+}
+
+
+/* EXPIRES = font-size: 13px */
+
+
+/* MM / YY = font-size: 18px */
+
+.container3 .card-container3 .front .flexbox2 .box2:nth-child(2) {
+    color: red;
+    padding-bottom: 20px;
+    text-align: end;
+}
+
+.visa-logo {
+    position: absolute;
+    top: 26px;
+    right: 30px;
+    width: 150px;
+    height: 150px;
+}
+
+
+/* EXPIRES = font-size: 13px */
+
+.container3 .card-container3 .front .imagepayment .flexbox2 .box2 span {
+    color: goldenrod;
+    font-size: bold;
+    position: relative;
+    left: 240px;
+}
+
+
+/* BACK OF THE CARD */
+
+.container3 .card-container3 .back {
+    position: absolute;
+    top: 4px;
+    right: 3px;
+    left: 4px;
+    bottom: 109px;
+    border: 2px solid gray;
+    box-shadow: 0 5px 35px black;
+    background: url(../imgs/18.jpeg);
+    border-radius: 40px;
+    padding-top: 20px;
+    padding-bottom: 260px;
+    padding-left: 50px;
+    transition: transform .0001s ease-out;
+    backface-visibility: hidden;
+    transform: perspective(100px) rotateY(180deg);
+}
+
+.container3 .card-container3 .back .stripe {
+    background: #000;
+    width: 97%;
+    margin: 0px;
+    height: 50px;
+}
+
+.visa-logo-back {
+    left: 320px;
+}
+
+.container3 .card-container3 .back .box {
+    padding: auto 0px;
+    padding-top: 80px;
+}
+
+.container3 .card-container3 .back .box span {
+    color: #fff;
+    font-size: 15px;
+    padding-left: 420px;
+}
+
+.container3 .card-container3 .back .box .cvv-box {
+    height: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    color: #333;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+    text-align: right;
+}
+
+.container3 .card-container3 .back .box img {
+    margin-top: 65px;
+    margin-left: -11px;
+    height: 76px;
+}
