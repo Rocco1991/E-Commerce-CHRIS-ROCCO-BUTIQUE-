@@ -163,7 +163,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">Coats</h5>
+                <h5 class="p-name">COATS</h5>
                 
                 <a href="#clothes">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -180,7 +180,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name"> Shoes</h5>
+                <h5 class="p-name"> SHOES</h5>
                 
                 <a href="#shoes">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -197,7 +197,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">Watches</h5>
+                <h5 class="p-name">WATCHES</h5>
                 
                 <a href="#watches">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -214,7 +214,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">Parfumes</h5>
+                <h5 class="p-name">PARFUMES</h5>
                 
                 <a href="#parfumes">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -231,7 +231,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name"> Bags</h5>
+                <h5 class="p-name">BAGS</h5>
                 
                 <a href="#bags">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -248,7 +248,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">Gloves</h5>
+                <h5 class="p-name">GLOVES</h5>
                 
                 <a href="#gloves">
                 <button class="text-uppercase buy-btn">Buy Now</button>
