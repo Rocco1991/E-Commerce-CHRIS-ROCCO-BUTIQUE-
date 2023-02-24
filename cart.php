@@ -1,5 +1,7 @@
 <?php
 
+//it means that there is no array errors anymore in cart.php
+error_reporting(0);
 session_start();
 
 if(isset($_POST['add_to_cart'])){
@@ -22,15 +24,14 @@ if(isset($_SESSION['cart'])){
                     'product_quantity' => $_POST['product_quantity']
     );
 
-   $_SESSION['cart'][$product_id] = $product_array;
+     $_SESSION['cart'][$product_id] = $product_array;
  
         
      //Product has already been added  
     }else{
 
             echo '<script>alert("Product was already added to cart");</script>';
-            echo '<script>window.location="index.php";</script>';
-
+            //echo '<script>window.location="index.php";</script>';
             
     }
   
@@ -51,14 +52,11 @@ if(isset($_SESSION['cart'])){
                     'product_quantity' => $product_quantity
     );
 
-    $_SESSION['cart']['$product_id'] = $product_array;
-    // [2=>[] , 3=>[] , 5=>[] ]    
+    $_SESSION['cart'][$product_id] = $product_array;
+    // [2=>[] , 3=>[] , 5=>[] ]
 
 
 }
-
-//calculate total
-    calculateTotalCart();
 
 
 
@@ -68,65 +66,15 @@ if(isset($_SESSION['cart'])){
     $product_id = $_POST['product_id'];
     unset($_SESSION['cart'][$product_id]);
 
-    //calculate total
-    calculateTotalCart();
-
-
-    
-}else if( isset($_POST['edit_quantity']) ){
-
-
-
-
-
-    
-    //we get ID and quantity from the form
-    $product_id = $_POST['product_id'];  
-    $product_quantity = $_POST['product_quantity'];
-
-    //get the product array from the SESSION
-    $product_array = $_SESSION['cart'][$product_id];
-
-    //update product quantity
-    $product_array['product_quantity'] = $product_quantity;
-
-    //return array back to its place
-    $_SESSION['cart'][$product_id] = $product_array;
-
-    //calculate total
-    calculateTotalCart();
-
-
-
-
 }else{
     header('location: index.php');
-
 }
 
 
- function calculateTotalCart(){
-
-    $total = 0;
-
-    foreach ($_SESSION['cart'] as $key => $value)
-    {
-
-        $_SESSION['cart'][$key];
-
-        $product = $_SESSION['cart'][$key];
-
-        $price = $product['product_price'];
-        $quantity = $product['product_quantity'];
-
-        $total = $total + ($price * $quantity);
-    }
-
-
-    $_SESSION['total'] = $total; 
- }
-
 ?>
+
+
+
 
 
 <!DOCTYPE html>
@@ -178,6 +126,9 @@ if(isset($_SESSION['cart'])){
                         <a class="nav-link" href="contact.html">CONTACT US</a>
                     </li>
 
+                    <li class="nav-item">
+                    <a href=""><i class="fa-solid fa-heart"></i></a>
+                    </li>
 
                     <li class="nav-item">
                         <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i></a>
@@ -209,72 +160,71 @@ if(isset($_SESSION['cart'])){
             <h2 class="font-weight-bold">YOUR CART</h2>
             <hr>
         </div>
-
         <table class="mt-5 pt-5">
+
             <tr>
                 <th>PRODUCT</th>
                 <th>QUANTITY</th>
                 <th>SUBTOTAL</th>
             </tr>
-
-
-            <?php foreach($_SESSION['cart'] as $key => $value){ ?>
-
+         
+       
+        
+<?php foreach ($_SESSION['cart'] as $key => $value){ ?>
             <tr>
                 <td>
                     <div class="product-info">
-                        <img src="assets/imgs/<?php echo $value['product_image'];?>"/>  
-                         <div>
-                            <p><?php echo $value['product_name'];?></p>
-                            <small><span>$</span><?php echo $value['product_price'];?></small>
-                            <br>
-                            <br>
-                            <form method="POST" action="cart.php">
-                                 <input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>"/>
-                                 <input type="submit"  name="remove_product" class="remove-btn" value="REMOVE"/>
-                            </form>
-
+                        <img src="assets/imgs/<?php echo $value['product_image'];?>"/>
+                            <div>
+                                <p> <?php echo $value['product_name'];?> </p>
+                                <small> <span>$</span><?php echo $value['product_price'];?></small>
+                                <br>
+                                <br>
+                                <form method="POST" action="cart.php">
+                                      <input type="hidden" name="product_id"  value="<?php echo $value['product_id'];?>"/>
+                                      <input type="submit" name="remove_product" class="remove_btn" value="REMOVE"/>
+                                </form>   
+                            </div>
                         </div>
-                    </div>
-                </td>
+                    </td>
 
-                <td>
-                    <form method="POST" action="cart.php">
-                         <input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>"/>
-                         <input type="number" name="product_quantity" value="<?php echo $value['product_quantity'];?>"/>
-                         <input type="submit" class="edit-btn" value="EDIT" name="edit_quantity"/>
-                    </form>   
-                </td>
+                        <td>
+                            
+                            <form method="POST" action="cart.php">
+                                <input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>"/>
+                                <input type="number" value="<?php echo $value['product_quantity'];?>"/>
+                                <input type="submit" class="edit-btn" value="EDIT" name="edit_quantity"/>
+                            </form>
+                            
+                       </td>
 
-                <td>
-                    <span>$</span>
-                    <span class="product-price"><?php echo $value['product_quantity'] * $value['product_price'];?></span>
-                </td>
+                        <td>
+                            <span class="product-price">$ 0</span>
+                        </td>
             </tr>
-
 <?php } ?>
 
-
-
-            
+        
         </table>
 
         <div class="cart-total">
             <table>
 
                 <tr>
+                    <td>SUBTOTAL</td>
+                    <td>$0</td>
+                </tr>
+
+                <tr>
                     <td>TOTAL</td>
-                    <td>$ <?php echo $_SESSION['total'] ?></td>
+                    <td>$0</td>
                 </tr>
 
             </table>
         </div>
 
         <div class="checkout-container">
-            <form method="POST" action="checkout.php">
-                <input type="submit" class="btn checkout-btn" value="Checkout" name="checkout">
-            </form>
-            
+            <div class="btn checkout-btn">CHECKOUT</div>
         </div>
 
     </section>
@@ -310,7 +260,7 @@ if(isset($_SESSION['cart'])){
 
                 <div>
                     <p class="text-uppercase">Phone</p>
-                    <P>+38509811111222</P>
+                    <P>+3850981111222</P>
                 </div>
 
                 <div>
@@ -355,18 +305,14 @@ if(isset($_SESSION['cart'])){
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
                     <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
                 </div>
-
-                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-skype"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
             </div>
         </div>
+
+
+
+
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="cart.html"><i class="fa fa-chevron-up"></i></a>
+            <a href="index.html"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>

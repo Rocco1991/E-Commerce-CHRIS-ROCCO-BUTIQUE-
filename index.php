@@ -59,6 +59,7 @@
                     <li class="nav-item">
                         <a href="account.html"><i class="fa-solid fa-user"></i></a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -84,7 +85,7 @@
             <br>
             <h4>" Welcome to Chris Rocco Butique, your one-stop shop for all things fashion and style.</h4>
             <br>
-            <h4> We specialize in a wide range of products including watches, bags, gloves, vintage suits, perfumes, and shoes. </h4>
+            <h4>  We specialize in a wide range of products including watches, bags, gloves, vintage suits, perfumes, and shoes. </h4>
             <br>
             <h4> We pride ourselves on offering high-quality products at affordable prices and excellent customer service. </h4>
             <br>
@@ -101,10 +102,10 @@
     <!-- Brand -->
     <section id="brand" class="container">
         <div class="row">
+            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/Dior-logo.jpg">
             <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/nikelogo.png">
             <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/newyorkerlogo.jpeg">
             <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/gucci.jpg">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/D&G.jpg">
         </div>
     </section>
 
@@ -116,8 +117,10 @@
             <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
                 <img class="img-fluid" src="assets/imgs/Male-Model-Shoes-Car.jpg" alt="">
                 <div class="details">
-                    <h2>Extremely Awesome Shoes</h2>
-                    <button class="text-uppercase">Shop Now</button>
+                    <h2>EXTREMLY AWSOME SHOES</h2>
+                    <a href="#shoes">
+                <button class="text-uppercase buy-btn">SHOP NOWSHOES</button>
+                    </a>
                 </div>
             </div>
 
@@ -125,8 +128,10 @@
             <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
                 <img class="img-fluid" src="assets/imgs/Male-Model-Cigaret-Jacket.jpg" alt="">
                 <div class="details">
-                    <h2>Extremely Awesome Jacket</h2>
-                    <button class="text-uppercase">Shop Now</button>
+                    <h2>EXTREMLY AWSOME JACKET</h2>
+                    <a href="#clothes">
+                <button class="text-uppercase buy-btn">SHOP NOW JACKETS</button>
+                </a>
                 </div>
             </div>
 
@@ -134,8 +139,10 @@
             <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
                 <img class="img-fluid" src="assets/imgs/Male-Model-Watch.jpg" alt="">
                 <div class="details">
-                    <h2>50% OFF Watches</h2>
-                    <button class="text-uppercase">Shop Now</button>
+                    <h2>50% OFF WATCHES</h2>
+                    <a href="#watches">
+                <button class="text-uppercase buy-btn">SHOP NOW WATCHES</button>
+                   </a>
                 </div>
             </div>
 
@@ -144,10 +151,10 @@
 
 
     
-    <!-- OUR 6 PRODUCTS WE HAVE  -->
+    <!-- OUR PRODUCTS WE HAVE  -->
     <section id="related-products" class="my-5 pb-5">
         <div class="container text-center mt-5 py-5">
-            <h3>6 CATEGORIES</h3>
+            <h3>SHOP CATEGORIES</h3>
             <hr class="mx-auto">
         </div>
 
@@ -155,7 +162,7 @@
 
             <!-- Coats -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Female-Coats.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/Expensive-coats.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -163,7 +170,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">COATS</h5>
+                <h5 class="p-name">ALL COATS</h5>
                 
                 <a href="#clothes">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -172,7 +179,7 @@
 
             <!-- Shoes  -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/VintageBrownShoes.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/Expensive-shoes.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -180,7 +187,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name"> SHOES</h5>
+                <h5 class="p-name">ALL SHOES</h5>
                 
                 <a href="#shoes">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -189,7 +196,7 @@
 
             <!-- Watches -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Gold-Watch-1.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/Expensive-watch.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -197,7 +204,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">WATCHES</h5>
+                <h5 class="p-name">ALL WATCHES</h5>
                 
                 <a href="#watches">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -206,7 +213,7 @@
             
             <!-- Parfumes -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Not-Expensive-Parfume.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/Expensive-parfume.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -214,7 +221,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">PARFUMES</h5>
+                <h5 class="p-name">ALL PARFUMES</h5>
                 
                 <a href="#parfumes">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -223,7 +230,7 @@
 
             <!-- Bags -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/VintageSchoolBag.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/Expensive-bags.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -231,7 +238,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">BAGS</h5>
+                <h5 class="p-name">ALL BAGS</h5>
                 
                 <a href="#bags">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -240,7 +247,7 @@
             
             <!-- Gloves -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Red-Gloves.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/Expensive-gloves.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -248,7 +255,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class="p-name">GLOVES</h5>
+                <h5 class="p-name">ALL GLOVES</h5>
                 
                 <a href="#gloves">
                 <button class="text-uppercase buy-btn">Buy Now</button>
@@ -557,14 +564,6 @@
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
                     <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
-                </div>
-
-                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-skype"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
