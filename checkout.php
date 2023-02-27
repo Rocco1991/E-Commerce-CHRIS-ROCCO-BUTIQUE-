@@ -1,20 +1,23 @@
 <?php
-
 session_start();
 
-if( !empty($_SESSION['cart']) && isset($_POST['checkout'])){
+if (isset($_POST['checkout'])) {
+    if (!empty($_SESSION['cart'])) {
 
-    //let user in
+        // There are items in the cart, redirect to checkout
+        header('Location: checkout.php');
 
+        exit();
+    } else {
 
-//send user to homepage
-}else{
+        // Cart is empty, redirect to index
+        header('Location: index.php');
 
-header('location: index.php');
-
+        exit();
+    }
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,39 +96,38 @@ header('location: index.php');
     <br>
     <section class="my-5 py-5">
         <div class="container text-center mt-3 pt-5">
-            <h2 class="form-weight-bold">Check Out</h2>
+            <h2 class="form-weight-bold">CHECKOUT</h2>
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container ">
-            <form id="checkout-form"  method="POST" action="server/place_order.php">
+            <form id="checkout-form" method="POST" action="place_order.php">
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label>Name</label>
-                    <input type="text" class="form-control" id="checkout-name" name="name" placeholder="Enter Your Name" required>
+                    <input type="text" class="form-control" id="checkout-name" name="name" placeholder="Enter your name please" required/>
                 </div>
 
                 <div class="form-group ">
                     <label>Email</label>
-                    <input type="text" class="form-control" id="checkout-email" name="email" placeholder="Enter Your Email" required>
+                    <input type="text" class="form-control" id="checkout-email" name="email" placeholder="Enter your email please" required/>
                 </div>
 
                 <div class="form-group ">
                     <label>Phone</label>
-                    <input type="tel" class="form-control" id="checkout-phone" name="phone" placeholder="Enter Your Telephone Number" required>
+                    <input type="tel" class="form-control" id="checkout-phone" name="phone" placeholder="Enter your telephone number" required/>
                 </div>
 
                 <div class="form-group ">
                     <label>City</label>
-                    <input type="text" class="form-control" id="checkout-city" name="city" placeholder="Whats Your City" required>
+                    <input type="text" class="form-control" id="checkout-city" name="city" placeholder="What is your city?" required/>
                 </div>
 
                 <div class="form-group ">
-                    <label>Adress</label>
-                    <input type="text" class="form-control" id="checkout-adress" name="adress" placeholder="Whats Your Adress" required>
+                    <label>Address</label>
+                    <input type="text" class="form-control" id="checkout-address" name="address" placeholder="What is your address?" required/>
                 </div>
 
                 <div class="form-group ">
-                    <p>TOTAL AMOUNT: $<?php echo $_SESSION['total'];?></p>
                     <input type="submit" class="btn" id="checkout-btn" name="place_order" value="PLACE ORDER" />
                 </div>
             </form>
@@ -163,7 +165,7 @@ header('location: index.php');
 
                 <div>
                     <p class="text-uppercase">Phone</p>
-                    <P>+385098111122222</P>
+                    <P>+3850981111222</P>
                 </div>
 
                 <div>
@@ -208,18 +210,14 @@ header('location: index.php');
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
                     <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
                 </div>
-
-                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-skype"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
             </div>
         </div>
+
+
+
+
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="checkout.html"><i class="fa fa-chevron-up"></i></a>
+            <a href="index.html"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>

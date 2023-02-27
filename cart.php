@@ -58,6 +58,13 @@ if(isset($_SESSION['cart'])){
 
 }
 
+//calculate total
+    calculateTotalCart();
+
+
+
+
+
 
 
 //remove product from cart
@@ -66,10 +73,50 @@ if(isset($_SESSION['cart'])){
     $product_id = $_POST['product_id'];
     unset($_SESSION['cart'][$product_id]);
 
+    //calculate total
+     calculateTotalCart();
+
+
+
+}else if(isset($_POST['edit_quantity']) ){
+
+//we get id and quantity from the product
+$product_id = $_POST['product_id'];
+$product_quantity = $_POST['product_quantity'];
+
+//get the products array from the session
+$product_array = $_SESSION['cart'][$product_id];
+
+//update product quantity
+$product_array['product_quantity']= $product_quantity;
+
+//return array back its place
+$_SESSION['cart'][$product_id] = $product_array;
+
+//calculate total
+ calculateTotalCart();
+
 }else{
     header('location: index.php');
 }
 
+
+function calculateTotalCart(){
+
+    $total = 0;
+
+    foreach($_SESSION['cart'] as $key => $value){
+
+        $product = $_SESSION ['cart'][$key];
+
+        $price = $product['product_price'];
+        $quantity = $product['product_quantity'];
+
+        $total = $total + ($price * $quantity);
+    }
+
+    $_SESSION['total'] = $total;
+}
 
 ?>
 
@@ -171,6 +218,7 @@ if(isset($_SESSION['cart'])){
        
         
 <?php foreach ($_SESSION['cart'] as $key => $value){ ?>
+<?php if(!empty($value['product_name']) && !empty($value['product_price']) && !empty($value['product_image'])){ ?>  <!-- Tu se nalazi greška -->
             <tr>
                 <td>
                     <div class="product-info">
@@ -192,16 +240,17 @@ if(isset($_SESSION['cart'])){
                             
                             <form method="POST" action="cart.php">
                                 <input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>"/>
-                                <input type="number" value="<?php echo $value['product_quantity'];?>"/>
+                                <input type="number"  name="product_quantity"  value="<?php echo $value['product_quantity'];?>"/>
                                 <input type="submit" class="edit-btn" value="EDIT" name="edit_quantity"/>
                             </form>
                             
                        </td>
 
                         <td>
-                            <span class="product-price">$ 0</span>
+                            <span class="product-price">$ <?php echo $value['product_quantity']* $value ['product_price'];?></span>
                         </td>
             </tr>
+<?php } ?>
 <?php } ?>
 
         
@@ -211,20 +260,17 @@ if(isset($_SESSION['cart'])){
             <table>
 
                 <tr>
-                    <td>SUBTOTAL</td>
-                    <td>$0</td>
-                </tr>
-
-                <tr>
                     <td>TOTAL</td>
-                    <td>$0</td>
+                    <td>$ <?php echo $_SESSION['total'];?></td>
                 </tr>
 
             </table>
         </div>
 
         <div class="checkout-container">
-            <div class="btn checkout-btn">CHECKOUT</div>
+            <form  method="POST" action="checkout.php">
+                <input type="submit"  class="btn checkout-btn" value="Checkout" name="checkout">   
+            </form>    
         </div>
 
     </section>
