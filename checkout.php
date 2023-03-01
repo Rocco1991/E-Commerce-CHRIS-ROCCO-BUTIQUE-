@@ -1,21 +1,18 @@
 <?php
 session_start();
 
-if (isset($_POST['checkout'])) {
-    if (!empty($_SESSION['cart'])) {
+if( !empty($_SESSION['cart']) && isset($_POST['checkout'])) {
 
-        // There are items in the cart, redirect to checkout
-        header('Location: checkout.php');
+    //let user proceed to checkout
+    
 
-        exit();
-    } else {
-
-        // Cart is empty, redirect to index
-        header('Location: index.php');
-
-        exit();
-    }
+}else{
+    
+    //redirect user to home page
+    header('location: index.php');
 }
+
+
 ?>
 
 
