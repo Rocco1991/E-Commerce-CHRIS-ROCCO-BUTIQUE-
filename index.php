@@ -94,7 +94,7 @@
             <br>
             <br>
             <br>
-            <a href="shop.html"><img src="" class="img-fluid w-auto h-auto m-5"><button>SHOP NOW!</button></a>
+            <a href="shop.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>SHOP NOW!</button></a>
             <br>
         </div>
     </section>

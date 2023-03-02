@@ -1,18 +1,3 @@
-<?php
-
-
-session_start();
-
-$cartIsEmpty = (!isset($_SESSION['cart']) || empty($_SESSION['cart']));
-
-if ($cartIsEmpty) {
-  header('Location: index.php');
-  exit(); // stop executing the current script to prevent further code execution
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +5,7 @@ if ($cartIsEmpty) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHECK OUT FORM</title>
+    <title>SHOP</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -29,6 +14,24 @@ if ($cartIsEmpty) {
 
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .product img {
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            object-fit: cover;
+        }
+        
+        .pagination a {
+            color: black;
+        }
+        
+        .pagination li:hover a {
+            color: goldenrod;
+            background-color: black;
+        }
+    </style>
 
 </head>
 
@@ -76,7 +79,7 @@ if ($cartIsEmpty) {
     </nav>
 
 
-    <!-- Checkout -->
+    <!-- Featured products / SHOP -->
 
     <br>
     <br>
@@ -87,46 +90,56 @@ if ($cartIsEmpty) {
     <br>
     <br>
     <br>
-    <br>
-    <section class="my-5 py-5">
-        <div class="container text-center mt-3 pt-5">
-            <h2 class="form-weight-bold">CHECKOUT</h2>
-            <hr class="mx-auto">
+
+    <section id="featured" class="my-5 py-5">
+        <div class="container mt-5 py-5">
+            <h2>OUR PRODUCTS & SHOP </h2>
+            <hr>
+            <p>HERE YOU CAN CHECK THE PRODUCTS...</p>
         </div>
-        <div class="mx-auto container ">
-            <form id="checkout-form" method="POST" action="place_order.php">
+        <div class="row mx-auto container-fluid">
 
-                <div class="form-group ">
-                    <label>Name</label>
-                    <input type="text" class="form-control" id="checkout-name" name="name" placeholder="Enter your name please ..." required/>
-                </div>
 
-                <div class="form-group ">
-                    <label>Email</label>
-                    <input type="text" class="form-control" id="checkout-email" name="email" placeholder="Enter your email please ..." required/>
-                </div>
+        <div class="row mx-auto container-fluid">
 
-                <div class="form-group ">
-                    <label>Phone</label>
-                    <input type="tel" class="form-control" id="checkout-phone" name="phone" placeholder="Enter your telephone number ..." required/>
-                </div>
+            <?php include('server/get_featured_products.php');  ?>
 
-                <div class="form-group ">
-                    <label>City</label>
-                    <input type="text" class="form-control" id="checkout-city" name="city" placeholder="What is your city?" required/>
-                </div>
+            <?php while ($row = $featured_products->fetch_assoc()) { ?>       
 
-                <div class="form-group ">
-                    <label>Address</label>
-                    <input type="text" class="form-control" id="checkout-address" name="address" placeholder="What is your address?" required/>
-                </div>
 
-                <div class="form-group ">
-                    <p>Total amount: $ <?php echo $_SESSION['total']; ?> </p>
-                    </p>
-                    <input type="submit" class="btn" id="checkout-btn" name="place_order" value="PLACE ORDER" />
+            <!-- Loop za sve proizvode -->
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+                <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
+                <div class="star">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
                 </div>
-            </form>
+                <h5 class="p-name">  <?php echo $row['product_name']; ?>  </h5>
+                <h4 class="p-price">$  <?php echo $row['product_price']; ?>   </h4>
+                <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?> "><button class="text-uppercase buy-btn">Buy Now</button></a>
+            </div>
+            
+           <?php } ?>
+            
+        </div>
+            
+
+
+            <nav aria-label="Page navigation example">
+
+                <ul class="pagination mt-5">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+
+
         </div>
     </section>
 
@@ -161,7 +174,7 @@ if ($cartIsEmpty) {
 
                 <div>
                     <p class="text-uppercase">Phone</p>
-                    <P>+3850981111222</P>
+                    <P>+38509811111222</P>
                 </div>
 
                 <div>
@@ -195,26 +208,21 @@ if ($cartIsEmpty) {
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="copyright mt-5">
-            <div class="row container mx-auto">
-                <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-nowrap mb-2">
-                    <img src="assets/imgs/paymentVisa.png" alt="">
-                </div>
+            <div class="copyright mt-5">
+                <div class="row container mx-auto">
+                    <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-nowrap mb-2">
+                        <img src="assets/imgs/paymentVisa.png" alt="">
+                    </div>
 
-                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                    <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                        <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-
-
-
-        <div id="move-to-top" class="scrollToTop filling">
-            <a href="index.html"><i class="fa fa-chevron-up"></i></a>
-        </div>
+            <div id="move-to-top" class="scrollToTop filling">
+                <a href="shop.html"><i class="fa fa-chevron-up"></i></a>
+            </div>
 
     </footer>
 
