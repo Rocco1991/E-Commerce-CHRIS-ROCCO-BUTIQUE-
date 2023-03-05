@@ -1,7 +1,6 @@
 <?php
 
-//it means that there is no array errors anymore in cart.php
-error_reporting(0);
+
 session_start();
 
 if(isset($_POST['add_to_cart'])){
@@ -140,6 +139,7 @@ function calculateTotalCart(){
 
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
+    
 
 </head>
 
@@ -149,7 +149,7 @@ function calculateTotalCart(){
 
     <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
         <div class="container">
-            <a href="index.html"><img class="logo" src="assets/imgs/Logo.png"></a>
+            <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
             <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -158,11 +158,11 @@ function calculateTotalCart(){
             <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">HOME</a>
+                        <a class="nav-link" href="index.php">HOME</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="shop.html">SHOP</a>
+                        <a class="nav-link" href="shop.php">SHOP</a>
                     </li>
 
                     <li class="nav-item">
@@ -178,7 +178,7 @@ function calculateTotalCart(){
                     </li>
 
                     <li class="nav-item">
-                        <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>
                     </li>
 
                     <li class="nav-item">
@@ -218,7 +218,7 @@ function calculateTotalCart(){
        
         
 <?php foreach ($_SESSION['cart'] as $key => $value){ ?>
-<?php if(!empty($value['product_name']) && !empty($value['product_price']) && !empty($value['product_image'])){ ?>  <!-- Tu se nalazi greška -->
+<?php if(!empty($value['product_name']) && !empty($value['product_price']) && !empty($value['product_image'])){ ?>  <!-- Tu se nalazila greška -->
             <tr>
                 <td>
                     <div class="product-info">
@@ -268,10 +268,13 @@ function calculateTotalCart(){
         </div>
 
         <div class="checkout-container">
-            <form  method="POST" action="checkout.php">
-                <input type="submit"  class="btn checkout-btn" value="checkout" name="checkout-btn">   
+            <form  method="GET" action="checkout.php">
+                <input type="submit"  class="btn checkout-btn" value="checkout" name="checkout-btn">  
             </form>    
         </div>
+
+
+
 
     </section>
 
@@ -281,7 +284,7 @@ function calculateTotalCart(){
     <footer class="mt-5 py-5">
         <div class="row container mx-auto pt-5">
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <a href="index.html"><img class="logo" src="assets/imgs/Logo.png"></a>
+                <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
                 <p class="pt-3">CHRIS ROCCO BUTIQUE</p>
             </div>
 
@@ -358,7 +361,7 @@ function calculateTotalCart(){
 
 
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="index.html"><i class="fa fa-chevron-up"></i></a>
+            <a href="index.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>
