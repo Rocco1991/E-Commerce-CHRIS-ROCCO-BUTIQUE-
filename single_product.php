@@ -138,7 +138,9 @@ $product_id =  $_GET['product_id'];
                  
                 <h4 class="mt-5 mb-5">PRODUCT DETAILS</h4>
                 <span>  <?php echo $row['product_description']; ?>  </span>
-            </div>       
+            </div> 
+            
+            <a href="index.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>BACK TO MAIN PAGE</button></a>
          <?php } ?>
 
         </div>
@@ -171,7 +173,7 @@ $product_id =  $_GET['product_id'];
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
                 <p class="pb-2">CONTACT US</p>
                 <div>
-                    <p class="text-uppercase">Adress</p>
+                    <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
                 </div>
 

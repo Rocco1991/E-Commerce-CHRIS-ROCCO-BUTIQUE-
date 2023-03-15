@@ -218,7 +218,7 @@ function calculateTotalCart(){
        
         
 <?php foreach ($_SESSION['cart'] as $key => $value){ ?>
-<?php if(!empty($value['product_name']) && !empty($value['product_price']) && !empty($value['product_image'])){ ?>  <!-- Tu se nalazila greška -->
+<?php if(!empty($value['product_name']) && !empty($value['product_price']) && !empty($value['product_image'])){ ?>  <!-- Tu se nalazila 2. greška -->
             <tr>
                 <td>
                     <div class="product-info">
@@ -258,20 +258,27 @@ function calculateTotalCart(){
 
         <div class="cart-total">
             <table>
-
+              <?php if(isset($_SESSION['cart'])): ?>
                 <tr>
                     <td>TOTAL</td>
                     <td>$ <?php echo $_SESSION['total'];?></td>
                 </tr>
-
+                <?php endif; ?>
             </table>
         </div>
 
+
+
         <div class="checkout-container">
-            <form  method="GET" action="checkout.php">
-                <input type="submit"  class="btn checkout-btn" value="checkout" name="checkout-btn">  
-            </form>    
-        </div>
+               <?php if(isset($_SESSION['total']) && $_SESSION['total'] != null): ?>                            <!--tu se nalazila 3. greška -->
+                    <form method="GET" action="checkout.php">
+                    <input type="submit" class="btn checkout-btn" value="checkout" name="checkout-btn">  
+                    </form> 
+                <?php else: ?>
+                    <?php header("Location: index.php"); ?>
+                    <?php exit(); ?>
+               <?php endif; ?>           
+           </div>
 
 
 
@@ -303,7 +310,7 @@ function calculateTotalCart(){
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
                 <p class="pb-2">CONTACT US</p>
                 <div>
-                    <p class="text-uppercase">Adress</p>
+                    <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
                 </div>
 

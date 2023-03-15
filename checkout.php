@@ -94,7 +94,7 @@ if ($cartIsEmpty) {
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container">
-            <form id="checkout-form" method="POST" action="place_order.php">
+            <form id="checkout-form" method="POST" action="server/place_order.php">  <!-- OK  -->
 
                 <div class="form-group ">
                     <label>Name</label>
@@ -124,7 +124,7 @@ if ($cartIsEmpty) {
                 <div class="form-group ">
                     <p>Total amount: $ <?php echo $_SESSION['total']; ?> </p>
                     </p>
-                    <input type="submit" class="btn" id="checkout-btn" name="place_order" value="PLACE ORDER" />
+                    <input type="submit" class="btn" id="checkout-btn" name="place_order" value="PLACE ORDER" />  <!-- name i value je različit (checkout_btn i place_order) -->
                 </div>
             </form>
         </div>
@@ -155,7 +155,7 @@ if ($cartIsEmpty) {
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
                 <p class="pb-2">CONTACT US</p>
                 <div>
-                    <p class="text-uppercase">Adress</p>
+                    <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
                 </div>
 

@@ -117,7 +117,7 @@
             <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
                 <img class="img-fluid" src="assets/imgs/Male-Model-Shoes-Car.jpg" alt="">
                 <div class="details">
-                    <h2>EXTREMLY AWSOME SHOES</h2>
+                    <h2>BEAUTIFUL SHOES</h2>
                     <a href="#shoes">
                 <button class="text-uppercase buy-btn">SHOP NOWSHOES</button>
                     </a>
@@ -139,7 +139,7 @@
             <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
                 <img class="img-fluid" src="assets/imgs/Male-Model-Watch.jpg" alt="">
                 <div class="details">
-                    <h2>50% OFF WATCHES</h2>
+                    <h2>EXPENSIVE WATCHES</h2>
                     <a href="#watches">
                 <button class="text-uppercase buy-btn">SHOP NOW WATCHES</button>
                    </a>
@@ -514,7 +514,7 @@
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
                 <p class="pb-2">CONTACT US</p>
                 <div>
-                    <p class="text-uppercase">Adress</p>
+                    <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
                 </div>
 
