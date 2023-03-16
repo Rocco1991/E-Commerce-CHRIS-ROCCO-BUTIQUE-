@@ -44,7 +44,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">BLOG</a>
+                        <a class="nav-link" href="blog.html">BLOG</a>
                     </li>
 
                     <li class="nav-item">
@@ -83,13 +83,13 @@
             <h3><span>BEST PRICES THIS SEASON</span></h3>
             <br>
             <br>
-            <h4>" Welcome to Chris Rocco Butique, your one-stop shop for all things fashion and style.</h4>
+            <h4>" Welcome to CHRIS ROCCO BUTIQUE, your one-stop shop for all things fashion and style.</h4>
             <br>
-            <h4>  We specialize in a wide range of products including watches, bags, gloves, vintage suits, perfumes, and shoes. </h4>
+            <h4>  We specialize in a wide range of products including WATCHES, BAGS, GLOVES, VINTAGE SUITS, PARFUMES, and SHOES. </h4>
             <br>
             <h4> We pride ourselves on offering high-quality products at affordable prices and excellent customer service. </h4>
             <br>
-            <h4> Shop with us today and experience the best of fashion and style at Chris Rocco Butique."</h4>
+            <h4> Shop with us today and experience the best of fashion and style at CHRIS ROCCO BUTIQUE."</h4>
             <br>
             <br>
             <br>
@@ -273,7 +273,7 @@
         <div class="container">
             <h4>MID SEASONS SALE</h4>
             <h1>Autumn Collection <br> UP to 30% OFF</h1>
-            <button class="text-uppercase">Shop Now</button>
+            <a href="shop.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>SHOP NOW!</button></a>
         </div>
     </section>
 

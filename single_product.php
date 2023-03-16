@@ -63,7 +63,7 @@ $product_id =  $_GET['product_id'];
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">BLOG</a>
+                        <a class="nav-link" href="blog.html">BLOG</a>
                     </li>
 
                     <li class="nav-item">
