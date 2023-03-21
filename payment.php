@@ -1,0 +1,319 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYMENT METHOD FORM</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- FONT AWSOME CDN LINK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <!-- CSS LINK  -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!--Navbar -->
+
+    <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
+        <div class="container">
+            <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
+            <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">HOME</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.php">SHOP</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">BLOG</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT US</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="account.html"><i class="fa-solid fa-user"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--PAYMENT -->
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <div class="container3">
+        <!-- FRONT OF THE CARD -->
+        <div class="card-container3">
+            <div class="front">
+
+                <div class="imagepayment">
+                    <img src="assets/imgs/chip.png" class="chip-icon">
+                    <img src="assets/imgs/visa.png" class="visa-logo">
+
+                    <div class="card-number-box">################</div>
+
+                    <div class="flexbox2">
+                        <div class="box1">
+                            <span>Card Holder</span>
+                            <div class="card-holder-name">Full Name</div>
+                        </div>
+
+                        <div class="box2">
+                            <span>Expires</span>
+                            <div class="expiration">
+                                <span class="exp-month">MM</span>
+                                <span class="exp-year">YY</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BACK OF THE CARD -->
+            <div class="back">
+                <div class="stripe">
+                    <div class="box">
+                        <span>CVV</span>
+                        <div class="cvv-box">
+                            <img src="assets/imgs/visa.png" class="visa-logo-back">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <form action="">
+            <div class="inputBox2">
+                <span>Card Number</span>
+                <input type="text" maxlength="16" class="card-number-input">
+            </div>
+
+            <div class="inputBox2">
+                <span>Card Holder</span>
+                <input type="text" maxlength="16" class="card-holder-input">
+            </div>
+
+            <div class="flexbox2">
+                <div class="inputBox2">
+                    <span>Expiration mm</span>
+                    <select name="" id="" class="month-input">
+                        <option value="month" selected disabled>month</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+
+                <div class="inputBox2">
+                    <span>Expiration yy</span>
+                    <select name="" id="" class="year-input">
+                        <option value="year" selected disabled>year</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                        <option value="2033">2033</option>
+                    </select>
+                </div>
+
+            </div>
+            <!-- YOUR CVV -->
+            <div class="inputBox2">
+                <br>
+                <span>CVV</span>
+                <input type="text" maxlength="4" class="cvv-input">
+            </div>
+
+            <input type="submit" value="submit" class="submit-btn">
+        </form>
+    </div>
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="row container mx-auto pt-5">
+            <div class="footer.one col-lg-3 col-md-6 col-sm-12">
+                <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
+                <p class="pt-3">CHRIS ROCCO BUTIQUE</p>
+            </div>
+
+            <div class="footer.one col-lg-3 col-md-6 col-sm-12">
+                <p class="pb-2">FEATURED</p>
+                <ul class="text-uppercase">
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Boys</a></li>
+                    <li><a href="#">Girls</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Clothes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer.one col-lg-3 col-md-6 col-sm-12">
+                <p class="pb-2">CONTACT US</p>
+                <div>
+                    <p class="text-uppercase">Address </p>
+                    <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
+                </div>
+
+                <div>
+                    <p class="text-uppercase">Phone</p>
+                    <P>+385098111112222</P>
+                </div>
+
+                <div>
+                    <p class="text-uppercase">Email Address</p>
+                    <P>user123@gmail.com</P>
+                </div>
+            </div>
+
+            <div class="footer.one col-lg-3 col-md-6 col-sm-12">
+                <p class="pb-2">SOCIAL MEDIA</p>
+                <div class="row">
+
+                    <div class>
+                        <a href="https://www.facebook.com/"><img src="assets/imgs/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
+                    </div>
+
+                    <div class>
+                        <a href="https://www.youtube.com/"><img src="assets/imgs/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
+                    </div>
+
+                    <div class>
+                        <a href="https://www.instagram.com/"><img src="assets/imgs/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
+                    </div>
+
+                    <div class>
+                        <a href="https://www.tiktok.com/"><img src="assets/imgs/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Tik-Tok Link">Tik Tok &#xae;</a>
+                    </div>
+
+                    <div class>
+                        <a href="https://twitter.com/"><img src="assets/imgs/skype.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright mt-5">
+            <div class="row container mx-auto">
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-nowrap mb-2">
+                    <img src="assets/imgs/paymentVisa.png" alt="">
+                </div>
+
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="move-to-top" class="scrollToTop filling">
+            <a href="payment.html"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+    <script>
+        document.querySelector('.card-number-input').oninput = () => {
+            document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
+        }
+
+        document.querySelector('.card-holder-input').oninput = () => {
+            document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value;
+        }
+
+        document.querySelector('.month-input').oninput = () => {
+            document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value;
+        }
+
+        document.querySelector('.year-input').oninput = () => {
+            document.querySelector('.exp-year').innerText = document.querySelector('.year-input').value;
+        }
+
+        document.querySelector('.cvv-input').onmouseenter = () => {
+            document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(0deg)';
+            document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(0deg)';
+        }
+
+        document.querySelector('.cvv-input').onmouseleave = () => {
+            document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(0deg)';
+            document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(180deg)';
+        }
+
+        document.querySelector('.cvv-input').oninput = () => {
+            document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
+        }
+    </script>
+
+
+
+</body>
+
+</html>

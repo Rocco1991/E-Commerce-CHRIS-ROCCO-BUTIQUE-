@@ -276,7 +276,7 @@ function calculateTotalCart(){
                     </form> 
                 <?php else: ?>
                     <?php header("Location: index.php"); ?>
-                    <?php exit(); ?>
+                    
                <?php endif; ?>           
            </div>
 
