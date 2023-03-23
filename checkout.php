@@ -97,27 +97,27 @@ if ($cartIsEmpty) {
             <form id="checkout-form" method="POST" action="server/place_order.php">  <!-- OK  -->
 
                 <div class="form-group ">
-                    <label>Name</label>
+                    <label>NAME</label>
                     <input type="text" class="form-control" id="checkout-name" name="name" placeholder="Enter your name please ..." required/>
                 </div>
 
                 <div class="form-group ">
-                    <label>Email</label>
+                    <label>E-MAIL</label>
                     <input type="text" class="form-control" id="checkout-email" name="email" placeholder="Enter your email please ..." required/>
                 </div>
 
                 <div class="form-group ">
-                    <label>Phone</label>
+                    <label>PHONE</label>
                     <input type="tel" class="form-control" id="checkout-phone" name="phone" placeholder="Enter your telephone number ..." required/>
                 </div>
 
                 <div class="form-group ">
-                    <label>City</label>
+                    <label>CITY</label>
                     <input type="text" class="form-control" id="checkout-city" name="city" placeholder="What is your city?" required/>
                 </div>
 
                 <div class="form-group ">
-                    <label>Address</label>
+                    <label>ADDRESS</label>
                     <input type="text" class="form-control" id="checkout-address" name="address" placeholder="What is your address?" required/>
                 </div>
 

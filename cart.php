@@ -30,7 +30,7 @@ if(isset($_SESSION['cart'])){
     }else{
 
             echo '<script>alert("Product was already added to cart");</script>';
-            //echo '<script>window.location="index.php";</script>';
+            echo '<script>window.location="index.php";</script>';
             
     }
   
@@ -217,41 +217,43 @@ function calculateTotalCart(){
          
        
         
-<?php foreach ($_SESSION['cart'] as $key => $value){ ?>
-<?php if(!empty($value['product_name']) && !empty($value['product_price']) && !empty($value['product_image'])){ ?>  <!-- Tu se nalazila 2. greška -->
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="assets/imgs/<?php echo $value['product_image'];?>"/>
-                            <div>
-                                <p> <?php echo $value['product_name'];?> </p>
-                                <small> <span>$</span><?php echo $value['product_price'];?></small>
-                                <br>
-                                <br>
-                                <form method="POST" action="cart.php">
-                                      <input type="hidden" name="product_id"  value="<?php echo $value['product_id'];?>"/>
-                                      <input type="submit" name="remove_product" class="remove-btn" value="REMOVE"/>
-                                </form>   
-                            </div>
-                        </div>
-                    </td>
+            <?php if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])): ?>
+                <?php foreach ($_SESSION['cart'] as $key => $value): ?>
+                    <?php if(!empty($value['product_name']) && !empty($value['product_price']) && !empty($value['product_image'])){ ?>
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <img src="assets/imgs/<?php echo $value['product_image'];?>"/>
+                                        <div>
+                                            <p> <?php echo $value['product_name'];?> </p>
+                                            <small> <span>$</span><?php echo $value['product_price'];?></small>
+                                            <br>
+                                            <br>
+                                            <form method="POST" action="cart.php">
+                                                <input type="hidden" name="product_id"  value="<?php echo $value['product_id'];?>"/>
+                                                <input type="submit" name="remove_product" class="remove-btn" value="REMOVE"/>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                </td>
 
-                        <td>
-                            
-                            <form method="POST" action="cart.php">
-                                <input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>"/>
-                                <input type="number"  name="product_quantity"  value="<?php echo $value['product_quantity'];?>"/>
-                                <input type="submit" class="edit-btn" value="EDIT" name="edit_quantity"/>
-                            </form>
-                            
-                       </td>
+                                    <td>
+                                        
+                                        <form method="POST" action="cart.php">
+                                            <input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>"/>
+                                            <input type="number"  name="product_quantity"  value="<?php echo $value['product_quantity'];?>"/>
+                                            <input type="submit" class="edit-btn" value="EDIT" name="edit_quantity"/>
+                                        </form>
+                                        
+                                </td>
 
-                        <td>
-                            <span class="product-price">$ <?php echo $value['product_quantity']* $value ['product_price'];?></span>
-                        </td>
-            </tr>
-<?php } ?>
-<?php } ?>
+                                    <td>
+                                        <span class="product-price">$ <?php echo $value['product_quantity']* $value ['product_price'];?></span>
+                                    </td>
+                        </tr>
+                        <?php } ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
         
         </table>
