@@ -101,13 +101,17 @@
 
     <!-- Brand -->
     <section id="brand" class="container">
-        <div class="row">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/Dior-logo.jpg">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/nikelogo.png">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/newyorkerlogo.jpeg">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/imgs/gucci.jpg">
-        </div>
-    </section>
+  <div class="row">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Zara-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Yves-Saint-Laurent-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Victorias-secret-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Versace-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Valentino-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Uniqlo-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Under-Armour-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Tommy-Hilfinger-logo.jpg">
+  </div>
+</section>
 
 
     <!-- New -->
