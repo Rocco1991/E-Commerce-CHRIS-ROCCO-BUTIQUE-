@@ -1,3 +1,23 @@
+<?php
+
+
+
+
+
+
+if(isset($_GET['logout'])){
+    if(isset($_SESSION['logged_in'])){
+        unset($_SESSION['logged_in']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user_name']);
+        header('Location: ./login.php');
+        exit;
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +73,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="account.html"><i class="fa-solid fa-user"></i></a>
+                        <a href="account.php"><i class="fa-solid fa-user"></i></a>
                     </li>
                 </ul>
             </div>
@@ -80,13 +100,13 @@
                 <hr class="mx-auto">
 
                 <div class="account-info">
-                    <p> Name:<span>John</span> </p>
+                    <p> NAME:<span> <?php if(isset($_SESSION['user_name'])){ echo $_SESSION['user_name'];}?> </span> </p>
                     <br>
-                    <p> Email:<span>john@gmail.com</span> </p>
+                    <p> E-MAIL:<span> <?php if(isset($_SESSION['user_email'])){ echo $_SESSION['user_email'];}?>  </span> </p>
                     <br>
-                    <p> <a href="" id="orders-btn">Your Orders</a> </p>
+                    <p> <a href="#orders" id="orders-btn">Your Orders</a> </p>
                     <br>
-                    <p> <a href="" id="logout-btn">Logout</a> </p>
+                    <p> <a href="account.php?logout=1" id="logout-btn">Logout</a> </p>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 ">
@@ -95,7 +115,7 @@
                     <hr class="mx-auto">
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" id="account-password" name="pasword" placeholder="Password" required/>
+                        <input type="password" class="form-control" id="account-password" name="password" placeholder="Password" required/>
                     </div>
 
                     <div class="form-group">
@@ -114,7 +134,7 @@
 
     <!-- Orders -->
 
-    <section class="orders container my-5 py-3">
+    <section id="orders" class="orders container my-5 py-3">
         <div class="container mt-2">
             <br>
             <br>
@@ -242,5 +262,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+
 
 </html>

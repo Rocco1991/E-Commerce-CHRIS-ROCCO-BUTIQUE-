@@ -76,7 +76,7 @@ $product_id =  $_GET['product_id'];
                     </li>
 
                     <li class="nav-item">
-                        <a href="account.html"><i class="fa-solid fa-user"></i></a>
+                        <a href="account.php"><i class="fa-solid fa-user"></i></a>
                     </li>
                 </ul>
             </div>
