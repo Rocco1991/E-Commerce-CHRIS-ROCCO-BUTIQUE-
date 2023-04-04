@@ -10,7 +10,7 @@ if (isset($_SESSION['Logged_in']) && $_SESSION['Logged_in']) {
     exit;
 }
 
-if (isset($_POST['register'])) {
+if (isset($_POST['register'])) { 
 
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -150,28 +150,28 @@ if (isset($_POST['register'])) {
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container">
-            <form id="register-form" action="register.php" method="POST">
+            <form id="register-form" action="register.php" method="POST" action="register.php">
              
             <p style="color:red;"><?php if(isset($_GET['error'])){ echo $_GET['error']; }?></p>
             
               <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Enter Your Name" required>
+                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Enter Your Name Please" required>
                 </div>
 
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" id="register-email" name="email" placeholder="Enter Your Email" required>
+                    <input type="text" class="form-control" id="register-email" name="email" placeholder="Enter Your Email Please" required>
                 </div>
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Enter Your Password" required>
+                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Enter Your Password Please" required>
                 </div>
 
                 <div class="form-group">
                     <label>Confirm Password</label>
-                    <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Your Password" required>
+                    <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Your Password Please" required>
                 </div>
 
                 <div class="form-group">

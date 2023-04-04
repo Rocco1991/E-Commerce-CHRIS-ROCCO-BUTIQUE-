@@ -1,17 +1,43 @@
 <?php
 
+session_start();
+include('server/connection.php');
 
-
-
-
+if(!isset($_SESSION['logged_in'])){
+    header('Location: login.php');
+    exit;
+}
 
 if(isset($_GET['logout'])){
-    if(isset($_SESSION['logged_in'])){
-        unset($_SESSION['logged_in']);
-        unset($_SESSION['user_email']);
-        unset($_SESSION['user_name']);
-        header('Location: ./login.php');
-        exit;
+    if (isset($_GET['logout'])) {
+    session_start();
+    session_destroy();
+    header('Location: login.php');
+    exit;
+}
+}
+
+if(isset($_POST['change_password'])){
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
+    $user_email = $_SESSION['user_email'];
+            
+    // IF PASSWORDS DON'T MATCH
+    if ($password !== $confirmPassword) {
+        header('location: account.php?error=passwords dont match');
+    // IF PASSWORD IS LESS THAN 6 CHARACTERS
+    } else if(strlen($password) < 6) {
+        header('location: account.php?error=password must be at least 6 characters');
+    } else {
+        $hashed_password = md5($password);
+        $stmt = $conn->prepare("UPDATE users SET user_password = ? WHERE user_email = ?");
+        $stmt->bind_param('ss', $hashed_password, $user_email);
+
+        if($stmt->execute()){
+            header('location: account.php?message=password has been updated successfully');
+        }else{
+            header('location: account.php?message=couldnt update password');
+        }
     }
 }
 
@@ -110,7 +136,9 @@ if(isset($_GET['logout'])){
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 ">
-                <form id="account-form" method="POST" action="update-password.php">
+                <form id="account-form" method="POST" action="account.php">
+                    <p class="text-center" style="color:red"> <?php if(isset($_GET['error'])){ echo $_GET['error'];} ?> </p>
+                    <p class="text-center" style="color:green"> <?php if(isset($_GET['message'])){ echo $_GET['message'];} ?> </p>
                     <h3>Change Password</h3>
                     <hr class="mx-auto">
                     <div class="form-group">
@@ -123,7 +151,7 @@ if(isset($_GET['logout'])){
                         <input type="password" class="form-control" id="account-password-confirm" name="confirmPassword" placeholder="Password" required/>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Confirm Password" class="btn" id="change-pass-btn">
+                        <input type="submit" value="Confirm Password" name="change_password" class="btn" id="change-pass-btn">
                     </div>
                 </form>
             </div>

@@ -102,14 +102,77 @@
     <!-- Brand -->
     <section id="brand" class="container">
   <div class="row">
-    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Zara-logo.jpg">
-    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Yves-Saint-Laurent-logo.png">
-    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Victorias-secret-logo.png">
-    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Versace-logo.jpg">
-    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Valentino-logo.png">
-    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Uniqlo-logo.png">
-    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Under-Armour-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Abercrombie&Fitch-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Aldo-Brue-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Alexander-McQueen-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Arje-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Bershka-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Brunello-Cucinelli-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Burberry-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Bvlgari-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Cacharel-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Calvin-Klein-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Cartier-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Celine-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Champion-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Chloe-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Chopard-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Christian-Louboutin-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Coach-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Cocco-Chanel-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Converse-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Dansko-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Desigual-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Dior-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Dolce&Gabbana-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Etro-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Fendi-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/GAP-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Giorgio-Armani-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Giuseppe-Zanotti-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Givenchy-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Gucci-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Guess-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/H&M-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Hermes-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Hollister-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Hugo-Boss-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Jimmy-Choo-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Kookai-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Lacoste-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Levis-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Louis-Vuittton-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Marc-Jacobs-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Mimco-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Miu-miu-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Nike-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Oscar-De-La-Renta-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Pandora-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Peter-Alexander-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Prada-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Quiksilver-and-roxy-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Ralph-Lauren-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Ray-Ban-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/River-Island-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Rolex-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Salvatore-Ferragamo-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Stussy-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Superdry-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Supreme-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Swatch-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Ted-Barker-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/The-North-Face-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/The-Vampires-Wife-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Thomas-Pink-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Tissot--logo.png">
     <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Tommy-Hilfinger-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Under-Armour-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Uniqlo-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Valentino-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Versace-logo.jpg">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Victorias-secret-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Yves-Saint-Laurent-logo.png">
+    <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Zara-logo.jpg">
   </div>
 </section>
 
