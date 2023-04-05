@@ -45,7 +45,7 @@ if (isset($_POST['register'])) {
 
             // CREATE A NEW USER
             $stmt = $conn->prepare("INSERT INTO users(user_name, user_email, user_password)
-            VALUES(?, ?, ?)");
+                           VALUES(?, ?, ?)");
 
             $hashed_password = md5($password);
             $stmt->bind_param('sss', $name, $email, $hashed_password);
@@ -54,12 +54,21 @@ if (isset($_POST['register'])) {
             if($stmt->execute()){
                 $_SESSION['user_email'] = $email;
                 $_SESSION['user_name'] = $name;
-                $_SESSION['Logged_in'] = true;
+                $_SESSION['logged_in'] = true;
                 header('location: account.php?register=You registered successfully');
 
+            //ACCOUNT COULD NOT BE CREATED
+            }else{
+                header('location: register.php?error=could not create account at the moment');
             }
         }
     }
+
+ //IF USER HAS ALREADY REGISTERED, TAKE USER TO ACCOUNT PAGE    
+}else if(isset($_SESSION['logged_in'])){
+
+    header('location: account.php');
+    exit;
 }
 
 ?>
