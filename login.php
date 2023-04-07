@@ -6,7 +6,7 @@ session_start();
 include('server/connection.php');
 
 // Check if the user is already logged in
-if (isset($_SESSION['Logged_in']) && $_SESSION['Logged_in']) {
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
     header('Location: account.php');
     exit;
 }
@@ -30,9 +30,9 @@ if(isset($_POST['login_btn'])){
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_name'] = $user_name;
             $_SESSION['user_email'] = $user_email;
-            $_SESSION['Logged_in'] = true;
+            $_SESSION['logged_in'] = true;
 
-            header('location: account.php?message=logged in successfully');
+            header('location: account.php?login_success=logged in successfully');
 
         }else{
             header('location: login.php?error=could not verify your account');

@@ -5,7 +5,7 @@ session_start();
 include('server/connection.php');
 
 // Check if the user is already logged in
-if (isset($_SESSION['Logged_in']) && $_SESSION['Logged_in']) {
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
     header('Location: index.php');
     exit;
 }
@@ -55,7 +55,7 @@ if (isset($_POST['register'])) {
                 $_SESSION['user_email'] = $email;
                 $_SESSION['user_name'] = $name;
                 $_SESSION['logged_in'] = true;
-                header('location: account.php?register=You registered successfully');
+                header('location: account.php?register_success=You registered successfully');
 
             //ACCOUNT COULD NOT BE CREATED
             }else{
