@@ -1,85 +1,27 @@
-<?php
 
-session_start();
+<?php
 
 include('server/connection.php');
 
-// Check if the user is already logged in
-if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-    header('Location: index.php');
+
+if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
+
+   $order_id = $_POST['order_id'];
+   $order_status = $_POST['order_status'];
+   $stmt = $conn->prepare("SELECT * FROM order_items WHERE order_id =?");
+   $stmt->bind_param('i',$order_id);
+   $stmt->execute();
+   $order_details = $stmt->get_result();
+}else{
+    header('location: account.php ');
     exit;
 }
 
-if (isset($_POST['register'])) { 
-
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $confirmPassword = $_POST['confirmPassword'];
-
-    // IF PASSWORDS DON'T MATCH
-    if ($password !== $confirmPassword) {
-        header('location: register.php?error=passwords dont match');
-    
-    // IF PASSWORD IS LESS THAN 6 CHARACTERS
-    } else if(strlen($password) < 6) {
-        header('location: register.php?error=password must be at least 6 characters');
-
-    //IF THERE IS NO ERROR
-    }else{
-
-        // CHECK WHETHER THERE IS A USER WITH THIS EMAIL OR NOT
-        $stmt1 = $conn->prepare("SELECT count(*) FROM users WHERE user_email=?");
-        $stmt1->bind_param('s', $email);
-        $stmt1->execute();
-        $stmt1->bind_result($num_rows);
-        $stmt1->store_result();
-        $stmt1->fetch(); 
-
-        //IF THERE IS A USER ALREADY REGISTERED WITH THIS EMAIL
-        if ($num_rows != 0) {
-            header('location: register.php?error=user with this email already exists');
-        
-        //IF NO USER REGISTERED WITH THIS EMAIL BEFORE
-        } else {
-
-            // CREATE A NEW USER
-            $stmt = $conn->prepare("INSERT INTO users(user_name, user_email, user_password)
-                           VALUES(?, ?, ?)");
-
-            $hashed_password = md5($password);
-            $stmt->bind_param('sss', $name, $email, $hashed_password);
 
 
-            //IF ACCOUNT WAS CREATED SUCCESSFULLY
-            if($stmt->execute()){
-                $user_id = $stmt->insert_id;
-                $_SESSION['user_id'] = $user_id;
-                $_SESSION['user_email'] = $email;
-                $_SESSION['user_name'] = $name;
-                $_SESSION['logged_in'] = true;
-                header('location: account.php?register_success=You registered successfully');
 
-            //ACCOUNT COULD NOT BE CREATED
-            }else{
-                header('location: register.php?error=could not create account at the moment');
-            }
-        }
-    }
-
- //IF USER HAS ALREADY REGISTERED, TAKE USER TO ACCOUNT PAGE    
-}else if(isset($_SESSION['logged_in'])){
-
-    header('location: account.php');
-    exit;
-}
 
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +30,7 @@ if (isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTER FORM</title>
+    <title>YOUR ORDERS</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -102,9 +44,9 @@ if (isset($_POST['register'])) {
 
 <body>
 
-    <!--Navbar -->
+     <!--Navbar -->
 
-    <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
+     <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
         <div class="container">
             <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
             <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
@@ -144,59 +86,71 @@ if (isset($_POST['register'])) {
     </nav>
 
 
-    <!-- Register -->
+ <!-- ORDERS DETAILS -->
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <section class=" my-5 py-5">
-        <div class="container text-center mt-3 pt-5">
-            <h2 class="form-weight-bold">Register</h2>
+ <section id="orders" class="orders container my-5 py-3">
+        <div class="container mt-2">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2 class="font-weight-bold text-center">ORDER DETAILS</h2>
             <hr class="mx-auto">
         </div>
-        <div class="mx-auto container">
-            <form id="register-form" action="register.php" method="POST" action="register.php">
+
+        <table class="mt-5 pt-5 mx-auto">
+
+            <tr>
+                <th>PRODUCT</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+            </tr>
+
+            <?php while($row = $order_details->fetch_assoc() ) { ?>
+
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                <img src="assets/imgs/<?php echo $row['product_image']; ?>"/>
+                                    <div>
+                                        <p class="mt-5"> <?php echo $row ['product_name'];  ?> </p>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                            <span> $ <?php echo $row ['product_price'];  ?>  </span>
+                            </td>
+
+                            <td>
+                            <span>  <?php echo $row ['product_quantity'];  ?>  </span>
+                            </td>
+
+                            <td>
+                            <span></span>
+                            </td>
+
+                        </tr> 
+             <?php }  ?> 
              
-            <p style="color:red;"><?php if(isset($_GET['error'])){ echo $_GET['error']; }?></p>
-            
-              <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Enter Your Name Please" required>
-                </div>
 
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" id="register-email" name="email" placeholder="Enter Your Email Please" required>
-                </div>
+        </table>
 
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Enter Your Password Please" required>
-                </div>
+        <!-- PAY NOW BUTTON -->
+    <?php if ($order_status == "not paid" || $order_status == "delivered") { ?>
+        <form style="float: right;">
+        <input type="submit" class="pay-now-btn btn btn-primary" value="<?php echo ($order_status == "not paid") ? 'PAY NOW' : 'CONFIRM DELIVERY'; ?>">
+        </form>
+    <?php } ?>
 
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Your Password Please" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" class="btn" id="register-btn" name="register" value="Register" />
-                </div>
-
-                <div class="form-group">
-                    <a id="login-url" href="login.php" class="btn">Do you have account? Login Now!</a>
-                </div>
-            </form>
-        </div>
     </section>
-
+    
 
 
     <!-- Footer -->
@@ -228,7 +182,7 @@ if (isset($_POST['register'])) {
 
                 <div>
                     <p class="text-uppercase">Phone</p>
-                    <P>+38509811111222</P>
+                    <P>+3850981111222</P>
                 </div>
 
                 <div>
@@ -276,13 +230,17 @@ if (isset($_POST['register'])) {
             </div>
         </div>
 
+
+
+
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="register.html"><i class="fa fa-chevron-up"></i></a>
+            <a href="index.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+
 
 </html>

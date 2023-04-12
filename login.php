@@ -245,7 +245,7 @@ if(isset($_POST['login_btn'])){
 
 
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="index.php"><i class="fa fa-chevron-up"></i></a>
+            <a href="login.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>

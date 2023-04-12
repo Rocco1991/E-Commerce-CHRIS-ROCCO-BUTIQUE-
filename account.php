@@ -40,8 +40,6 @@ if(isset($_POST['change_password'])){
     // IF PASSWORD IS LESS THAN 6 CHARACTERS
     } else if(strlen($password) < 6) {
         header('location: account.php?error=password must be at least 6 characters');
-
-        //NO ERRORS
     } else {
         $hashed_password = md5($password);
         $stmt = $conn->prepare("UPDATE users SET user_password = ? WHERE user_email = ?");
@@ -54,6 +52,23 @@ if(isset($_POST['change_password'])){
         }
     }
 }
+
+// GET ORDERS
+
+if(isset($_SESSION['logged_in'])){
+
+    $user_id = $_SESSION['user_id'];
+
+    $stmt = $conn->prepare("SELECT * FROM orders WHERE user_id=? ");
+
+    $stmt->bind_param('i',$user_id);
+
+    $stmt->execute();
+
+    $orders = $stmt->get_result();
+
+}
+
 
 ?>
 
@@ -146,7 +161,7 @@ if(isset($_POST['change_password'])){
                     <br>
                     <p> E-MAIL:<span> <?php if(isset($_SESSION['user_email'])){ echo $_SESSION['user_email'];}?>  </span> </p>
                     <br>
-                    <p> <a href="#orders" id="orders-btn">Your Orders</a> </p>
+                    <p> <a href="#orders" id="orders-btn">YOUR ORDERS</a> </p>
                     <br>
                     <p> <a href="account.php?logout=1" id="logout-btn">Logout</a> </p>
                 </div>
@@ -164,10 +179,10 @@ if(isset($_POST['change_password'])){
 
                     <div class="form-group">
                         <label>Confirm Password</label>
-                        <input type="password" class="form-control" id="account-password-confirm" name="confirmPassword" placeholder="Password" required/>
+                        <input type="password" class="form-control" id="account-password-confirm" name="confirmPassword" placeholder="Confirm Password" required/>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Change Password" name="change_password" class="btn" id="change-pass-btn">
+                        <input type="submit" value="Confirm Password" name="change_password" class="btn" id="change-pass-btn">
                     </div>
                 </form>
             </div>
@@ -195,24 +210,48 @@ if(isset($_POST['change_password'])){
         </div>
 
         <table class="mt-5 pt-5">
-            <tr>
-                <th>Product</th>
-                <th>Date</th>
-            </tr>
 
             <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="assets/imgs/Black-Male-Jacket.jpg">
-                        <div class="mt-3">Black Jacket</div>
-                    </div>
-                </td>
-
-                <td>
-                    <span>Date: 2036-5-8</span>
-                </td>
-
+                <th>ORDER ID</th>
+                <th>ORDER COST</th>
+                <th>ORDER STATUS</th>
+                <th>ORDER DATE</th>
+                <th>ORDER DETAILS</th>
             </tr>
+
+            <?php while($row = $orders->fetch_assoc() ) { ?>
+
+                        <tr>
+                            <td>
+                                <div class="product-info">
+                                    <!-- <img src="assets/imgs/Black-Male-Jacket.jpg"> -->
+                                    <div class="mx-auto"> <?php echo $row['order_id']; ?> </div>
+                                </div>
+                            </td>
+
+                            <td>
+                               <span> $ <?php echo $row['order_cost']; ?></span>
+                            </td>
+
+                            <td>
+                               <span><?php echo $row['order_status']; ?></span>
+                            </td>
+
+                            <td>
+                               <span><?php echo $row['order_date']; ?></span>
+                            </td>
+
+                            <td>
+                              <form method="POST" action="order_details.php">
+                                <input type="hidden" value=" <?php echo $row['order_status']; ?>" name= "order_status"/>
+                                <input type="hidden" value=" <?php echo $row['order_id']; ?>" name= "order_id"/>
+                                <input class="btn order-details-btn" name="order_details_btn" type="submit" value="details"/>
+                              </form>
+                            </td>
+
+                        </tr> 
+            <?php }  ?>     
+
         </table>
     </section>
 
