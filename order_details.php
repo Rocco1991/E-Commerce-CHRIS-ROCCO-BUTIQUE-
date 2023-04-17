@@ -142,15 +142,19 @@ if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
 
         </table>
 
-        <!-- PAY NOW BUTTON -->
-    <?php if ($order_status == "not paid" || $order_status == "delivered") { ?>
-        <form style="float: right;">
-        <input type="submit" class="pay-now-btn btn btn-primary" value="<?php echo ($order_status == "not paid") ? 'PAY NOW' : 'CONFIRM DELIVERY'; ?>">
-        </form>
-    <?php } ?>
+        <!-- ISPISUJE PAY BOTUN I ZA NOT PAID I ZA DELIVERED ŠTA NEBI SMILO BOTUN SE NE POKAZUJE AKO NE STAVIM ; POSLIJE ($order_status == "not paid");  -->
+
+        <?php if ($order_status == "not paid"); { ?>
+            <form method="POST"  action="payment.php" style="float: right;">
+                <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
+                <input type="hidden" name="order_status" value="<?php echo $order_status; ?>">
+                <input type="submit" name="pay_now_btn" class="pay-now-btn" value="PAY ORDER">
+            </form> 
+    <?php } ?> 
+
 
     </section>
-    
+
 
 
     <!-- Footer -->

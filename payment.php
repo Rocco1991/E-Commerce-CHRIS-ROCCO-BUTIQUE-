@@ -1,24 +1,25 @@
 <?php
 session_start();
 
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    // Get form input
+    $card_number = $_POST['card_number'];
+    $card_holder = $_POST['card_holder'];
+    $expiration_month = $_POST['expiration_month'];
+    $expiration_year = $_POST['expiration_year'];
+    $cvv = $_POST['cvv'];
 
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
+    // Validate input (you can add more validation rules as needed)
+    if (empty($card_number) || empty($card_holder) || empty($expiration_month) || empty($expiration_year) || empty($cvv)) {
+        $error_message = 'Please fill in all the required fields.';
+    } else {
+        // Process payment (you can integrate a payment gateway here)
+        // ...
+    }
+}
 ?>
-
 
 
 
@@ -90,18 +91,6 @@ session_start();
 
     <!--PAYMENT -->
 
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
 
 

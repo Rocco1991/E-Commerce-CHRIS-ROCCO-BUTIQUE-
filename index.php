@@ -348,7 +348,7 @@
 
     <section id="clothes" class="my-5">
         <div class="container text-center mt-5 py-5">
-            <h3> COATS </h3>
+            <h3>1. COATS </h3>
             <hr class="mx-auto">
             <p>Here you can check out our amazing coats</p>
         </div>
@@ -385,7 +385,7 @@
 
     <section id="shoes" class="my-5">
         <div class="container text-center mt-5 py-5">
-            <h3>SHOES</h3>
+            <h3> 2. SHOES</h3>
             <hr class="mx-auto">
             <p>Here you can check out our amazing shoes</p>
         </div>
@@ -421,7 +421,7 @@
 
     <section id="watches" class="my-5">
         <div class="container text-center mt-5 py-5">
-            <h3> WATCHES</h3>
+            <h3> 3. WATCHES</h3>
             <hr class="mx-auto">
             <p>Check out our unique watches</p>
         </div>
@@ -457,7 +457,7 @@
 
     <section id="parfumes" class="my-5">
         <div class="container text-center mt-5 py-5">
-            <h3>PARFUMES</h3>
+            <h3> 4. PARFUMES</h3>
             <hr class="mx-auto">
             <p>Check out our best Parfumes</p>
         </div>
@@ -492,7 +492,7 @@
 
     <section id="bags" class="my-5">
         <div class="container text-center mt-5 py-5">
-            <h3>BAGS</h3>
+            <h3> 5. BAGS</h3>
             <hr class="mx-auto">
             <p>Check out our best Bags</p>
         </div>
@@ -527,7 +527,7 @@
 
      <section id="gloves" class="my-5">
         <div class="container text-center mt-5 py-5">
-            <h3>GLOVES</h3>
+            <h3>6. GLOVES</h3>
             <hr class="mx-auto">
             <p>Check out our best Gloves</p>
         </div>

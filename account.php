@@ -205,7 +205,7 @@ if(isset($_SESSION['logged_in'])){
             <br>
             <br>
             <br>
-            <h2 class="font-weight-bold text-center">Your Orders</h2>
+            <h2 class="font-weight-bold text-center">Your Orders Are Here : </h2>
             <hr class="mx-auto">
         </div>
 
@@ -254,6 +254,8 @@ if(isset($_SESSION['logged_in'])){
 
         </table>
     </section>
+
+          
 
 
 
