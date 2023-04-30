@@ -13,7 +13,7 @@ if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
    $stmt->execute();
    $order_details = $stmt->get_result();
 }else{
-    header('location: account.php ');
+    header('location: account.php');
     exit;
 }
 
@@ -144,13 +144,17 @@ if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
 
         <!-- ISPISUJE PAY BOTUN I ZA NOT PAID I ZA DELIVERED ŠTA NEBI SMILO BOTUN SE NE POKAZUJE AKO NE STAVIM ; POSLIJE ($order_status == "not paid");  -->
 
-        <?php if ($order_status == "not paid"); { ?>
-            <form method="POST"  action="payment.php" style="float: right;">
-                <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
-                <input type="hidden" name="order_status" value="<?php echo $order_status; ?>">
-                <input type="submit" name="pay_now_btn" class="pay-now-btn" value="PAY ORDER">
-            </form> 
-    <?php } ?> 
+        <?php
+        if ($order_status == "not paid" && !($order_delivery_status == "delivered")) { // Show button if order is not paid
+        ?>
+        <form method="POST" action="payment.php" style="float: right;">
+            <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
+            <input type="hidden" name="order_status" value="<?php echo $order_status; ?>">
+            <input type="submit" name="pay_now_btn" class="pay-now-btn" value="PAY ORDER">
+        </form>
+        <?php } elseif ($order_status == "delivered") { ?>
+        <!-- Do nothing, since button should not be displayed for delivered orders -->
+        <?php } ?>
 
 
     </section>

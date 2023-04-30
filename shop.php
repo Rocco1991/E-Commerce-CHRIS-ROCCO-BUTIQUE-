@@ -85,86 +85,7 @@
     </nav>
 
     
-    <!-- Search PRODUCTS  -->
-
-    <section id="search" class="my-5 py-5 ms-2">
-        <div class="container mt-5 py-5">
-            <p>Search Products</p>
-        <hr>
-        </div>
-        
-        <form>
-            <div class="row mx-auto container">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-
-                <p>CATEGORY</p>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" id="category_one">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                    COATS  
-                </label> 
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" id="category_two" checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                    SHOES     
-                </label> 
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" id="category_three">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                    WATCHES    
-                </label> 
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" id="category_four">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                    PARFUMES    
-                </label> 
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" id="category_five">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                    BAGS    
-                </label> 
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" id="category_six">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                    GLOVES    
-                </label> 
-                </div>
-
-               
-                    
-                </div>
-            </div>
-
-        <div class="row mx-auto container mt-5">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-
-             <p>PRICE</p>
-             <input type="range" class="form-range w-50" min="1" max="1000" id="customRange2">
-             <div class="w-50">
-             <span style="float: left;">1</span>
-             <span style="float: right;">1000</span>
-             </div>
-            </div>
-        </div>
-
-        <div class="form-group my-3 mx-3">
-        <input type="submit" name="search" value="Search" class="btn btn-primary">  
-        </div>
-
-        </form>
-
-    </section>
+   
 
 
 
@@ -190,13 +111,16 @@
         </div>
         <div class="row mx-auto container-fluid">
 
-
         <div class="row mx-auto container-fluid">
 
+        
+
             <?php include('server/get_featured_products.php');  ?>
+            
 
             <?php while ($row = $featured_products->fetch_assoc()) { ?>       
 
+                
 
             <!-- Loop za sve proizvode -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">

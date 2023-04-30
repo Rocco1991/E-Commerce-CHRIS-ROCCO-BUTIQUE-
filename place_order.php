@@ -1,42 +1,56 @@
-<?php 
+
+<?php
+
 session_start();
+
 
 include('connection.php');
 
-if( isset($_POST['place_order']) ){
-  
-    
-    // 1. get user info and store it in DB
+if (isset($_POST['place_order'])) {
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $city = $_POST['city'];
     $address = $_POST['address'];
     $order_cost = $_SESSION['total'];
-    $order_status = "on_hold";
-    $user_id = 1;
+    $order_status = "not paid";
+    $user_id = $_SESSION['user_id'];
     $order_date = date('Y-m-d H:i:s');
 
-    $stmt = $conn ->prepare("INSERT INTO orders (order_cost,order_status,user_id,user_phone,user_city,user_address,order_date)
-                    VALUES (?,?,?,?,?,?,?); ");
-
-    $stmt->bind_param('isiisss',$order_cost,$order_status,$user_id,$phone,$city,$address,$order_date);
-
+   
+    $stmt = $conn->prepare("INSERT INTO orders (order_cost, order_status, user_id, user_name, user_email, user_phone, user_city, user_address, order_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('dssssssss', $order_cost, $order_status, $user_id, $name, $email, $phone, $city, $address, $order_date);
     $stmt->execute();
+    
+     // 2. ISSUE NEW ORDER AND STORE ORDER INFO IN DATABASE
+    $order_id = $stmt->insert_id;
+
+    // 3. GET PRODUCTS FROM CART (FROM SESSION)
+    foreach ($_SESSION['cart'] as $id => $product) {
+        if (isset($product['product_id'], $product['product_name'], $product['product_image'], $product['product_price'], $product['product_quantity'])) {
+            $product_id = $product['product_id'];
+            $product_name = $product['product_name'];
+            $product_image = $product['product_image'];
+            $product_price = $product['product_price'];
+            $product_quantity = $product['product_quantity'];
+
+             // 4. STORE EACH SINGLE ITEM IN ORDER_ITEMS DATABASE
+            $stmt1 = $conn->prepare("INSERT INTO order_items (order_id, product_id, product_name, product_image, product_price, product_quantity, user_id, order_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt1->bind_param('iissdiis', $order_id, $product_id, $product_name, $product_image, $product_price, $product_quantity, $user_id, $order_date);
+
+            if (!$stmt1->execute()) {
+                header("location: index.php");
+                exit;
+            }
+        }
+    }
+     // 5. REMOVE EVERYTHING FROM CART
+    unset($_SESSION['cart']);
 
 
-
-    // 2. get products from cart (from session)
-
-    // 3. issue new order and store order information in DB
-
-    // 4. store each single item in order_items DB
-
-    // 5. remove everything from cart 
-
-    // 6. inform user that everything is fine or there is a problem
+    header("location: order_confirmation.php?order_id=$order_id");
+    exit;
 }
-
-
 
 ?>

@@ -340,7 +340,7 @@ if(isset($_SESSION['logged_in'])){
 
 
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="index.php"><i class="fa fa-chevron-up"></i></a>
+            <a href="account.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>

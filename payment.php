@@ -139,18 +139,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="payment.php" method="POST">
             <div class="inputBox2">
                 <span>Card Number</span>
-                <input type="text" maxlength="16" class="card-number-input">
+                <input type="text" name="card_number" maxlength="16" class="card-number-input">
             </div>
 
             <div class="inputBox2">
                 <span>Card Holder</span>
-                <input type="text" maxlength="16" class="card-holder-input">
+                <input type="text" name="card_holder" maxlength="16" class="card-holder-input">
             </div>
 
             <div class="flexbox2">
                 <div class="inputBox2">
                     <span>Expiration mm</span>
-                    <select name="" id="" class="month-input">
+                    <select name="expiration_month" id="" class="month-input">
                         <option value="month" selected disabled>month</option>
                         <option value="01">01</option>
                         <option value="02">02</option>
@@ -169,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="inputBox2">
                     <span>Expiration yy</span>
-                    <select name="" id="" class="year-input">
+                    <select name="expiration_year" id="" class="year-input">
                         <option value="year" selected disabled>year</option>
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
@@ -183,43 +183,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <option value="2031">2031</option>
                         <option value="2032">2032</option>
                         <option value="2033">2033</option>
-                        <option value="2028">2034</option>
-                        <option value="2029">2035</option>
-                        <option value="2030">2036</option>
-                        <option value="2031">2037</option>
-                        <option value="2032">2038</option>
-                        <option value="2033">2039</option>
-                        <option value="2028">2040</option>
-                        <option value="2029">2041</option>
-                        <option value="2030">2042</option>
-                        <option value="2031">2043</option>
-                        <option value="2032">2044</option>
-                        <option value="2033">2045</option>
-                        <option value="2028">2046</option>
-                        <option value="2029">2047</option>
-                        <option value="2030">2048</option>
-                        <option value="2031">2049</option>
-                        <option value="2032">2050</option>
-                        <option value="2030">2051</option>
-                        <option value="2031">2052</option>
-                        <option value="2032">2053</option>
-                        <option value="2033">2054</option>
-                        <option value="2028">2055</option>
-                        <option value="2029">2056</option>
-                        <option value="2030">2057</option>
-                        <option value="2031">2058</option>
-                        <option value="2032">2059</option>
-                        <option value="2033">2060</option>
-                        <option value="2028">2061</option>
-                        <option value="2029">2062</option>
-                        <option value="2030">2063</option>
-                        <option value="2031">2064</option>
-                        <option value="2032">2065</option>
-                        <option value="2033">2066</option>
-                        <option value="2028">2067</option>
-                        <option value="2029">2068</option>
-                        <option value="2030">2069</option>
-                        <option value="2031">2070</option>
+                        <option value="2034">2034</option>
+                        <option value="2035">2035</option>
+                        <option value="2036">2036</option>
+                        <option value="2037">2037</option>
+                        <option value="2038">2038</option>
+                        <option value="2039">2039</option>
+                        <option value="2040">2040</option>
+                        <option value="2041">2041</option>
+                        <option value="2042">2042</option>
+                        <option value="2043">2043</option>
+                        <option value="2044">2044</option>
+                        <option value="2045">2045</option>
+                        <option value="2046">2046</option>
+                        <option value="2047">2047</option>
+                        <option value="2048">2048</option>
+                        <option value="2049">2049</option>
+                        <option value="2050">2050</option>
+                        <option value="2051">2051</option>
+                        <option value="2052">2052</option>
+                        <option value="2053">2053</option>
+                        <option value="2054">2054</option>
+                        <option value="2055">2055</option>
+                        <option value="2056">2056</option>
+                        <option value="2057">2057</option>
+                        <option value="2058">2058</option>
+                        <option value="2059">2059</option>
+                        <option value="2060">2060</option>
+                        <option value="2061">2061</option>
+                        <option value="2062">2062</option>
+                        <option value="2063">2063</option>
+                        <option value="2064">2064</option>
+                        <option value="2065">2065</option>
+                        <option value="2066">2066</option>
+                        <option value="2067">2067</option>
+                        <option value="2068">2068</option>
+                        <option value="2069">2069</option>
+                        <option value="2070">2070</option>
                     </select>
                 </div>
 
@@ -228,7 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="inputBox2">
                 <br>
                 <span>CVV</span>
-                <input type="text" maxlength="4" class="cvv-input">
+                <input type="text" name="cvv" maxlength="4" class="cvv-input">
             </div>
 
             <input type="submit" value="submit" class="submit-btn">

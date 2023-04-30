@@ -20,7 +20,7 @@ button {
 }
 
 button:hover {
-    background-color: wheat;
+    background-color: goldenrod;
 }
 
 .nav-buttons {
@@ -38,12 +38,12 @@ h1 {
 
 h2 {
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 200;
 }
 
 h3 {
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 200;
 }
 
 h4 {
@@ -60,13 +60,17 @@ h6 {
     color: goldenrod;
 }
 
+p {
+    text-transform: uppercase;
+}
+
 .navbar {
     font-size: 18px;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
     top: 0;
     left: 0;
-    box-shadow: 0 25px 20px goldenrod;
+    box-shadow: 0 25px 20px #999;
     background-color: black;
 }
 
@@ -108,7 +112,7 @@ h6 {
 }
 
 #home {
-    background-image: url(../imgs/male1.jpg);
+    background-image: url(../imgs/Chris-Rocco-Butique-background.jpg);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -120,10 +124,17 @@ h6 {
 
 #home span {
     color: black;
+    font-weight: 200;
 }
 
 #home h1 {
-    color: goldenrod;
+    color: black;
+    font-size: 32px;
+    font-weight: 200;
+}
+
+#home h4 {
+    font-weight: 200;
 }
 
 #new .one img {
@@ -233,6 +244,10 @@ hr {
     align-items: flex-start;
 }
 
+#banner h1 {
+    color: white;
+}
+
 #banner h4 {
     color: goldenrod;
 }
@@ -246,7 +261,6 @@ footer {
 
 footer p {
     color: white;
-    font-weight: 700;
     font-size: 0.9rem;
 }
 
@@ -261,6 +275,7 @@ footer li a {
 }
 
 footer li a:hover {
+    font-size: 0.8rem;
     color: goldenrod;
 }
 
@@ -270,20 +285,13 @@ footer ul {
 
 footer .copyright a {
     color: black;
-    height: 40px;
-    width: 40px;
-    background-color: white;
+    height: 100px;
+    width: 100px;
     display: inline-block;
     text-align: center;
     line-height: 38px;
-    border-radius: 50%;
     transition: 0.3s ease;
     margin: 0 5px;
-}
-
-footer .copyright a:hover {
-    color: white;
-    background-color: goldenrod
 }
 
 footer p {
@@ -325,9 +333,9 @@ footer .copyright img {
     line-height: 50px;
     text-align: center;
     color: goldenrod;
-    border: 3px solid goldenrod;
+    border: 4px solid gold;
     box-shadow: 0 20px 20px goldenrod;
-    border-radius: 50%;
+    border-radius: 0;
     text-decoration: none;
     background-color: #fff;
     position: fixed;
@@ -371,6 +379,8 @@ footer .copyright img {
     color: goldenrod;
     margin: 3px 5px;
     font-size: 1.5rem;
+    font-weight: 200;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .small-img-group {
@@ -393,6 +403,34 @@ footer .copyright img {
 
 .single-product input:focus {
     outline: none;
+}
+
+
+/* SHOP search */
+
+#search {
+    float: left;
+    width: 50%;
+}
+
+#search form {
+    margin-top: 50px;
+}
+
+#search p {
+    margin-bottom: 10px;
+}
+
+#search .container {
+    max-width: 500px;
+}
+
+#search input[type=range] {
+    width: 100%;
+}
+
+#search .form-group {
+    text-align: center;
 }
 
 
@@ -426,9 +464,10 @@ footer .copyright img {
 }
 
 .cart td input {
-    width: 40px;
+    width: 82px;
     height: 30px;
     padding: 5px;
+    background-color: white;
 }
 
 .cart td a {
@@ -436,14 +475,20 @@ footer .copyright img {
 }
 
 .cart .remove-btn {
-    color: goldenrod;
+    color: black;
     text-decoration: none;
+    background-color: none;
+    border: none;
+    width: 100px;
+    border: 2px solid goldenrod;
+    transition: 0.6s ease;
 }
 
 .cart .edit-btn {
-    color: goldenrod;
+    color: black;
     text-decoration: none;
     font-size: 14px;
+    border: 2px solid goldenrod;
 }
 
 .cart .product-info p {
@@ -595,7 +640,8 @@ label {
 /* ACCOUNT */
 
 #account-form {
-    width: 70%;
+    width: 80%;
+    height: 140%;
     margin: 5px auto;
     text-align: center;
     padding: 20px;
@@ -610,10 +656,12 @@ label {
 
 #account-form h3 {
     color: goldenrod;
+    text-transform: uppercase;
+    font-weight: 200;
 }
 
 #account-form input {
-    width: 70%;
+    width: 80%;
     margin: 25px auto;
 }
 
@@ -697,6 +745,85 @@ label {
     background-color: #9FF086;
 }
 
+.account-info p {
+    text-transform: lowercase;
+}
+
+.account-info p span {
+    color: red;
+}
+
+
+/* BLOG */
+
+.product-review {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.product-review h2 {
+    font-weight: 200;
+    color: goldenrod;
+    font-style: italic;
+}
+
+.product-features {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.product-features h3 {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.product-features ul li {
+    font-weight: 200;
+    list-style-type: none;
+}
+
+.product-pros-cons {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.product-pros-cons h3 {
+    font-weight: 200;
+    list-style-type: none;
+    text-transform: uppercase;
+}
+
+.product-pros-cons ul li {
+    list-style-type: none;
+}
+
+.product-rating {
+    margin-top: 30px;
+}
+
+.product-rating h3 {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.rating-stars i {
+    color: goldenrod;
+    font-size: 20px;
+}
+
+.product-review-text {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.product-review-text h3 {
+    font-weight: 400;
+    font-style: italic;
+}
+
 
 /* ORDERS */
 
@@ -710,25 +837,45 @@ label {
     flex-wrap: wrap;
 }
 
+#orders h2 {
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
 .orders th {
     padding: 5px 10px;
     color: goldenrod;
     background-color: black;
     text-align: left;
+    font-weight: 500;
+    text-align: center;
 }
 
 .orders th:nth-child(2) {
-    text-align: right;
+    text-align: center;
 }
 
 .orders td {
     padding: 10px 20px;
+    text-align: center;
 }
 
 .orders td img {
     width: 80px;
     height: 80px;
     margin-right: 10px;
+}
+
+.orders .order-details-btn {
+    color: black;
+    background-color: white;
+    text-transform: uppercase;
+    border: solid 2px black;
+    border-radius: 25px;
+}
+
+.orders .order-details-btn:hover {
+    background-color: wheat;
 }
 
 
@@ -775,8 +922,45 @@ label {
     color: goldenrod;
 }
 
+#checkout-form p {
+    color: white;
+}
+
 
 /* CONTACT */
+
+
+/* Media Query for CONTACT form on screens up to 990px */
+
+@media only screen and (max-width: 990px) {
+    .contact1 {
+        padding: 50px 20px;
+    }
+    .container1 {
+        width: 100%;
+        flex-direction: column;
+    }
+    .container1 .contactInfo1 {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .contactForm1 {
+        width: 100%;
+    }
+    .contactForm1 .inputBox1 input,
+    .contactForm1 .inputBox1 textarea {
+        font-size: 16px;
+    }
+    .contactForm1 .inputBox1 span {
+        font-size: 20px;
+    }
+    .contactForm1 .inputBox1 input:focus~span,
+    .contactForm1 .inputBox1 input:valid~span,
+    .contactForm1 .inputBox1 textarea:focus~span,
+    .contactForm1 .inputBox1 textarea:valid~span {
+        font-size: 20px;
+    }
+}
 
 .contact1 {
     position: relative;
@@ -786,7 +970,7 @@ label {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url(../imgs/bg.jpg);
+    background: url(../imgs/6.jpeg);
     background-size: cover;
 }
 
@@ -984,7 +1168,7 @@ label {
 
 .contactForm1 .inputBox1 input,
 .contactForm1 .inputBox1 textarea {
-    width: 45%;
+    width: 60%;
     padding: 4px 0;
     font-size: 16px;
     margin: 10px 0;
@@ -1120,7 +1304,7 @@ label {
 .container3 .card-container3 .front .imagepayment {
     border: 2px solid gray;
     box-shadow: 0 5px 35px black;
-    background: url(../imgs/18.jpeg);
+    background: url(../imgs/17.jpeg);
     border-radius: 40px;
     padding-top: 20px;
     padding-bottom: 30px;
@@ -1153,7 +1337,7 @@ label {
 /* XXXX XXXX XXXX XXXX = font-size: 22px */
 
 .container3 .card-container3 .front .card-number-box {
-    color: goldenrod;
+    color: white;
     font-size: bold;
     font-size: 22px;
     padding: 60px;
@@ -1170,7 +1354,7 @@ label {
 /* FULL NAME = font-size: 18px */
 
 .container3 .card-container3 .front .flexbox2 .box1:nth-child(1) {
-    color: goldenrod;
+    color: white;
     font-size: bold;
     margin-right: auto;
 }
@@ -1199,7 +1383,7 @@ label {
 /* EXPIRES = font-size: 13px */
 
 .container3 .card-container3 .front .imagepayment .flexbox2 .box2 span {
-    color: goldenrod;
+    color: white;
     font-size: bold;
     position: relative;
     left: 240px;
@@ -1216,7 +1400,7 @@ label {
     bottom: 109px;
     border: 2px solid gray;
     box-shadow: 0 5px 35px black;
-    background: url(../imgs/18.jpeg);
+    background: url(../imgs/17.jpeg);
     border-radius: 40px;
     padding-top: 20px;
     padding-bottom: 260px;
@@ -1263,4 +1447,62 @@ label {
     margin-top: 65px;
     margin-left: -11px;
     height: 76px;
+}
+
+
+/* ORDER CONFIRMATION */
+
+.order-confirmation-container {
+    background-color: white;
+    color: black;
+    padding: 400px;
+    text-align: center;
+}
+
+.order-confirmation-container h1 {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 200;
+}
+
+.order-confirmation-container p {
+    text-transform: uppercase;
+}
+
+.order-confirmation-container a {
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 15px;
+    color: black;
+    border-radius: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 25px;
+}
+
+.order-confirmation-container a:hover {
+    background-color: gold;
+    color: black;
+}
+
+
+/* PAYING BOTUN za order_details.php */
+
+.pay-now-btn {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 6px solid goldenrod;
+    background-color: white;
+    color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 25px;
+}
+
+.pay-now-btn:hover {
+    background-color: goldenrod;
 }
