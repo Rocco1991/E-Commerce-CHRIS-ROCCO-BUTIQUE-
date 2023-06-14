@@ -168,22 +168,22 @@ if (isset($_POST['register'])) {
             
               <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Enter Your Name Please" required>
+                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Enter Your Name Please ..." required>
                 </div>
 
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" id="register-email" name="email" placeholder="Enter Your Email Please" required>
+                    <input type="text" class="form-control" id="register-email" name="email" placeholder="Enter Your Email Please ..." required>
                 </div>
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Enter Your Password Please" required>
+                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Enter Your Password Please ..." required>
                 </div>
 
                 <div class="form-group">
                     <label>Confirm Password</label>
-                    <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Your Password Please" required>
+                    <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Your Password Please ..." required>
                 </div>
 
                 <div class="form-group">
@@ -191,7 +191,7 @@ if (isset($_POST['register'])) {
                 </div>
 
                 <div class="form-group">
-                    <a id="login-url" href="login.php" class="btn">Do you have account? Login Now!</a>
+                    <a id="login-url" href="login.php" class="btn">DO YOU HAVE ACCOUNT? LOGIN NOW !</a>
                 </div>
             </form>
         </div>
@@ -271,7 +271,7 @@ if (isset($_POST['register'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
                 </div>
             </div>
         </div>

@@ -18,6 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Process payment (you can integrate a payment gateway here)
         // ...
     }
+
+    // Set session variable to indicate payment was successful
+    $_SESSION['paid'] = true;
+
+    // This code will redirect the user to index.php and prevent any further code execution in payment.php.
+    header("Location: index.php");
+    exit;
 }
 ?>
 
@@ -311,7 +318,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
                 </div>
             </div>
         </div>
@@ -326,36 +333,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     <script>
-        document.querySelector('.card-number-input').oninput = () => {
-            document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
-        }
+    document.querySelector('.card-number-input').oninput = () => {
+        document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
+    }
 
-        document.querySelector('.card-holder-input').oninput = () => {
-            document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value;
-        }
+    document.querySelector('.card-holder-input').oninput = () => {
+        document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value;
+    }
 
-        document.querySelector('.month-input').oninput = () => {
-            document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value;
-        }
+    document.querySelector('.month-input').oninput = () => {
+        document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value;
+    }
 
-        document.querySelector('.year-input').oninput = () => {
-            document.querySelector('.exp-year').innerText = document.querySelector('.year-input').value;
-        }
+    document.querySelector('.year-input').oninput = () => {
+        document.querySelector('.exp-year').innerText = document.querySelector('.year-input').value;
+    }
 
-        document.querySelector('.cvv-input').onmouseenter = () => {
-            document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(0deg)';
-            document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(0deg)';
-        }
+    document.querySelector('.cvv-input').oninput = () => {
+        document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
+    }
+</script>
+</body>
+</html>
 
-        document.querySelector('.cvv-input').onmouseleave = () => {
-            document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(0deg)';
-            document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(180deg)';
-        }
-
-        document.querySelector('.cvv-input').oninput = () => {
-            document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
-        }
-    </script>
 
 
 

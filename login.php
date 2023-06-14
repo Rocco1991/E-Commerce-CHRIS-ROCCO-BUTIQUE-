@@ -129,7 +129,7 @@ if(isset($_POST['login_btn'])){
     <br>
     <section class="my-5 py-5">
         <div class="container text-center mt-3 pt-5">
-            <h2 class="form-weight-bold">Login</h2>
+            <h2 class="form-weight-bold">LOGIN HERE PLEASE</h2>
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container">
@@ -138,13 +138,13 @@ if(isset($_POST['login_btn'])){
               <p style="color:red;" class="text-center"><?php if(isset($_GET['error'])){ echo $_GET['error']; } ?></p>
 
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" id="login-email" name="email" placeholder="Enter Your Email" required>
+                    <label>E-MAIL</label>
+                    <input type="text" class="form-control" id="login-email" name="email" placeholder="Enter Your Email Please..." required>
                 </div>
 
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" id="login-password" name="password" placeholder="Enter Your Password" required>
+                    <label>PASSWORD</label>
+                    <input type="password" class="form-control" id="login-password" name="password" placeholder="Enter Your Password Please..." required>
                 </div>
 
                 <div class="form-group">
@@ -152,7 +152,7 @@ if(isset($_POST['login_btn'])){
                 </div>
 
                 <div class="form-group">
-                    <a id="register-url" href="register.php" class="btn">Dont have account? Register Now!</a>
+                    <a id="register-url" href="register.php" class="btn">DONT HAVE ACCOUNT? PLEASE REGISTER NOW!</a>
                 </div>
             </form>
         </div>
@@ -232,7 +232,7 @@ if(isset($_POST['login_btn'])){
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
                 </div>
             </div>
         </div>

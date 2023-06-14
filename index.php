@@ -23,7 +23,7 @@
 
 
 
-    <!--Navbar -->
+    <!--NAVBAR -->
 
     <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
         <div class="container">
@@ -66,7 +66,7 @@
     </nav>
 
 
-    <!-- Home -->
+    <!-- HOME-->
     <br>
     <br>
     <br>
@@ -99,7 +99,7 @@
         </div>
     </section>
 
-    <!-- Brand -->
+    <!-- BRANDS -->
     <section id="brand" class="container">
   <div class="row">
     <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Abercrombie&Fitch-logo.jpg">
@@ -335,7 +335,7 @@
 
 
 
-    <!-- Banner -->
+    <!-- BANNER -->
     <section id="banner" class="my-5 py-5">
         <div class="container">
             <h4>MID SEASONS SALE</h4>
@@ -631,7 +631,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
                 </div>
             </div>
         </div>

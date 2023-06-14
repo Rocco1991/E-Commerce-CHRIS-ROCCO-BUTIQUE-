@@ -80,7 +80,7 @@ if(isset($_SESSION['logged_in'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUR ORDERS</title>
+    <title>YOUR ORDERS PAGE</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -153,7 +153,7 @@ if(isset($_SESSION['logged_in'])){
             <div class="text-center mt-3 pt-5 col-lg-6 col-md-12 col-sm-12">
             <p class="text-center" style="color:green"> <?php if(isset($_GET['register_success'])){ echo $_GET['register_success'];} ?> </p>
             <p class="text-center" style="color:green"> <?php if(isset($_GET['login_success'])){ echo $_GET['login_success'];} ?> </p>
-                <h3 class="font-weight-bold">ACCOUNT INFO</h3>
+                <h3 class="font-weight-bold">YOUR ACCOUNT INFO: </h3>
                 <hr class="mx-auto">
 
                 <div class="account-info">
@@ -163,7 +163,11 @@ if(isset($_SESSION['logged_in'])){
                     <br>
                     <p> <a href="#orders" id="orders-btn">YOUR ORDERS</a> </p>
                     <br>
-                    <p> <a href="account.php?logout=1" id="logout-btn">Logout</a> </p>
+                    <br>
+                    <p> <a href="account.php?logout=1" id="logout-btn">LOGOUT</a> </p>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 ">
@@ -331,7 +335,7 @@ if(isset($_SESSION['logged_in'])){
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
                 </div>
             </div>
         </div>

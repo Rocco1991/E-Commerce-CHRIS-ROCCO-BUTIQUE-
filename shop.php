@@ -1,7 +1,28 @@
 <?php
+include('server/connection.php');
 
+// Behold the magnificent search section
+if (isset($_POST['search'])) {
 
+    $category = $_POST['category'];
+    $price = $_POST['price'];
 
+    $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price<=");
+
+    $stmt->bind_param('si', $category, $price);
+
+    $stmt->execute();
+
+    $products = $stmt->get_result();
+
+    // Fear not, for I shall return all the products!
+} else {
+    $stmt = $conn->prepare("SELECT * FROM products");
+
+    $stmt->execute();
+
+    $products = $stmt->get_result();
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,24 +42,6 @@
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <style>
-        .product img {
-            width: 100%;
-            height: auto;
-            box-sizing: border-box;
-            object-fit: cover;
-        }
-        
-        .pagination a {
-            color: black;
-        }
-        
-        .pagination li:hover a {
-            color: goldenrod;
-            background-color: black;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -52,7 +55,6 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -104,11 +106,72 @@
     
 
     <section id="featured" class="my-5 py-5">
-        <div class="container mt-5 py-5">
-            <h2>OUR PRODUCTS & SHOP </h2>
-            <hr>
-            <p>HERE YOU CAN CHECK THE PRODUCTS...</p>
+    <div class="container mt-5 py-5">
+        <h2>OUR PRODUCTS & SHOP </h2>
+         <!-- SEARCH BAR -->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for clothes, shoes, perfumes..." oninput="searchFunction()" />
+            <span class="search-icon">&#128269;</span>
+            <div id="search-results" class="search-results"></div>
         </div>
+        <br>
+        <br>
+        <!-- FILTERS -->
+        <div class="filter-container">
+
+            <!-- Price Filter -->
+            <label for="price-range">Price range:</label>
+            <input type="range" id="price-range" name="price-range" min="0" max="10000" value="0">
+            <span id="price-output">0</span> €
+
+            <!-- Color Filter -->
+            <label for="color-filter">Color:</label>
+            <select id="color-filter" onchange="searchFunction()">
+                <option value="">All Colors</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+                <option value="orange">Orange</option>
+                <option value="purple">Purple</option>
+                <option value="pink">Pink</option>
+                <option value="brown">Brown</option>
+                <option value="gray">Gray</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+                <!-- Add more colors as needed -->
+            </select>
+
+            <!-- Stock Filter -->
+            <label for="stock-filter">Availability:</label>
+            <select id="stock-filter" onchange="searchFunction()">
+                <option value="">All</option>
+                <option value="in-stock">In Stock</option>
+                <option value="out-of-stock">Out of Stock</option>
+            </select>
+
+            <!-- Category Filter -->
+            <label for="category-filter">Category:</label>
+            <select id="category-filter" onchange="searchFunction()">
+                <option value="">All Categories</option>
+                <option value="watches">Watches</option>
+                <option value="bags">Bags</option>
+                <option value="gloves">Gloves</option>
+                <option value="vintage-suits">Vintage Suits</option>
+                <option value="perfumes">Perfumes</option>
+                <option value="shoes">Shoes</option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <button type="submit" onclick="searchFunction()">Search</button>  <!-- Search Button -->
+    </div>
+</section>
+
+
+        <hr class="horizontal-line">
+        <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS...</p>
+       
         <div class="row mx-auto container-fluid">
 
         <div class="row mx-auto container-fluid">
@@ -231,7 +294,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                        <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                        <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
                     </div>
                 </div>
             </div>
@@ -240,6 +303,84 @@
             </div>
 
     </footer>
+
+    <!--JS FOR FILTERING PRODUCTS-->
+    <script>
+        document.getElementById('search-input').addEventListener('input', function() {
+            var query = this.value.toLowerCase();
+            var items = document.getElementsByClassName('product');
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var title = item.getElementsByTagName('h5')[0].innerText.toLowerCase();
+
+                if (title.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        });
+    </script>
+
+    <!--JS FOR FILTERING PRODUCTS 2-->
+    <script>
+    // Function to filter products based on selected criteria
+    function searchFunction() {
+        var searchInput = document.getElementById("search-input").value.toLowerCase();
+        var priceRange = document.getElementById("price-range").value;
+        var colorFilter = document.getElementById("color-filter").value;
+        var stockFilter = document.getElementById("stock-filter").value;
+        var categoryFilter = document.getElementById("category-filter").value;
+
+        // Now, let's dive into the magnificent world of filtering logic!
+
+        // First, let's gather all the products
+        var products = document.getElementsByClassName("product");
+
+        // Next, we'll iterate over each product to determine if it matches the selected criteria
+        for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+
+            // Extract the relevant information from the product
+            var productName = product.getElementsByClassName("p-name")[0].innerText.toLowerCase();
+            var productPrice = parseFloat(product.getElementsByClassName("p-price")[0].innerText.replace("$", ""));
+
+            // Let's apply the filters and see if the product deserves to be displayed
+            var showProduct =
+                productName.includes(searchInput) &&
+                productPrice <= priceRange;
+
+            // Time for the color filter! We shall reveal only products of the chosen color.
+            if (colorFilter !== "") {
+                var productColor = product.dataset.color;
+                showProduct = showProduct && productColor === colorFilter;
+            }
+
+            // The stock filter demands our attention. We will show products based on their availability.
+            if (stockFilter !== "") {
+                var productStock = product.dataset.stock;
+                showProduct = showProduct && productStock === stockFilter;
+            }
+
+            // Lastly, the category filter must not be ignored. Let's unveil products from the desired category.
+            if (categoryFilter !== "") {
+                var productCategory = product.dataset.category;
+                showProduct = showProduct && productCategory === categoryFilter;
+            }
+
+            // With all the filters applied, it's time to decide the fate of the product.
+            // Shall we display it or shall we hide it? The choice is ours.
+            if (showProduct) {
+                product.style.display = "block";
+            } else {
+                product.style.display = "none";
+            }
+        }
+    }
+</script>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
