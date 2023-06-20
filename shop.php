@@ -3,24 +3,18 @@ include('server/connection.php');
 
 // Behold the magnificent search section
 if (isset($_POST['search'])) {
-
     $category = $_POST['category'];
     $price = $_POST['price'];
 
-    $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price<=");
-
+    $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price<=?");
     $stmt->bind_param('si', $category, $price);
-
     $stmt->execute();
-
     $products = $stmt->get_result();
 
     // Fear not, for I shall return all the products!
 } else {
     $stmt = $conn->prepare("SELECT * FROM products");
-
     $stmt->execute();
-
     $products = $stmt->get_result();
 }
 ?>
@@ -46,128 +40,123 @@ if (isset($_POST['search'])) {
 
 <body>
 
-    <!--Navbar -->
+   <!--NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
-        <div class="container">
-            <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
-            <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">HOME</a>
-                    </li>
+   <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
+  <div class="container">
+    <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
+    <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.php">SHOP</a>
-                    </li>
+    <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">HOME</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">BLOG</a>
-                    </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shop.php">SHOP</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">CONTACT US</a>
-                    </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">BLOG</a>
+        </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">CONTACT US</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>
-                    </li>
+        <li class="nav-item">
+          <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
 
-                    <li class="nav-item">
-                        <a href="account.php"><i class="fa-solid fa-user"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <li class="nav-item">
+          <a href="account.php"><i class="fa-solid fa-user"></i></a>
+        </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="" alt="">
+            <span>LANGUAGES</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+            <li><a class="dropdown-item" href="#"><img src="assets/imgs/en.gif" alt="English Flag"> English</a></li>
+            <li><a class="dropdown-item" href="#"><img src="assets/imgs/hr.gif" alt="Croatian Flag"> Croatian</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     
    
 
 
 
     <!-- Featured products / SHOP -->
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <section id="featured" class="my-5 py-5">
     <div class="container mt-5 py-5">
-        <h2>OUR PRODUCTS & SHOP </h2>
-         <!-- SEARCH BAR -->
+        <h2>OUR PRODUCTS & SHOP:</h2>
+        <!-- SEARCH BAR -->
         <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search for clothes, shoes, perfumes..." oninput="searchFunction()" />
-            <span class="search-icon">&#128269;</span>
-            <div id="search-results" class="search-results"></div>
+        <input type="text" id="search-input" placeholder="Search for clothes, shoes, perfumes..." oninput="searchFunction()" />
+        <span class="search-icon">&#128269;</span>
+        <div id="search-results" class="search-results"></div>
         </div>
-        <br>
-        <br>
-        <!-- FILTERS -->
-        <div class="filter-container">
-
-            <!-- Price Filter -->
-            <label for="price-range">Price range:</label>
-            <input type="range" id="price-range" name="price-range" min="0" max="10000" value="0">
-            <span id="price-output">0</span> €
-
-            <!-- Color Filter -->
-            <label for="color-filter">Color:</label>
-            <select id="color-filter" onchange="searchFunction()">
-                <option value="">All Colors</option>
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="yellow">Yellow</option>
-                <option value="orange">Orange</option>
-                <option value="purple">Purple</option>
-                <option value="pink">Pink</option>
-                <option value="brown">Brown</option>
-                <option value="gray">Gray</option>
-                <option value="black">Black</option>
-                <option value="white">White</option>
-                <!-- Add more colors as needed -->
-            </select>
-
-            <!-- Stock Filter -->
-            <label for="stock-filter">Availability:</label>
-            <select id="stock-filter" onchange="searchFunction()">
-                <option value="">All</option>
-                <option value="in-stock">In Stock</option>
-                <option value="out-of-stock">Out of Stock</option>
-            </select>
-
-            <!-- Category Filter -->
-            <label for="category-filter">Category:</label>
-            <select id="category-filter" onchange="searchFunction()">
-                <option value="">All Categories</option>
-                <option value="watches">Watches</option>
-                <option value="bags">Bags</option>
-                <option value="gloves">Gloves</option>
-                <option value="vintage-suits">Vintage Suits</option>
-                <option value="perfumes">Perfumes</option>
-                <option value="shoes">Shoes</option>
-            </select>
+        <!-- CATEGORY -->
+        <div class="form-check">
+        <input class="form-check-input" value="coats" type="radio" name="category" id="category_one">
+        <label class="form-check-label" for="category_one">COATS</label>
         </div>
-        <br>
-        <br>
-        <button type="submit" onclick="searchFunction()">Search</button>  <!-- Search Button -->
+
+        <div class="form-check">
+        <input class="form-check-input" value="shoes" type="radio" name="category" id="category_two" checked>
+        <label class="form-check-label" for="category_two">SHOES</label>
+        </div>
+
+        <div class="form-check">
+        <input class="form-check-input" value="watches" type="radio" name="category" id="category_three" checked>
+        <label class="form-check-label" for="category_three">WATCHES</label>
+        </div>
+
+        <div class="form-check">
+        <input class="form-check-input" value="parfumes" type="radio" name="category" id="category_four" checked>
+        <label class="form-check-label" for="category_four">PARFUMES</label>
+        </div>
+
+        <div class="form-check">
+        <input class="form-check-input" value="bags" type="radio" name="category" id="category_five" checked>
+        <label class="form-check-label" for="category_five">BAGS</label>
+        </div>
+
+        <div class="form-check">
+        <input class="form-check-input" value="gloves" type="radio" name="category" id="category_six" checked>
+        <label class="form-check-label" for="category_six">GLOVES</label>
+        </div>
+
+        <div class="row mx-auto container mt-5">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <p>Price</p>
+            <input type="range" class="form-range w-50" min="1" name="price" value="100" max="100000" id="customRange2">
+            <div class="w-50">
+            <span style="float: left;">1</span>
+            <span style="float: right;">100000</span>
+            </div>
+        </div>
+        </div>
     </div>
-</section>
-
+    </section>
 
         <hr class="horizontal-line">
         <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS...</p>
@@ -304,8 +293,11 @@ if (isset($_POST['search'])) {
 
     </footer>
 
-    <!--JS FOR FILTERING PRODUCTS-->
-    <script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+      <!--JS FOR FILTERING PRODUCTS-->
+      <script>
         document.getElementById('search-input').addEventListener('input', function() {
             var query = this.value.toLowerCase();
             var items = document.getElementsByClassName('product');
@@ -323,66 +315,7 @@ if (isset($_POST['search'])) {
         });
     </script>
 
-    <!--JS FOR FILTERING PRODUCTS 2-->
-    <script>
-    // Function to filter products based on selected criteria
-    function searchFunction() {
-        var searchInput = document.getElementById("search-input").value.toLowerCase();
-        var priceRange = document.getElementById("price-range").value;
-        var colorFilter = document.getElementById("color-filter").value;
-        var stockFilter = document.getElementById("stock-filter").value;
-        var categoryFilter = document.getElementById("category-filter").value;
-
-        // Now, let's dive into the magnificent world of filtering logic!
-
-        // First, let's gather all the products
-        var products = document.getElementsByClassName("product");
-
-        // Next, we'll iterate over each product to determine if it matches the selected criteria
-        for (var i = 0; i < products.length; i++) {
-            var product = products[i];
-
-            // Extract the relevant information from the product
-            var productName = product.getElementsByClassName("p-name")[0].innerText.toLowerCase();
-            var productPrice = parseFloat(product.getElementsByClassName("p-price")[0].innerText.replace("$", ""));
-
-            // Let's apply the filters and see if the product deserves to be displayed
-            var showProduct =
-                productName.includes(searchInput) &&
-                productPrice <= priceRange;
-
-            // Time for the color filter! We shall reveal only products of the chosen color.
-            if (colorFilter !== "") {
-                var productColor = product.dataset.color;
-                showProduct = showProduct && productColor === colorFilter;
-            }
-
-            // The stock filter demands our attention. We will show products based on their availability.
-            if (stockFilter !== "") {
-                var productStock = product.dataset.stock;
-                showProduct = showProduct && productStock === stockFilter;
-            }
-
-            // Lastly, the category filter must not be ignored. Let's unveil products from the desired category.
-            if (categoryFilter !== "") {
-                var productCategory = product.dataset.category;
-                showProduct = showProduct && productCategory === categoryFilter;
-            }
-
-            // With all the filters applied, it's time to decide the fate of the product.
-            // Shall we display it or shall we hide it? The choice is ours.
-            if (showProduct) {
-                product.style.display = "block";
-            } else {
-                product.style.display = "none";
-            }
-        }
-    }
-</script>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
 </body>
 
 </html>

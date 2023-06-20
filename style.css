@@ -9,14 +9,14 @@ button {
     font-size: 0.8rem;
     font-weight: 900;
     outline: none;
-    border: 6px solid goldenrod;
+    border: 4px solid goldenrod;
     background-color: white;
     color: black;
     padding: 13px 30px;
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.3s ease;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 button:hover {
@@ -57,6 +57,8 @@ h5 {
 }
 
 h6 {
+    font-size: 0.8rem;
+    font-weight: 200;
     color: goldenrod;
 }
 
@@ -70,13 +72,13 @@ p {
     padding-bottom: 2rem !important;
     top: 0;
     left: 0;
-    box-shadow: 0 25px 20px #999;
-    background-color: black;
+    box-shadow: 0 1px 1px black;
+    background-color: white;
 }
 
 .navbar-light .navbar-nav .nav-link {
     padding: 0 20px;
-    color: white;
+    color: black;
     transition: 0.4s ease;
     font-size: 16px;
 }
@@ -93,7 +95,7 @@ p {
     transition: 0.4s ease;
     cursor: pointer;
     margin-left: 20px;
-    color: white;
+    color: black;
 }
 
 @media only screen and (max-width: 990px) {
@@ -111,6 +113,9 @@ p {
     }
 }
 
+
+/* FLAG DROPDOWN */
+
 #home {
     background-image: url(../imgs/Chris-Rocco-Butique-background.jpg);
     width: 100%;
@@ -125,12 +130,14 @@ p {
 #home span {
     color: black;
     font-weight: 200;
+    text-align: center;
 }
 
 #home h1 {
     color: black;
     font-size: 32px;
     font-weight: 200;
+    text-align: center;
 }
 
 #home h4 {
@@ -230,7 +237,7 @@ hr {
 }
 
 #banner {
-    background-image: url(../imgs/background2.jpg);
+    background-image: url(../imgs/male-model.jpg);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -246,21 +253,24 @@ hr {
 
 #banner h1 {
     color: white;
+    font-weight: 100;
 }
 
 #banner h4 {
     color: goldenrod;
+    font-weight: 100;
 }
 
 
 /* FOOTER */
 
 footer {
-    background-color: black;
+    background-color: white;
+    box-shadow: 0 2px 6px black;
 }
 
 footer p {
-    color: white;
+    color: black;
     font-size: 0.9rem;
 }
 
@@ -270,7 +280,7 @@ footer li {
 
 footer li a {
     font-size: 0.8rem;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
@@ -281,6 +291,7 @@ footer li a:hover {
 
 footer ul {
     color: black;
+    list-style-type: none;
 }
 
 footer .copyright a {
@@ -295,7 +306,7 @@ footer .copyright a {
 }
 
 footer p {
-    color: white;
+    color: black;
 }
 
 footer p:hover {
@@ -303,7 +314,7 @@ footer p:hover {
 }
 
 footer a {
-    color: white;
+    color: black;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 0.7rem
@@ -371,16 +382,21 @@ footer .copyright img {
 }
 
 .logo {
-    width: 210px;
+    width: 177px;
     height: 210px;
 }
 
 .brand {
-    color: goldenrod;
+    color: black;
     margin: 3px 5px;
     font-size: 1.5rem;
-    font-weight: 200;
+    font-weight: 100;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.brand:hover {
+    color: #DAAB2D;
+    transition: 0.8s ease;
 }
 
 .small-img-group {
@@ -406,7 +422,129 @@ footer .copyright img {
 }
 
 
-/* SHOP search */
+/* SHOP*/
+
+.horizontal-line {
+    width: 5%;
+    border: 0;
+    height: 1px;
+    background-color: goldenrod;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#center-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    /* This makes it take up the full viewport height */
+    text-align: center;
+    /* This centers the text horizontally */
+    font-size: 24px;
+    color: black;
+}
+
+
+/* SHOP search filter*/
+
+* SHOP search filter */ .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Updated */
+    margin: 30px 0;
+    /* Updated */
+}
+
+.search-box {
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    border: 2px solid goldenrod;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+.centered-heading {
+    text-align: center;
+}
+
+.centered-heading hr {
+    color: goldenrod;
+    margin: 20px auto;
+    width: 10%;
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.product img {
+    width: 80%;
+    height: auto;
+    box-sizing: border-box;
+    object-fit: cover;
+}
+
+.form-check .form-check-input {
+    margin-right: 10px;
+}
+
+.form-check .form-check-input {
+    float: inherit;
+    margin-left: -20.5em;
+}
+
+
+/*pagination*/
+
+.pagination a {
+    color: black;
+}
+
+.pagination li:hover a {
+    color: goldenrod;
+    background-color: black;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+    text-align: center;
+}
+
+input[type="text"]:focus {
+    border-color: #333;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+}
 
 #search {
     float: left;
@@ -521,9 +659,9 @@ th:last-child {
 
 .checkout-btn {
     font-size: 0.8rem;
-    font-weight: 900;
+    font-weight: 600;
     outline: none;
-    border: 6px solid green;
+    border: 2px solid green;
     background-color: white;
     color: black;
     padding: 13px 30px;
@@ -550,8 +688,7 @@ th:last-child {
     border-left: 4px solid black;
     border-right: 4px solid black;
     border-radius: 45px;
-    box-shadow: 10px 10px 10px 10px goldenrod;
-    background-color: black;
+    background-color: white;
 }
 
 #login-form input {
@@ -570,7 +707,7 @@ th:last-child {
     font-size: 0.8rem;
     font-weight: 900;
     outline: none;
-    border: 6px solid green;
+    border: 2px solid green;
     background-color: white;
     color: black;
     padding: 13px 30px;
@@ -605,8 +742,7 @@ label {
     border-left: 4px solid black;
     border-right: 4px solid black;
     border-radius: 45px;
-    box-shadow: 10px 10px 10px 10px goldenrod;
-    background-color: black;
+    background-color: white;
 }
 
 #register-form input {
@@ -645,23 +781,28 @@ label {
     margin: 5px auto;
     text-align: center;
     padding: 20px;
-    border-top: 4px solid black;
-    border-bottom: 4px solid black;
-    border-left: 4px solid black;
-    border-right: 4px solid black;
-    border-radius: 45px;
-    box-shadow: 10px 10px 10px 10px goldenrod;
-    background-color: black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
 }
 
 #account-form h3 {
+    color: black;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+#account-form label {
     color: goldenrod;
     text-transform: uppercase;
-    font-weight: 200;
+    font-weight: 100;
 }
 
 #account-form input {
-    width: 80%;
+    width: 70%;
     margin: 25px auto;
 }
 
@@ -669,18 +810,19 @@ label {
     font-size: 0.8rem;
     font-weight: 900;
     outline: none;
-    border: 6px solid goldenrod;
+    border: 2px solid black;
     background-color: white;
     color: black;
     padding: 13px 30px;
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.3s ease;
-    border-radius: 45px;
+    border-radius: 10px;
 }
 
 #change-pass-btn:hover {
-    background-color: wheat;
+    background-color: black;
+    color: white;
 }
 
 #account-form #orders-btn,
@@ -688,7 +830,7 @@ label {
     font-size: 0.8rem;
     font-weight: 900;
     outline: none;
-    border: 6px solid red;
+    border: 2px solid red;
     background-color: white;
     color: black;
     padding: 13px 30px;
@@ -730,7 +872,7 @@ label {
     font-size: 0.8rem;
     font-weight: 900;
     outline: none;
-    border: 6px solid green;
+    border: 2px solid green;
     background-color: white;
     color: black;
     padding: 13px 13px;
@@ -764,6 +906,12 @@ label {
 }
 
 .product-review h2 {
+    font-weight: 200;
+    color: black;
+    font-style: italic;
+}
+
+.product-review h2:hover {
     font-weight: 200;
     color: goldenrod;
     font-style: italic;
@@ -882,7 +1030,7 @@ label {
 /* CHECKOUT */
 
 #checkout-form {
-    width: 40%;
+    width: 60%;
     margin: 5px auto;
     text-align: center;
     padding: 20px;
@@ -891,8 +1039,7 @@ label {
     border-left: 4px solid black;
     border-right: 4px solid black;
     border-radius: 45px;
-    box-shadow: 10px 10px 10px 10px goldenrod;
-    background-color: black;
+    background-color: white;
 }
 
 #checkout-form input {
@@ -932,6 +1079,9 @@ label {
 
 /* Media Query for CONTACT form on screens up to 990px */
 
+
+/* Media Query for CONTACT form on screens up to 990px */
+
 @media only screen and (max-width: 990px) {
     .contact1 {
         padding: 50px 20px;
@@ -940,27 +1090,32 @@ label {
         width: 100%;
         flex-direction: column;
     }
-    .container1 .contactInfo1 {
+    .contactForm1 {
         width: 100%;
-        margin-bottom: 30px;
+    }
+}
+
+
+/* CONTACT */
+
+
+/* Media Query for CONTACT form on screens up to 990px */
+
+@media only screen and (max-width: 990px) {
+    .contact1 {
+        padding: 50px 20px;
+    }
+    .container1 {
+        width: 100%;
+        flex-direction: column;
     }
     .contactForm1 {
         width: 100%;
     }
-    .contactForm1 .inputBox1 input,
-    .contactForm1 .inputBox1 textarea {
-        font-size: 16px;
-    }
-    .contactForm1 .inputBox1 span {
-        font-size: 20px;
-    }
-    .contactForm1 .inputBox1 input:focus~span,
-    .contactForm1 .inputBox1 input:valid~span,
-    .contactForm1 .inputBox1 textarea:focus~span,
-    .contactForm1 .inputBox1 textarea:valid~span {
-        font-size: 20px;
-    }
 }
+
+
+/* Main contact section */
 
 .contact1 {
     position: relative;
@@ -970,24 +1125,23 @@ label {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url(../imgs/6.jpeg);
+    background: url(../imgs/);
     background-size: cover;
 }
+
+
+/* Contact content */
 
 .contact1 .content1 {
     max-width: 800px;
     text-align: center;
 }
 
-.contact1 .content1 h2 {
-    font-size: 36px;
-    font-weight: 500;
-    color: white;
-}
 
-.contact1 .content1 p {
-    font-weight: 300;
-    color: white;
+/* Container */
+
+.container {
+    text-align: center;
 }
 
 .container1 {
@@ -998,97 +1152,29 @@ label {
     margin-top: 30px;
 }
 
-.container1 .contactInfo1 {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-}
 
-.container1 .contactInfo1 .box1 {
-    position: relative;
-    padding: 20px 0;
-    display: flex;
-    color: white;
-}
-
-.container1 .contactInfo1 .box1 .icon1 {
-    min-width: 60px;
-    height: 60px;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 22px;
-}
-
-.container1 .contactInfo1 .box1 .icon1:hover {
-    background: goldenrod;
-}
-
-.container1 .contactInfo1 .box1 .text1 {
-    display: flex;
-    margin: left 20px;
-    font-size: 16px;
-    color: white;
-    flex-direction: column;
-    font-weight: 300;
-}
-
-.container1 .contactInfo1 .box1 .text1 h3 {
-    font-weight: 500;
-    color: white;
-}
+/* Contact form */
 
 .contactForm1 {
-    width: 40%;
-    margin: 5px auto;
+    width: 60%;
+    margin: 0 auto;
     text-align: center;
-    padding: 20px;
-    border-top: 4px solid black;
-    border-bottom: 4px solid black;
-    border-left: 4px solid black;
-    border-right: 4px solid black;
-    border-radius: 45px;
-    box-shadow: 5px 5px 5px 5px goldenrod;
-    background-color: black;
-}
-
-.contactForm1 h1 {
-    font-size: 30px;
-    color: white;
-    font-weight: 500;
+    padding: 30px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .contactForm1 h2 {
     font-size: 30px;
-    color: white;
+    color: #333;
     font-weight: 500;
+    margin-bottom: 20px;
 }
 
-.contactForm1 h3 {
-    font-size: 30px;
-    color: white;
-    font-weight: 500;
-}
 
-.contactForm1 h4 {
-    font-size: 30px;
-    color: white;
-    font-weight: 500;
-}
-
-.contactForm1 h5 {
-    font-size: 30px;
-    color: white;
-    font-weight: 500;
-}
-
-.contactForm1 h6 {
-    font-size: 30px;
-    color: white;
-    font-weight: 500;
-}
+/* Input boxes */
 
 .contactForm1 .inputBox1 {
     position: relative;
@@ -1099,88 +1185,114 @@ label {
 .contactForm1 .inputBox1 input,
 .contactForm1 .inputBox1 textarea {
     width: 100%;
-    padding: 5px 0;
+    padding: 8px;
     font-size: 16px;
     margin: 10px 0;
-    border: none;
-    border-bottom: 2px solid white;
-    border-radius: 45px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     outline: none;
     resize: none;
-    text-align: center;
 }
 
 .contactForm1 .inputBox1 span {
     position: absolute;
-    left: 0;
-    padding: 5px 0;
-    font-size: 20px;
+    left: 10px;
+    top: 12px;
+    font-size: 16px;
     margin: 10px 0;
     pointer-events: none;
     transition: 0.5s;
-    color: goldenrod;
+    color: #999;
 }
 
 .contactForm1 .inputBox1 input:focus~span,
 .contactForm1 .inputBox1 input:valid~span,
 .contactForm1 .inputBox1 textarea:focus~span,
 .contactForm1 .inputBox1 textarea:valid~span {
-    color: white;
-    font: 20px;
-    transform: translate(-140px);
+    color: #333;
+    transform: translateY(-20px);
+    font-size: 14px;
 }
 
-.contactForm1 .inputBox1 input {
-    width: 55%;
-    font-size: 0.8rem;
-    font-weight: 700;
-    outline: none;
-    border: 6px solid goldenrod;
-    background-color: white;
-    color: black;
-    padding: 13px 30px;
-    transition: 0.3s ease;
-    border-radius: 45px;
-    text-align: center;
-}
+
+/* Submit button */
 
 .contactForm1 .inputBox2 input {
-    width: 35%;
-    font-size: 0.8rem;
+    width: 50%;
+    font-size: 1rem;
     font-weight: 700;
     outline: none;
-    border: 6px solid green;
-    background-color: white;
-    color: black;
-    padding: 13px 30px;
+    border: 2px solid #333;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 30px;
+    margin-top: 20px;
+    cursor: pointer;
     transition: 0.3s ease;
-    border-radius: 45px;
+    border-radius: 4px;
     text-align: center;
 }
 
+
+/* Submit button hover */
+
 .contactForm1 .inputBox2 input:hover {
-    color: black;
-    background-color: greenyellow;
+    color: #fff;
+    background-color: #333;
 }
 
 
-/* OBUHVAĆA SVA 4 (FUL NAME EMAIL MESSAGE I SEND MAIL) */
+/* Contact Info */
 
-.contactForm1 .inputBox1 input,
-.contactForm1 .inputBox1 textarea {
-    width: 60%;
-    padding: 4px 0;
+.container1 .contactInfo1 {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.container1 .contactInfo1 .box1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container1 .contactInfo1 .box1 .icon {
+    font-size: 24px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.container1 .contactInfo1 .box1 .text1 {
+    display: flex;
+    flex-direction: column;
     font-size: 16px;
-    margin: 10px 0;
-    border: none;
-    border: 2px solid goldenrod;
-    border-radius: 25px;
-    outline: none;
-    resize: none;
+    color: #333;
+    font-weight: 300;
 }
 
-.contactForm1 .inputBox1 input:hover {
-    background-color: wheat;
+.container1 .contactInfo1 .box1 .text1 h3 {
+    font-weight: 500;
+    color: #333;
+}
+
+
+/* Responsive rules for screens smaller than 768px */
+
+@media only screen and (max-width: 768px) {
+    .contact1 {
+        padding: 50px 20px;
+    }
+    .container1 {
+        flex-direction: column;
+    }
+    .container1 .contactInfo1 {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .contactForm1 {
+        width: 100%;
+    }
 }
 
 
@@ -1493,7 +1605,7 @@ label {
     font-size: 0.8rem;
     font-weight: 900;
     outline: none;
-    border: 6px solid goldenrod;
+    border: 4px solid goldenrod;
     background-color: white;
     color: black;
     padding: 13px 30px;

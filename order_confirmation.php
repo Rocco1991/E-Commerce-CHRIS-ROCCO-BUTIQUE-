@@ -1,10 +1,28 @@
 <?php
-session_start();
-if (!isset($_GET['order_id'])) {
-    header("Location: index.php");
-    exit;
+// Connect to database
+$mysqli = new mysqli("localhost", "username", "password", "database_name");
+
+// Check connection
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 }
-$order_id = $_GET['order_id'];
+
+// Check if payment has been made
+if (isset($_POST['payment_id'])) {
+    $payment_id = $_POST['payment_id'];
+    $query = "UPDATE payments SET status = 'paid' WHERE id = $payment_id";
+    if ($mysqli->query($query) === TRUE) {
+        // Payment status updated successfully, redirect user to payment.php
+        header("Location: payment.php");
+        exit;
+    } else {
+        // Error updating payment status
+        echo "Error: " . $query . "<br>" . $mysqli->error;
+    }
+}
+
+// Close database connection
+$mysqli->close();
 ?>
 
 
@@ -95,7 +113,7 @@ $order_id = $_GET['order_id'];
     <br>
     <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
     <br>
-    <p>Please remeber this number. Your order number is: <?php echo $order_id; ?></p>
+    <p>Please remember this number. Your order number is: <?php echo $order_id; ?></p>
     <br>
     <br>
     <!-- We will send you an email confirmation shortly. -->
@@ -188,7 +206,7 @@ $order_id = $_GET['order_id'];
                     </div>
 
                     <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                        <p>eCommerce CHRIS ROCCO All Rights Reserved January 2023</p>
+                        <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
                     </div>
                 </div>
             </div>
