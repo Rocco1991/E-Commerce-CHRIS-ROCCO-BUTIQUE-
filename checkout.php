@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 
 $cartIsEmpty = (!isset($_SESSION['cart']) || empty($_SESSION['cart']));
@@ -9,9 +7,7 @@ if ($cartIsEmpty) {
   header('Location: index.php');
   exit(); // stop executing the current script to prevent further code execution
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

@@ -3,8 +3,7 @@ session_start();
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    // Get form input
+    // Retrieve form input
     $card_number = $_POST['card_number'];
     $card_holder = $_POST['card_holder'];
     $expiration_month = $_POST['expiration_month'];
@@ -14,17 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate input (you can add more validation rules as needed)
     if (empty($card_number) || empty($card_holder) || empty($expiration_month) || empty($expiration_year) || empty($cvv)) {
         $error_message = 'Please fill in all the required fields.';
+        // You can display the error message or redirect the user back to the payment form with an error notification.
     } else {
-        // Process payment (you can integrate a payment gateway here)
+        // Process the payment (using a payment gateway or API)
         // ...
+
+        // Set session variable to indicate payment was successful
+        $_SESSION['paid'] = true;
+
+        // Redirect to a confirmation page or any desired page indicating successful payment
+        header("Location: confirmation.php");
+        exit;
     }
-
-    // Set session variable to indicate payment was successful
-    $_SESSION['paid'] = true;
-
-    // This code will redirect the user to index.php and prevent any further code execution in payment.php.
-    header("Location: index.php");
-    exit;
 }
 ?>
 
@@ -362,7 +362,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     document.querySelector('.cvv-input').oninput = () => {
         document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
     }
+
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        var cardNumber = document.querySelector('.card-number-input').value;
+        var cardHolder = document.querySelector('.card-holder-input').value;
+        var expirationMonth = document.querySelector('.month-input').value;
+        var expirationYear = document.querySelector('.year-input').value;
+        var cvv = document.querySelector('.cvv-input').value;
+
+        if (cardNumber === '' || cardHolder === '' || expirationMonth === 'month' || expirationYear === 'year' || cvv === '') {
+            alert('Please fill in all the required fields.');
+        } else {
+            // Process payment (you can integrate a payment gateway here)
+            // ...
+
+            // Set session variable to indicate payment was successful
+            // Assuming you have the session_start() at the top of your PHP code
+            <?php $_SESSION['paid'] = true; ?>
+
+            // Redirect to the desired page after successful payment
+            window.location.href = 'index.php';
+        }
+    });
 </script>
+
 </body>
 </html>
 

@@ -114,48 +114,7 @@ if (isset($_POST['search'])) {
         <span class="search-icon">&#128269;</span>
         <div id="search-results" class="search-results"></div>
         </div>
-        <!-- CATEGORY -->
-        <div class="form-check">
-        <input class="form-check-input" value="coats" type="radio" name="category" id="category_one">
-        <label class="form-check-label" for="category_one">COATS</label>
         </div>
-
-        <div class="form-check">
-        <input class="form-check-input" value="shoes" type="radio" name="category" id="category_two" checked>
-        <label class="form-check-label" for="category_two">SHOES</label>
-        </div>
-
-        <div class="form-check">
-        <input class="form-check-input" value="watches" type="radio" name="category" id="category_three" checked>
-        <label class="form-check-label" for="category_three">WATCHES</label>
-        </div>
-
-        <div class="form-check">
-        <input class="form-check-input" value="parfumes" type="radio" name="category" id="category_four" checked>
-        <label class="form-check-label" for="category_four">PARFUMES</label>
-        </div>
-
-        <div class="form-check">
-        <input class="form-check-input" value="bags" type="radio" name="category" id="category_five" checked>
-        <label class="form-check-label" for="category_five">BAGS</label>
-        </div>
-
-        <div class="form-check">
-        <input class="form-check-input" value="gloves" type="radio" name="category" id="category_six" checked>
-        <label class="form-check-label" for="category_six">GLOVES</label>
-        </div>
-
-        <div class="row mx-auto container mt-5">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <p>Price</p>
-            <input type="range" class="form-range w-50" min="1" name="price" value="100" max="100000" id="customRange2">
-            <div class="w-50">
-            <span style="float: left;">1</span>
-            <span style="float: right;">100000</span>
-            </div>
-        </div>
-        </div>
-    </div>
     </section>
 
         <hr class="horizontal-line">
