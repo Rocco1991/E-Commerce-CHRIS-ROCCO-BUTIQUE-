@@ -283,7 +283,7 @@ if (isset($_POST['register'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved JUNE 2023</p>
                 </div>
             </div>
         </div>

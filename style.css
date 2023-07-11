@@ -422,7 +422,7 @@ footer .copyright img {
 }
 
 
-/* SHOP*/
+/* SHOP SEARCH FILTERING SISTEM OBLIK BOJE*/
 
 .horizontal-line {
     width: 5%;
@@ -436,27 +436,72 @@ footer .copyright img {
 }
 
 #center-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    /* This makes it take up the full viewport height */
     text-align: center;
-    /* This centers the text horizontally */
     font-size: 24px;
+    color: #333;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.search-container input[type="text"],
+.search-container select,
+.search-container button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-container input[type="range"] {
+    cursor: pointer;
+}
+
+.search-container button {
+    font-size: 0.8rem;
+    font-weight: 900;
+    outline: none;
+    border: 2px solid goldenrod;
+    background-color: white;
     color: black;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 15px;
+    width: 50%;
+    margin: 120px
+}
+
+.search-container button:hover {
+    background-color: goldenrod;
+    border: 4px solid goldenrod;
+    color: black;
+}
+
+.search-container label {
+    font-weight: 100;
+    color: black;
+}
+
+.search-container input[type="checkbox"] {
+    margin-left: 5px;
 }
 
 
 /* SHOP search filter*/
 
-* SHOP search filter */ .search-bar {
+.search-bar {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* Updated */
     margin: 30px 0;
-    /* Updated */
 }
 
 .search-box {
@@ -1416,7 +1461,7 @@ label {
 .container3 .card-container3 .front .imagepayment {
     border: 2px solid gray;
     box-shadow: 0 5px 35px black;
-    background: url(../imgs/17.jpeg);
+    background: url(../imgs/2.jpeg);
     border-radius: 40px;
     padding-top: 20px;
     padding-bottom: 30px;
@@ -1512,7 +1557,7 @@ label {
     bottom: 109px;
     border: 2px solid gray;
     box-shadow: 0 5px 35px black;
-    background: url(../imgs/17.jpeg);
+    background: url(../imgs/2.jpeg);
     border-radius: 40px;
     padding-top: 20px;
     padding-bottom: 260px;
@@ -1559,6 +1604,18 @@ label {
     margin-top: 65px;
     margin-left: -11px;
     height: 76px;
+}
+
+.container3 .card-container3.rotate .front {
+    transform: perspective(100px) rotateY(180deg);
+}
+
+.container3 .card-container3.rotate .back {
+    transform: perspective(100px) rotateY(0deg);
+}
+
+.container3 .card-container3.hover .back {
+    transform: perspective(1000px) rotateY(0deg);
 }
 
 

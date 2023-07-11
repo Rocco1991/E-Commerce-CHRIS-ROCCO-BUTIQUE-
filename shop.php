@@ -105,26 +105,128 @@ if (isset($_POST['search'])) {
 <br>
 <br>
 <br>
-    <section id="featured" class="my-5 py-5">
-    <div class="container mt-5 py-5">
-        <h2>OUR PRODUCTS & SHOP:</h2>
-        <!-- SEARCH BAR -->
-        <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search for clothes, shoes, perfumes..." oninput="searchFunction()" />
-        <span class="search-icon">&#128269;</span>
-        <div id="search-results" class="search-results"></div>
-        </div>
-        </div>
-    </section>
-
+    
         <hr class="horizontal-line">
         <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS...</p>
-       
-        <div class="row mx-auto container-fluid">
 
         <div class="row mx-auto container-fluid">
 
-        
+       <!-- SEARCH FILTER -->
+         <section id="featured" class="my-5 py-5">
+        <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for clothes, shoes, perfumes..." oninput="searchFunction()" />
+        <br>
+        <select name="category" id="category">
+            <option value="">All Categories</option>
+            <option value="coats">Coats</option>
+            <option value="shoes">Shoes</option>
+            <option value="watches">Watches</option>
+            <option value="perfumes">Perfumes</option>
+            <option value="bags">Bags</option>
+            <option value="gloves">Gloves</option>
+        </select>
+        <!-- PRICE SLIDER BAR -->
+        <input type="range" name="price" id="price" min="0" max="10000" value="0" step="10" oninput="updatePriceRange(this.value)" />
+        <span id="price-range">0 - 10000</span>
+        <!-- STOCK -->
+        <label for="stock-items">In Stock Items</label>
+        <input type="checkbox" id="stock-items" name="stock-items">
+        <label for="sale-items">On Sale Items</label>
+        <input type="checkbox" id="sale-items" name="sale-items">
+        <!-- COLORS -->
+        <label for="color">COLORS :</label>
+        <select name="color" id="color">
+            <option value="All">All Colors</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="gray">Gray</option>
+            <option value="brown">Brown</option>
+            <option value="golden">Golden</option>
+            <option value="silver">Silver</option>
+        </select>
+        <!-- SIZES -->
+        <label for="size">SIZES :</label>
+        <select name="size" id="size">
+            <option value="All">All Sizes</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select>
+        <!-- TAGS -->
+        <label for="tags">TAGS :</label>
+        <form>
+            <label for="coats">Coats</label>
+            <input type="checkbox" id="coats" name="tags" value="coats">
+
+            <label for="shoes">Shoes</label>
+            <input type="checkbox" id="shoes" name="tags" value="shoes">
+
+            <label for="watch">Watches</label>
+            <input type="checkbox" id="watches" name="tags" value="watches">
+
+            <label for="parfumes">Parfumes</label>
+            <input type="checkbox" id="parfumes" name="tags" value="parfumes">
+
+            <label for="bags">Bags</label>
+            <input type="checkbox" id="bags" name="tags" value="bags">
+
+            <label for="gloves">Gloves</label>
+            <input type="checkbox" id="gloves" name="tags" value="gloves">
+
+            <label for="men">Men</label>
+            <input type="checkbox" id="men" name="tags" value="men">
+
+            <label for="women">Women</label>
+            <input type="checkbox" id="women" name="tags" value="women">
+
+            <label for="children">Children</label>
+            <input type="checkbox" id="children" name="tags" value="children">
+
+            <label for="kids">Kids</label>
+            <input type="checkbox" id="kids" name="tags" value="kids">
+
+            <label for="boys">Boys</label>
+            <input type="checkbox" id="boys" name="tags" value="boys">
+
+             <label for="girls">Girls</label>
+            <input type="checkbox" id="girls" name="tags" value="girls">
+
+            <label for="phone">Phone</label>
+            <input type="checkbox" id="phone" name="tags" value="phone">
+
+            <label for="sport">Sport</label>
+            <input type="checkbox" id="sport" name="tags" value="sport">
+
+            <label for="retro">Retro</label>
+            <input type="checkbox" id="retro" name="tags" value="retro">
+
+            <label for="modern">Modern</label>
+            <input type="checkbox" id="modern" name="tags" value="modern">
+
+            <label for="formal">Formal</label>
+            <input type="checkbox" id="formal" name="tags" value="formal">
+
+            <label for="casual">Casual</label>
+            <input type="checkbox" id="casual" name="tags" value="casual">
+
+            <label for="apple">Apple</label>
+            <input type="checkbox" id="apple" name="tags" value="apple">
+
+            <label for="android">Android</label>
+            <input type="checkbox" id="android" name="tags" value="android">
+
+            <label for="iphone">Iphone</label>
+            <input type="checkbox" id="iphone" name="tags" value="iphone">
+
+        </form>
+        <!-- SEARCH BUTTON  -->
+        <button type="submit" name="search" class="btn btn-primary">Search products</button>
+    </div>
+</section>
 
             <?php include('server/get_featured_products.php');  ?>
             
@@ -242,7 +344,7 @@ if (isset($_POST['search'])) {
                     </div>
 
                     <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                        <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
+                        <p>eCommerce CHRIS ROCCO All Rights Reserved JUNE 2023</p>
                     </div>
                 </div>
             </div>
@@ -253,26 +355,35 @@ if (isset($_POST['search'])) {
     </footer>
 
   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
       <!--JS FOR FILTERING PRODUCTS-->
       <script>
-        document.getElementById('search-input').addEventListener('input', function() {
-            var query = this.value.toLowerCase();
-            var items = document.getElementsByClassName('product');
+        function filterProducts() {
+            var category = document.getElementById("category").value;
+            var price = document.getElementById("price").value;
 
-            for (var i = 0; i < items.length; i++) {
-                var item = items[i];
-                var title = item.getElementsByTagName('h5')[0].innerText.toLowerCase();
-
-                if (title.includes(query)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("product-list").innerHTML = xhr.responseText;
                 }
-            }
-        });
+            };
+            xhr.open("POST", "server/filter_products.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("category=" + category + "&price=" + price);
+        }
     </script>
+
+<!--JS FOR SLIDER-->
+    <script>
+    function updatePriceRange(value) {
+        var priceRangeElement = document.getElementById("price-range");
+        priceRangeElement.textContent = "0 - " + value;
+    }
+    </script>   
 
     
 </body>

@@ -8,7 +8,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $card_holder = $_POST['card_holder'];
     $expiration_month = $_POST['expiration_month'];
     $expiration_year = $_POST['expiration_year'];
-    $cvv = $_POST['cvv'];
+
+    // Check if the "cvv" key exists in the $_POST array
+    if (isset($_POST['cvv'])) {
+        $cvv = $_POST['cvv'];
+    } else {
+        $cvv = ''; // Assign an empty value if "cvv" key is not present
+    }
 
     // Validate input (you can add more validation rules as needed)
     if (empty($card_number) || empty($card_holder) || empty($expiration_month) || empty($expiration_year) || empty($cvv)) {
@@ -30,10 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,6 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -328,71 +333,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved JUNE 2023</p>
                 </div>
             </div>
         </div>
 
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="payment.html"><i class="fa fa-chevron-up"></i></a>
+            <a href="payment.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-
-    <script>
-    document.querySelector('.card-number-input').oninput = () => {
-        document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
-    }
-
-    document.querySelector('.card-holder-input').oninput = () => {
-        document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value;
-    }
-
-    document.querySelector('.month-input').oninput = () => {
-        document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value;
-    }
-
-    document.querySelector('.year-input').oninput = () => {
-        document.querySelector('.exp-year').innerText = document.querySelector('.year-input').value;
-    }
-
-    document.querySelector('.cvv-input').oninput = () => {
-        document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
-    }
-
-    document.querySelector('form').addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the form from submitting
-
-        var cardNumber = document.querySelector('.card-number-input').value;
-        var cardHolder = document.querySelector('.card-holder-input').value;
-        var expirationMonth = document.querySelector('.month-input').value;
-        var expirationYear = document.querySelector('.year-input').value;
-        var cvv = document.querySelector('.cvv-input').value;
-
-        if (cardNumber === '' || cardHolder === '' || expirationMonth === 'month' || expirationYear === 'year' || cvv === '') {
-            alert('Please fill in all the required fields.');
-        } else {
-            // Process payment (you can integrate a payment gateway here)
-            // ...
-
-            // Set session variable to indicate payment was successful
-            // Assuming you have the session_start() at the top of your PHP code
-            <?php $_SESSION['paid'] = true; ?>
-
-            // Redirect to the desired page after successful payment
-            window.location.href = 'index.php';
-        }
-    });
-</script>
-
-</body>
-</html>
-
-
-
+   
 
 </body>
 
