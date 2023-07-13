@@ -126,8 +126,8 @@ if (isset($_POST['search'])) {
             <option value="gloves">Gloves</option>
         </select>
         <!-- PRICE SLIDER BAR -->
-        <input type="range" name="price" id="price" min="0" max="10000" value="0" step="10" oninput="updatePriceRange(this.value)" />
-        <span id="price-range">0 - 10000</span>
+        <input type="range" name="price" id="price" min="0" max="10000" value="0" step="1" oninput="updatePriceRange(this.value)" />
+        <span id="price-range">0 - 10000 Euros</span>
         <!-- STOCK -->
         <label for="stock-items">In Stock Items</label>
         <input type="checkbox" id="stock-items" name="stock-items">
@@ -135,6 +135,7 @@ if (isset($_POST['search'])) {
         <input type="checkbox" id="sale-items" name="sale-items">
         <!-- COLORS -->
         <label for="color">COLORS :</label>
+        <hr>
         <select name="color" id="color">
             <option value="All">All Colors</option>
             <option value="red">Red</option>
@@ -149,6 +150,7 @@ if (isset($_POST['search'])) {
         </select>
         <!-- SIZES -->
         <label for="size">SIZES :</label>
+        <hr>
         <select name="size" id="size">
             <option value="All">All Sizes</option>
             <option value="S">S</option>
@@ -158,6 +160,7 @@ if (isset($_POST['search'])) {
         </select>
         <!-- TAGS -->
         <label for="tags">TAGS :</label>
+        <hr>
         <form>
             <label for="coats">Coats</label>
             <input type="checkbox" id="coats" name="tags" value="coats">
@@ -384,6 +387,9 @@ if (isset($_POST['search'])) {
         priceRangeElement.textContent = "0 - " + value;
     }
     </script>   
+
+    
+    
 
     
 </body>
