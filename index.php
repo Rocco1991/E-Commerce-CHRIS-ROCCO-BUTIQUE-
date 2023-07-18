@@ -107,6 +107,8 @@
             <br>
         </div>
     </section>
+    <!-- IMAGE LOOP -->
+    <div id="imageContainer"></div>
 
     <!-- BRANDS -->
     <section id="brand" class="container">
@@ -640,7 +642,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved JUNE 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved JULY 2023</p>
                 </div>
             </div>
         </div>
@@ -657,6 +659,27 @@
    <!-- BOOTSTRAP LINK -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+    <!-- JS LOOP PIC -->
+    <script>
+    var imageArray = ['assets/imgs/Expensive-parfume.jpg', 'assets/imgs/Modern-Basketball-Shoes.jpg', 'assets/imgs/Retro-Suite.jpg']; // Adjusted paths
+
+    var imageIndex = 0;
+
+    function displayNextImage() {
+        var img = document.createElement('img');
+        img.src = imageArray[imageIndex];
+        img.style.width = '100%';
+
+        var container = document.getElementById('imageContainer');
+        container.innerHTML = '';
+        container.appendChild(img);
+
+        imageIndex = (imageIndex + 1) % imageArray.length; // Loop back to the start when end of array is reached
+    }
+
+    displayNextImage(); // Display the first image immediately
+    setInterval(displayNextImage, 3000); // Change image every 3 seconds
+</script>
 </body>
 
 </html>

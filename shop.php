@@ -6,7 +6,7 @@ if (isset($_POST['search'])) {
     $category = $_POST['category'];
     $price = $_POST['price'];
 
-    $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price<=?");
+    $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=?");
     $stmt->bind_param('si', $category, $price);
     $stmt->execute();
     $products = $stmt->get_result();
@@ -35,6 +35,7 @@ if (isset($_POST['search'])) {
 
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
+
 
 </head>
 
@@ -91,11 +92,7 @@ if (isset($_POST['search'])) {
   </div>
 </nav>
     
-   
-
-
-
-    <!-- Featured products / SHOP -->
+ <br>
 <br>
 <br>
 <br>
@@ -104,64 +101,67 @@ if (isset($_POST['search'])) {
 <br>
 <br>
 <br>
-<br>
-    
-        <hr class="horizontal-line">
-        <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS...</p>
-
-        <div class="row mx-auto container-fluid">
-
-       <!-- SEARCH FILTER -->
-         <section id="featured" class="my-5 py-5">
-        <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search for clothes, shoes, perfumes..." oninput="searchFunction()" />
-        <br>
-        <select name="category" id="category">
-            <option value="">All Categories</option>
-            <option value="coats">Coats</option>
-            <option value="shoes">Shoes</option>
-            <option value="watches">Watches</option>
-            <option value="perfumes">Perfumes</option>
-            <option value="bags">Bags</option>
-            <option value="gloves">Gloves</option>
-        </select>
-        <!-- PRICE SLIDER BAR -->
-        <input type="range" name="price" id="price" min="0" max="10000" value="0" step="1" oninput="updatePriceRange(this.value)" />
-        <span id="price-range">0 - 10000 Euros</span>
-        <!-- STOCK -->
-        <label for="stock-items">In Stock Items</label>
-        <input type="checkbox" id="stock-items" name="stock-items">
-        <label for="sale-items">On Sale Items</label>
-        <input type="checkbox" id="sale-items" name="sale-items">
-        <!-- COLORS -->
-        <label for="color">COLORS :</label>
-        <hr>
-        <select name="color" id="color">
-            <option value="All">All Colors</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="white">White</option>
-            <option value="gray">Gray</option>
-            <option value="brown">Brown</option>
-            <option value="golden">Golden</option>
-            <option value="silver">Silver</option>
-        </select>
-        <!-- SIZES -->
-        <label for="size">SIZES :</label>
-        <hr>
-        <select name="size" id="size">
-            <option value="All">All Sizes</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="XL">XL</option>
-            <option value="XXL">XXL</option>
-        </select>
-        <!-- TAGS -->
-        <label for="tags">TAGS :</label>
-        <hr>
-        <form>
+ <!-- SEARCH FILTER -->
+<section id="featured" class="my-5 py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for products..." oninput="searchFunction()" />
+                    <br>
+                    <select name="category" id="category">
+                        <option value="all">All Categories</option>
+                        <option value="coats" id="coats">Coats</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="watches">Watches</option>
+                        <option value="perfumes">Perfumes</option>
+                        <option value="bags">Bags</option>
+                        <option value="gloves">Gloves</option>
+                    </select>
+                    <br>
+                    <hr>
+                    <br>
+                    <input type="range" name="price" id="price" min="0" max="100000" value="0" step="1" oninput="updatePriceRange(this.value)" />
+                    <span id="price-range">0 - 100000 Euros</span>
+                    <hr>
+                    <label for="stock-items">In Stock Items</label>
+                    <input type="checkbox" id="stock-items" name="stock-items">
+                    <label for="sale-items">On Sale Items</label>
+                    <input type="checkbox" id="sale-items" name="sale-items">
+                    <br>
+                    <label for="color">COLORS :</label>
+                    <hr>
+                    <select name="color" id="color">
+                        <option value="all">All Colors</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                         <option value="yellow">Yellow</option>
+                        <option value="gray">Gray</option>
+                        <option value="brown">Brown</option>
+                        <option value="rose">Rose</option>
+                        <option value="golden">Golden</option>
+                        <option value="silver">Silver</option>
+                    </select>
+                    <br>
+                    <label for="size">ALL SIZES :</label>
+                    <hr>
+                    <select name="size" id="size">
+                        <option value="All">All Sizes</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="XL">XL</option>
+                        <option value="2XL">2XL</option>
+                        <option value="3XL">3XL</option>
+                        <option value="4XL">4XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                    <br>
+                    <label for="tags">TAGS :</label>
+                    <hr>
+                    <form>          
             <label for="coats">Coats</label>
             <input type="checkbox" id="coats" name="tags" value="coats">
 
@@ -198,12 +198,6 @@ if (isset($_POST['search'])) {
              <label for="girls">Girls</label>
             <input type="checkbox" id="girls" name="tags" value="girls">
 
-            <label for="phone">Phone</label>
-            <input type="checkbox" id="phone" name="tags" value="phone">
-
-            <label for="sport">Sport</label>
-            <input type="checkbox" id="sport" name="tags" value="sport">
-
             <label for="retro">Retro</label>
             <input type="checkbox" id="retro" name="tags" value="retro">
 
@@ -216,6 +210,12 @@ if (isset($_POST['search'])) {
             <label for="casual">Casual</label>
             <input type="checkbox" id="casual" name="tags" value="casual">
 
+            <label for="phone">Phone</label>
+            <input type="checkbox" id="phone" name="tags" value="phone">
+
+            <label for="sport">Sport</label>
+            <input type="checkbox" id="sport" name="tags" value="sport">
+            
             <label for="apple">Apple</label>
             <input type="checkbox" id="apple" name="tags" value="apple">
 
@@ -224,55 +224,130 @@ if (isset($_POST['search'])) {
 
             <label for="iphone">Iphone</label>
             <input type="checkbox" id="iphone" name="tags" value="iphone">
+                        <!-- Add other checkbox options here -->
+                        <!-- ... -->
+                        <button type="submit" name="search" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
 
-        </form>
-        <!-- SEARCH BUTTON  -->
-        <button type="submit" name="search" class="btn btn-primary">Search products</button>
+            <div class="col-lg-9">
+                <hr class="horizontal-line">
+                <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS...</p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <?php include('server/get_featured_products.php'); ?>
+                    <?php while ($row = $featured_products->fetch_assoc()) { ?>
+                        <!-- Loop for displaying products -->
+                        <div class="product text-center col-lg-4 col-md-6 col-sm-12">
+                            <!-- Product content goes here -->
+                            <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
+                            <div class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                            <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+                            <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination mt-5">
+                        <!-- Pagination links go here -->
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </section>
 
-            <?php include('server/get_featured_products.php');  ?>
-            
-
-            <?php while ($row = $featured_products->fetch_assoc()) { ?>       
-
-                
-
-            <!-- Loop za sve proizvode -->
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class="p-name">  <?php echo $row['product_name']; ?>  </h5>
-                <h4 class="p-price">$  <?php echo $row['product_price']; ?>   </h4>
-                <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?> "><button class="text-uppercase buy-btn">Buy Now</button></a>
-            </div>
-            
-           <?php } ?>
-            
-        </div>
-            
 
 
-            <nav aria-label="Page navigation example">
+<!-- JS CODE FOR SHOP -->
+<script>
+    // Get all the filter elements
+    const tagsCheckboxes = document.querySelectorAll('input[name="tags"]');
+    const colorSelect = document.getElementById('color');
+    const products = document.querySelectorAll('.product');
 
-                <ul class="pagination mt-5">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
+    // Add event listeners to the filter elements
+    tagsCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateFilters);
+    });
 
+    colorSelect.addEventListener('change', updateFilters);
 
-        </div>
-    </section>
+    // Function to update the product filters
+    function updateFilters() {
+        // Get the selected tags and color
+        const selectedTags = Array.from(tagsCheckboxes)
+            .filter((checkbox) => checkbox.checked)
+            .map((checkbox) => checkbox.value);
+        const selectedColor = colorSelect.value;
+
+        // Loop through all the product elements
+        products.forEach((product) => {
+            const productTags = Array.from(product.querySelectorAll('.product-tag')).map((tag) => tag.dataset.tag);
+            const productColor = product.dataset.color;
+
+            // Check if the product matches the selected filters
+            const showProduct =
+                (selectedTags.length === 0 || selectedTags.some((tag) => productTags.includes(tag))) &&
+                (selectedColor === 'All' || selectedColor === productColor);
+
+            // Show or hide the product based on the filters
+            product.style.display = showProduct ? 'block' : 'none';
+        });
+    }
+
+    // Function to update the price range
+    function updatePriceRange(value) {
+        var priceRangeElement = document.getElementById("price-range");
+        priceRangeElement.textContent = "0 - " + value;
+    }
+
+    // Function to handle the search functionality
+    function searchFunction() {
+        var form = document.getElementById("search-form");
+        var category = form.category.value;
+        var price = form.price.value;
+
+        // Perform AJAX request to fetch filtered products based on search criteria
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Update the HTML content with the fetched products
+                document.getElementById("products-container").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "server/get_filtered_products.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("category=" + category + "&price=" + price);
+    }
+
+    // Add event listener to the form's onsubmit event
+    const searchForm = document.getElementById("search-form");
+    searchForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        searchFunction();
+    });
+</script>
+
 
 
 
@@ -347,7 +422,7 @@ if (isset($_POST['search'])) {
                     </div>
 
                     <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                        <p>eCommerce CHRIS ROCCO All Rights Reserved JUNE 2023</p>
+                        <p>eCommerce CHRIS ROCCO All Rights Reserved JULY 2023</p>
                     </div>
                 </div>
             </div>
@@ -362,36 +437,7 @@ if (isset($_POST['search'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-      <!--JS FOR FILTERING PRODUCTS-->
-      <script>
-        function filterProducts() {
-            var category = document.getElementById("category").value;
-            var price = document.getElementById("price").value;
-
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById("product-list").innerHTML = xhr.responseText;
-                }
-            };
-            xhr.open("POST", "server/filter_products.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.send("category=" + category + "&price=" + price);
-        }
-    </script>
-
-<!--JS FOR SLIDER-->
-    <script>
-    function updatePriceRange(value) {
-        var priceRangeElement = document.getElementById("price-range");
-        priceRangeElement.textContent = "0 - " + value;
-    }
-    </script>   
-
-    
-    
-
-    
+ 
 </body>
 
 </html>

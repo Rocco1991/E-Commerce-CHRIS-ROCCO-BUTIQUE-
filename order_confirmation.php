@@ -1,30 +1,38 @@
 <?php
-// Connect to database
-$mysqli = new mysqli("localhost", "username", "password", "database_name");
+session_start(); // Start the session
 
+// Connect to database
+$mysqli = new mysqli("localhost", "root", "", "chris_rocco_butique");
 // Check connection
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
+$order_id = 'Your order id here'; // Get the order id here. This might be from a form submission, database, or other source
+$product_number = 'Your product number here'; // Get the product number here. This might be from a form submission, database, or other source
+$_SESSION['total'] = 'Your total here'; // Get the total amount here. This might be from a form submission, database, or other source
+
 // Check if payment has been made
 if (isset($_POST['payment_id'])) {
     $payment_id = $_POST['payment_id'];
-    $query = "UPDATE payments SET status = 'paid' WHERE id = $payment_id";
-    if ($mysqli->query($query) === TRUE) {
+    $stmt = $mysqli->prepare("UPDATE payments SET status = 'paid' WHERE id = ?");
+    $stmt->bind_param("i", $payment_id);
+
+    if ($stmt->execute()) {
         // Payment status updated successfully, redirect user to payment.php
         header("Location: payment.php");
         exit;
     } else {
         // Error updating payment status
-        echo "Error: " . $query . "<br>" . $mysqli->error;
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
 }
 
 // Close database connection
 $mysqli->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,8 +121,7 @@ $mysqli->close();
     <br>
     <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
     <br>
-    <p>Please remember this number. Your order number is: <?php echo $order_id; ?></p>
-    <br>
+    <p>Please remember this number: Your order number is: <?php echo $order_id; ?></p>    <br>
     <br>
     <!-- We will send you an email confirmation shortly. -->
     <br>
@@ -130,7 +137,16 @@ $mysqli->close();
     <br>
     <br>
     <br>
-    <!-- <a href="../index.php">BACK TO MAIN PAGE</a>  -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="../index.php">BACK TO MAIN PAGE</a> 
     
   </div>
 
@@ -206,7 +222,7 @@ $mysqli->close();
                     </div>
 
                     <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                        <p>eCommerce CHRIS ROCCO All Rights Reserved MAY 2023</p>
+                        <p>eCommerce CHRIS ROCCO All Rights Reserved JULY 2023</p>
                     </div>
                 </div>
             </div>

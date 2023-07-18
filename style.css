@@ -9,7 +9,7 @@ button {
     font-size: 0.8rem;
     font-weight: 900;
     outline: none;
-    border: 4px solid goldenrod;
+    border: 1px solid goldenrod;
     background-color: white;
     color: black;
     padding: 13px 30px;
@@ -144,6 +144,15 @@ p {
     font-weight: 200;
 }
 
+
+/* IMAGELOOP */
+
+#imageContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 250px;
+}
+
 #new .one img {
     width: 100%;
     height: 100%;
@@ -199,10 +208,6 @@ p {
 .product {
     cursor: pointer;
     margin-bottom: 2rem;
-}
-
-.product img {
-    transition: 0.3s all;
 }
 
 .product:hover img {
@@ -341,11 +346,10 @@ footer .copyright img {
     height: 45px;
     z-index: 999999;
     font-size: 20px;
-    line-height: 50px;
+    line-height: 40px;
     text-align: center;
     color: goldenrod;
-    border: 4px solid gold;
-    box-shadow: 0 20px 20px goldenrod;
+    border: 1px solid black;
     border-radius: 0;
     text-decoration: none;
     background-color: #fff;
@@ -363,7 +367,7 @@ footer .copyright img {
 
 .scrollToTop:hover {
     color: white;
-    background-color: wheat;
+    background-color: gainsboro;
     text-align: center;
 }
 
@@ -374,7 +378,7 @@ footer .copyright img {
 
 .fa {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: 14px fontawesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -426,7 +430,7 @@ footer .copyright img {
 
 .search-container {
     position: relative;
-    max-width: 450px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 1rem;
     display: flex;
@@ -478,8 +482,8 @@ footer .copyright img {
     cursor: pointer;
     transition: 0.3s ease;
     border-radius: 15px;
-    width: 40%;
-    margin: 120px
+    width: 50%;
+    margin: 50px
 }
 
 .search-container button:hover {
@@ -532,10 +536,11 @@ footer .copyright img {
 }
 
 .product img {
-    width: 80%;
+    width: 50%;
     height: auto;
     box-sizing: border-box;
     object-fit: cover;
+    transition: 0.3s all;
 }
 
 .form-check .form-check-input {
@@ -1431,7 +1436,7 @@ label {
     padding: 10px;
     font-size: 20px;
     color: black;
-    border: 4px solid goldenrod;
+    border: 1px solid goldenrod;
     border-radius: 40px;
     text-transform: uppercase;
     text-align: center;

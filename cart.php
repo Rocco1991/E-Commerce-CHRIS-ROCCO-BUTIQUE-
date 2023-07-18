@@ -287,10 +287,6 @@ function calculateTotalCart(){
                     
                <?php endif; ?>           
            </div>
-
-
-
-
     </section>
 
 
@@ -367,7 +363,7 @@ function calculateTotalCart(){
                 </div>
 
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved JUNE 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved JULY 2023</p>
                 </div>
             </div>
         </div>
