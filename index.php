@@ -107,8 +107,11 @@
             <br>
         </div>
     </section>
-    <!-- IMAGE LOOP -->
+
+    <!-- IMAGES LOOP -->
     <div id="imageContainer"></div>
+
+     
 
     <!-- BRANDS -->
     <section id="brand" class="container">
@@ -186,8 +189,10 @@
     <img class="img-fluid col-lg-3 col-md-6 col-sm-12 brand-icon" src="assets/imgs/MODNE MARKE/Zara-logo.jpg">
   </div>
 </section>
-
-
+<br>
+<br>
+<br>
+<br>
     <!-- New -->
     <section id="new" class="w-100">
         <div class="row p-0 m-0">
@@ -569,6 +574,42 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS -->
+        <div class="testimonial-section">
+        <h2></h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="testimonial-slider" id="testimonial-slider">
+            <div class="testimonial">
+                <img src="/assets/imgs/Testimonials/SarahJohnson.jpg" alt="Sarah Johnson">
+                <p class="quote">"I love shopping on this website! The products are of great quality, and the customer service is outstanding. Highly recommended! I'm a satisfied customer!"</p>
+                <p class="author">- Sarah Johnson</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="/assets/imgs/Testimonials/MichaelSmith.jpg" alt="Michael Smith">
+                <p class="quote">"This is my go-to online store for all my fashion needs. The selection is fantastic, and they always have the latest trends. I'm a satisfied customer!"</p>
+                <p class="author">- Michael Smith</p>
+            </div>
+
+            <div class="testimonial">
+                <img src="/assets/imgs/Testimonials/EmilyAdams.jpg" alt="Emily Adams">
+                <p class="quote">"I had a great experience shopping here. The website is easy to navigate, and I received my order quickly. Will definitely shop here again!"</p>
+                <p class="author">- Emily Adams</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+   
+
     <!-- Footer -->
     <footer class="mt-5 py-5">
         <div class="row container mx-auto pt-5">
@@ -661,7 +702,8 @@
 
     <!-- JS LOOP PIC -->
     <script>
-    var imageArray = ['assets/imgs/Expensive-parfume.jpg', 'assets/imgs/Modern-Basketball-Shoes.jpg', 'assets/imgs/Retro-Suite.jpg']; // Adjusted paths
+    var imageArray = ['assets/imgs/LoopPics/Coats-1.jpg', 'assets/imgs/LoopPics/Coats-2.jpg', 'assets/imgs/LoopPics/Coats-3.jpg', 'assets/imgs/LoopPics/Coats-4.jpg', 'assets/imgs/LoopPics/Coats-5.jpg', 'assets/imgs/LoopPics/Parfume-1.jpg', 'assets/imgs/LoopPics/Parfume-2.jpg', 'assets/imgs/LoopPics/Parfume-3.jpg', 'assets/imgs/LoopPics/Parfume-4.jpg',
+                      'assets/imgs/LoopPics/Parfume-5.jpg', 'assets/imgs/LoopPics/Shoes-1.jpg', 'assets/imgs/LoopPics/Shoes-2.jpg', 'assets/imgs/LoopPics/Shoes-3.jpg', 'assets/imgs/LoopPics/Shoes-4.jpg', ]; // Adjusted paths
 
     var imageIndex = 0;
 
@@ -678,8 +720,9 @@
     }
 
     displayNextImage(); // Display the first image immediately
-    setInterval(displayNextImage, 3000); // Change image every 3 seconds
+    setInterval(displayNextImage, 4000); // Change image every 4 seconds
 </script>
+
 </body>
 
 </html>

@@ -5,9 +5,17 @@ include('server/connection.php');
 if (isset($_POST['search'])) {
     $category = $_POST['category'];
     $price = $_POST['price'];
+    $color = $_POST['color'];
 
-    $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=?");
-    $stmt->bind_param('si', $category, $price);
+    // Prepare the SQL statement with color filtering
+    if ($color === 'all') {
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=?");
+        $stmt->bind_param('si', $category, $price);
+    } else {
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=? AND product_color=?");
+        $stmt->bind_param('sis', $category, $price, $color);
+    }
+
     $stmt->execute();
     $products = $stmt->get_result();
 
@@ -278,75 +286,7 @@ if (isset($_POST['search'])) {
 
 
 
-<!-- JS CODE FOR SHOP -->
-<script>
-    // Get all the filter elements
-    const tagsCheckboxes = document.querySelectorAll('input[name="tags"]');
-    const colorSelect = document.getElementById('color');
-    const products = document.querySelectorAll('.product');
 
-    // Add event listeners to the filter elements
-    tagsCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', updateFilters);
-    });
-
-    colorSelect.addEventListener('change', updateFilters);
-
-    // Function to update the product filters
-    function updateFilters() {
-        // Get the selected tags and color
-        const selectedTags = Array.from(tagsCheckboxes)
-            .filter((checkbox) => checkbox.checked)
-            .map((checkbox) => checkbox.value);
-        const selectedColor = colorSelect.value;
-
-        // Loop through all the product elements
-        products.forEach((product) => {
-            const productTags = Array.from(product.querySelectorAll('.product-tag')).map((tag) => tag.dataset.tag);
-            const productColor = product.dataset.color;
-
-            // Check if the product matches the selected filters
-            const showProduct =
-                (selectedTags.length === 0 || selectedTags.some((tag) => productTags.includes(tag))) &&
-                (selectedColor === 'All' || selectedColor === productColor);
-
-            // Show or hide the product based on the filters
-            product.style.display = showProduct ? 'block' : 'none';
-        });
-    }
-
-    // Function to update the price range
-    function updatePriceRange(value) {
-        var priceRangeElement = document.getElementById("price-range");
-        priceRangeElement.textContent = "0 - " + value;
-    }
-
-    // Function to handle the search functionality
-    function searchFunction() {
-        var form = document.getElementById("search-form");
-        var category = form.category.value;
-        var price = form.price.value;
-
-        // Perform AJAX request to fetch filtered products based on search criteria
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Update the HTML content with the fetched products
-                document.getElementById("products-container").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("POST", "server/get_filtered_products.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("category=" + category + "&price=" + price);
-    }
-
-    // Add event listener to the form's onsubmit event
-    const searchForm = document.getElementById("search-form");
-    searchForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form submission
-        searchFunction();
-    });
-</script>
 
 
 
@@ -437,6 +377,75 @@ if (isset($_POST['search'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+        <!-- JS CODE FOR SHOP -->
+<script>
+    // Get all the filter elements
+    const tagsCheckboxes = document.querySelectorAll('input[name="tags"]');
+    const colorSelect = document.getElementById('color');
+    const products = document.querySelectorAll('.product');
+
+    // Add event listeners to the filter elements
+    tagsCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateFilters);
+    });
+
+    colorSelect.addEventListener('change', updateFilters);
+
+    // Function to update the product filters
+    function updateFilters() {
+        // Get the selected tags and color
+        const selectedTags = Array.from(tagsCheckboxes)
+            .filter((checkbox) => checkbox.checked)
+            .map((checkbox) => checkbox.value);
+        const selectedColor = colorSelect.value;
+
+        // Loop through all the product elements
+        products.forEach((product) => {
+            const productTags = Array.from(product.querySelectorAll('.product-tag')).map((tag) => tag.dataset.tag);
+            const productColor = product.dataset.color;
+
+            // Check if the product matches the selected filters
+            const showProduct =
+                (selectedTags.length === 0 || selectedTags.some((tag) => productTags.includes(tag))) &&
+                (selectedColor === 'All' || selectedColor === productColor);
+
+            // Show or hide the product based on the filters
+            product.style.display = showProduct ? 'block' : 'none';
+        });
+    }
+
+    // Function to update the price range
+    function updatePriceRange(value) {
+        var priceRangeElement = document.getElementById("price-range");
+        priceRangeElement.textContent = "0 - " + value;
+    }
+
+    // Function to handle the search functionality
+    function searchFunction() {
+        var form = document.getElementById("search-form");
+        var category = form.category.value;
+        var price = form.price.value;
+
+        // Perform AJAX request to fetch filtered products based on search criteria
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Update the HTML content with the fetched products
+                document.getElementById("products-container").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "server/get_filtered_products.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("category=" + category + "&price=" + price);
+    }
+
+    // Add event listener to the form's onsubmit event
+    const searchForm = document.getElementById("search-form");
+    searchForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        searchFunction();
+    });
+</script>
  
 </body>
 
