@@ -9,7 +9,7 @@ if (isset($_POST['search'])) {
 
     // Prepare the SQL statement with color filtering
     if ($color === 'all') {
-        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=?");
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price<=?");
         $stmt->bind_param('si', $category, $price);
     } else {
         $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=? AND product_color=?");
@@ -44,6 +44,9 @@ if (isset($_POST['search'])) {
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    
+
+    
 
 </head>
 
@@ -234,14 +237,14 @@ if (isset($_POST['search'])) {
             <input type="checkbox" id="iphone" name="tags" value="iphone">
                         <!-- Add other checkbox options here -->
                         <!-- ... -->
-                        <button type="submit" name="search" class="btn btn-primary">Search</button>
+                        <button type="submit" name="search" value="search" class="btn btn-primary">Search</button>
                     </form>
                 </div>
             </div>
 
             <div class="col-lg-9">
                 <hr class="horizontal-line">
-                <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS...</p>
+                <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS:</p>
                 <br>
                 <br>
                 <br>
@@ -379,17 +382,30 @@ if (isset($_POST['search'])) {
 
         <!-- JS CODE FOR SHOP -->
 <script>
+    // Function to handle the search functionality
+    function searchFunction() {
+        var form = document.getElementById("search-form");
+        var category = form.category.value;
+        var price = form.price.value;
+        var color = form.color.value;
+
+        // Perform AJAX request to fetch filtered products based on search criteria
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Update the HTML content with the fetched products
+                document.getElementById("products-container").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "server/get_filtered_products.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("category=" + category + "&price=" + price + "&color=" + color);
+    }
+
     // Get all the filter elements
     const tagsCheckboxes = document.querySelectorAll('input[name="tags"]');
     const colorSelect = document.getElementById('color');
     const products = document.querySelectorAll('.product');
-
-    // Add event listeners to the filter elements
-    tagsCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', updateFilters);
-    });
-
-    colorSelect.addEventListener('change', updateFilters);
 
     // Function to update the product filters
     function updateFilters() {
@@ -420,24 +436,12 @@ if (isset($_POST['search'])) {
         priceRangeElement.textContent = "0 - " + value;
     }
 
-    // Function to handle the search functionality
-    function searchFunction() {
-        var form = document.getElementById("search-form");
-        var category = form.category.value;
-        var price = form.price.value;
+    // Add event listeners to the filter elements
+    tagsCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateFilters);
+    });
 
-        // Perform AJAX request to fetch filtered products based on search criteria
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Update the HTML content with the fetched products
-                document.getElementById("products-container").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("POST", "server/get_filtered_products.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("category=" + category + "&price=" + price);
-    }
+    colorSelect.addEventListener('change', updateFilters);
 
     // Add event listener to the form's onsubmit event
     const searchForm = document.getElementById("search-form");
@@ -446,7 +450,7 @@ if (isset($_POST['search'])) {
         searchFunction();
     });
 </script>
- 
+        
 </body>
 
 </html>

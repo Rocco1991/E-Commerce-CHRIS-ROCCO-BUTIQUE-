@@ -576,31 +576,27 @@
 
     <!-- TESTIMONIALS -->
         <div class="testimonial-section">
-        <h2></h2>
+        <h2>TESTIMONIALS OF OUR USERS:</h2>
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
         <div class="testimonial-slider" id="testimonial-slider">
             <div class="testimonial">
                 <img src="/assets/imgs/Testimonials/SarahJohnson.jpg" alt="Sarah Johnson">
-                <p class="quote">"I love shopping on this website! The products are of great quality, and the customer service is outstanding. Highly recommended! I'm a satisfied customer!"</p>
+                <p class="quote">"I love shopping on this website!"</p>
                 <p class="author">- Sarah Johnson</p>
             </div>
 
             <div class="testimonial">
                 <img src="/assets/imgs/Testimonials/MichaelSmith.jpg" alt="Michael Smith">
-                <p class="quote">"This is my go-to online store for all my fashion needs. The selection is fantastic, and they always have the latest trends. I'm a satisfied customer!"</p>
+                <p class="quote">"This is my go-to online store for all my fashion needs."</p>
                 <p class="author">- Michael Smith</p>
             </div>
 
             <div class="testimonial">
                 <img src="/assets/imgs/Testimonials/EmilyAdams.jpg" alt="Emily Adams">
-                <p class="quote">"I had a great experience shopping here. The website is easy to navigate, and I received my order quickly. Will definitely shop here again!"</p>
+                <p class="quote">"The website is easy to navigate, and I received my order quickly."</p>
                 <p class="author">- Emily Adams</p>
             </div>
         </div>
