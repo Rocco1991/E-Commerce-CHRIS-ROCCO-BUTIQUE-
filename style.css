@@ -68,8 +68,8 @@ p {
 
 .navbar {
     font-size: 18px;
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
     top: 0;
     left: 0;
     box-shadow: 0 1px 1px black;
@@ -200,10 +200,21 @@ p {
     display: block;
 }
 
+.testimonial p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.stars {
+    color: black;
+    font-size: 0.9rem;
+}
+
 .quote {
     font-size: 18px;
     font-style: italic;
     margin-bottom: 10px;
+    color: #444;
 }
 
 .author {
@@ -1689,6 +1700,7 @@ label {
     text-align: center;
     font-size: xx-large;
     font-weight: 200;
+    color: green;
 }
 
 .order-confirmation-container p {

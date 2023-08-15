@@ -574,36 +574,58 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-        <div class="testimonial-section">
-        <h2>TESTIMONIALS OF OUR USERS:</h2>
-        <br>
-        <br>
-        <br>
+   <!-- TESTIMONIALS -->
+<div class="testimonial-section">
+    <h3>TESTIMONIALS OF OUR USERS:</h3>
+    <br>
+    <br>
+    <br>
 
-        <div class="testimonial-slider" id="testimonial-slider">
-            <div class="testimonial">
-                <img src="/assets/imgs/Testimonials/SarahJohnson.jpg" alt="Sarah Johnson">
-                <p class="quote">"I love shopping on this website!"</p>
-                <p class="author">- Sarah Johnson</p>
+    <div class="testimonial-slider" id="testimonial-slider">
+        <div class="testimonial">
+            <img src="/assets/imgs/Testimonials/SarahJohnson.jpg" alt="Sarah Johnson">
+            <p class="quote">"I love shopping on this website!"</p>
+            <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
             </div>
+            <p class="author">- Sarah Johnson</p>
+        </div>
 
-            <div class="testimonial">
-                <img src="/assets/imgs/Testimonials/MichaelSmith.jpg" alt="Michael Smith">
-                <p class="quote">"This is my go-to online store for all my fashion needs."</p>
-                <p class="author">- Michael Smith</p>
+        <div class="testimonial">
+            <img src="/assets/imgs/Testimonials/MichaelSmith.jpg" alt="Michael Smith">
+            <p class="quote">"This is my go-to online store for all my fashion needs."</p>
+            <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
             </div>
+            <p class="author">- Michael Smith</p>
+        </div>
 
-            <div class="testimonial">
-                <img src="/assets/imgs/Testimonials/EmilyAdams.jpg" alt="Emily Adams">
-                <p class="quote">"The website is easy to navigate, and I received my order quickly."</p>
-                <p class="author">- Emily Adams</p>
+        <div class="testimonial">
+            <img src="/assets/imgs/Testimonials/EmilyAdams.jpg" alt="Emily Adams">
+            <p class="quote">"The website is easy to navigate, and I received my order quickly."</p>
+            <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
             </div>
+            <p class="author">- Emily Adams</p>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
+</div>
+<br>
+<br>
+<br>
+
    
 
     <!-- Footer -->

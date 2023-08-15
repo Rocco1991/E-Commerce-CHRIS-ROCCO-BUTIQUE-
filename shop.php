@@ -120,6 +120,20 @@ if (isset($_POST['search'])) {
                 <div class="search-container">
                     <input type="text" id="search-input" placeholder="Search for products..." oninput="searchFunction()" />
                     <br>
+                    <label for="discount">On discount</label>
+                    <input type="checkbox" id="discount" name="discount">
+                    <br>
+                    <label for="sort-by">Sort by:</label>
+                    <select id="sort-by" name="sort-by">
+                        <option value="featured">Featured</option>
+                        <option value="newest">Newest</option>
+                        <option value="highest-rated">Highest rated</option>
+                        <option value="most-reviewed">Most reviewed</option>
+                        <option value="price-low">Price Low to High</option>
+                        <option value="price-high">Price High to Low</option>
+                        <!-- Add more sorting options as needed -->
+                    </select>
+                    <br>
                     <select name="category" id="category">
                         <option value="all">All Categories</option>
                         <option value="coats" id="coats">Coats</option>
@@ -173,70 +187,61 @@ if (isset($_POST['search'])) {
                     <label for="tags">TAGS :</label>
                     <hr>
                     <form>          
-            <label for="coats">Coats</label>
-            <input type="checkbox" id="coats" name="tags" value="coats">
+                        <label for="coats">Coats</label>
+                        <input type="checkbox" id="coats" name="tags" value="coats">
 
-            <label for="shoes">Shoes</label>
-            <input type="checkbox" id="shoes" name="tags" value="shoes">
+                        <label for="shoes">Shoes</label>
+                        <input type="checkbox" id="shoes" name="tags" value="shoes">
 
-            <label for="watch">Watches</label>
-            <input type="checkbox" id="watches" name="tags" value="watches">
+                        <label for="watch">Watches</label>
+                        <input type="checkbox" id="watches" name="tags" value="watches">
 
-            <label for="parfumes">Parfumes</label>
-            <input type="checkbox" id="parfumes" name="tags" value="parfumes">
+                        <label for="parfumes">Parfumes</label>
+                        <input type="checkbox" id="parfumes" name="tags" value="parfumes">
 
-            <label for="bags">Bags</label>
-            <input type="checkbox" id="bags" name="tags" value="bags">
+                        <label for="bags">Bags</label>
+                        <input type="checkbox" id="bags" name="tags" value="bags">
 
-            <label for="gloves">Gloves</label>
-            <input type="checkbox" id="gloves" name="tags" value="gloves">
+                        <label for="gloves">Gloves</label>
+                        <input type="checkbox" id="gloves" name="tags" value="gloves">
 
-            <label for="men">Men</label>
-            <input type="checkbox" id="men" name="tags" value="men">
+                        <label for="men">Men</label>
+                        <input type="checkbox" id="men" name="tags" value="men">
 
-            <label for="women">Women</label>
-            <input type="checkbox" id="women" name="tags" value="women">
+                        <label for="women">Women</label>
+                        <input type="checkbox" id="women" name="tags" value="women">
 
-            <label for="children">Children</label>
-            <input type="checkbox" id="children" name="tags" value="children">
+                        <label for="children">Children</label>
+                        <input type="checkbox" id="children" name="tags" value="children">
 
-            <label for="kids">Kids</label>
-            <input type="checkbox" id="kids" name="tags" value="kids">
+                        <label for="kids">Kids</label>
+                        <input type="checkbox" id="kids" name="tags" value="kids">
 
-            <label for="boys">Boys</label>
-            <input type="checkbox" id="boys" name="tags" value="boys">
+                        <label for="boys">Boys</label>
+                        <input type="checkbox" id="boys" name="tags" value="boys">
 
-             <label for="girls">Girls</label>
-            <input type="checkbox" id="girls" name="tags" value="girls">
+                        <label for="girls">Girls</label>
+                        <input type="checkbox" id="girls" name="tags" value="girls">
 
-            <label for="retro">Retro</label>
-            <input type="checkbox" id="retro" name="tags" value="retro">
+                        <label for="retro">Retro</label>
+                        <input type="checkbox" id="retro" name="tags" value="retro">
 
-            <label for="modern">Modern</label>
-            <input type="checkbox" id="modern" name="tags" value="modern">
+                        <label for="modern">Modern</label>
+                        <input type="checkbox" id="modern" name="tags" value="modern">
 
-            <label for="formal">Formal</label>
-            <input type="checkbox" id="formal" name="tags" value="formal">
+                        <label for="formal">Formal</label>
+                        <input type="checkbox" id="formal" name="tags" value="formal">
 
-            <label for="casual">Casual</label>
-            <input type="checkbox" id="casual" name="tags" value="casual">
+                        <label for="casual">Casual</label>
+                        <input type="checkbox" id="casual" name="tags" value="casual">
 
-            <label for="phone">Phone</label>
-            <input type="checkbox" id="phone" name="tags" value="phone">
-
-            <label for="sport">Sport</label>
-            <input type="checkbox" id="sport" name="tags" value="sport">
+                        <label for="sport">Sport</label>
+                        <input type="checkbox" id="sport" name="tags" value="sport">
+                        <hr>
             
-            <label for="apple">Apple</label>
-            <input type="checkbox" id="apple" name="tags" value="apple">
-
-            <label for="android">Android</label>
-            <input type="checkbox" id="android" name="tags" value="android">
-
-            <label for="iphone">Iphone</label>
-            <input type="checkbox" id="iphone" name="tags" value="iphone">
                         <!-- Add other checkbox options here -->
                         <!-- ... -->
+
                         <button type="submit" name="search" value="search" class="btn btn-primary">Search</button>
                     </form>
                 </div>
@@ -245,6 +250,7 @@ if (isset($_POST['search'])) {
             <div class="col-lg-9">
                 <hr class="horizontal-line">
                 <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS:</p>
+                <hr class="horizontal-line">
                 <br>
                 <br>
                 <br>
