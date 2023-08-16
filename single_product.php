@@ -67,7 +67,7 @@ $product_id =  $_GET['product_id'];
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">CONTACT US</a>
+          <a class="nav-link" href="contact.php">CONTACT US</a>
         </li>
 
         <li class="nav-item">
@@ -180,6 +180,7 @@ $product_id =  $_GET['product_id'];
                 </ul>
             </div>
 
+
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
                 <p class="pb-2">CONTACT US</p>
                 <div>
@@ -189,7 +190,7 @@ $product_id =  $_GET['product_id'];
 
                 <div>
                     <p class="text-uppercase">Phone</p>
-                    <P>+38509811111222</P>
+                    <P>+3850981111222</P>
                 </div>
 
                 <div>
@@ -220,33 +221,25 @@ $product_id =  $_GET['product_id'];
 
                     <div class>
                         <a href="https://twitter.com/"><img src="assets/imgs/skype.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
-                        </ddiv>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="copyright mt-5">
-                <div class="row container mx-auto">
-                    <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-nowrap mb-2">
-                        <img src="assets/imgs/paymentVisa.png" alt="">
-                    </div>
-
-                    <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                        <p>eCommerce CHRIS ROCCO All Rights Reserved JULY 2023</p>
-                    </div>
-
-                    <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-skype"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
+        <div class="copyright mt-5">
+            <div class="row container mx-auto">
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved AUGUST 2023</p>
                 </div>
             </div>
-            <div id="move-to-top" class="scrollToTop filling">
-                <a href="single_product.html"><i class="fa fa-chevron-up"></i></a>
-            </div>
+        </div>
+
+
+
+
+        <div id="move-to-top" class="scrollToTop filling">
+            <a href="single_product.php"><i class="fa fa-chevron-up"></i></a>
+        </div>
 
     </footer>
 

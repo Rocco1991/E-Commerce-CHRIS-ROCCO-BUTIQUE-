@@ -55,7 +55,7 @@ if ($cartIsEmpty) {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">CONTACT US</a>
+          <a class="nav-link" href="contact.php">CONTACT US</a>
         </li>
 
         <li class="nav-item">
@@ -204,12 +204,8 @@ if ($cartIsEmpty) {
 
         <div class="copyright mt-5">
             <div class="row container mx-auto">
-                <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-nowrap mb-2">
-                    <img src="assets/imgs/paymentVisa.png" alt="">
-                </div>
-
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved JULY 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved AUGUST 2023</p>
                 </div>
             </div>
         </div>
