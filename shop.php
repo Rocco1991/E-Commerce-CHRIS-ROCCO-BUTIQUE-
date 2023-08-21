@@ -73,7 +73,7 @@ if (isset($_POST['search'])) {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="blog.html">BLOG</a>
+          <a class="nav-link" href="blog.php">BLOG</a>
         </li>
 
         <li class="nav-item">
@@ -123,6 +123,9 @@ if (isset($_POST['search'])) {
                     <label for="discount">On discount</label>
                     <input type="checkbox" id="discount" name="discount">
                     <br>
+                    <label for="newArrivals">New Arrivals</label>
+                    <input type="checkbox" id="newArrivals" name="newArrivals">
+                    <br>
                     <label for="sort-by">Sort by:</label>
                     <select id="sort-by" name="sort-by">
                         <option value="featured">Featured</option>
@@ -169,6 +172,7 @@ if (isset($_POST['search'])) {
                         <option value="rose">Rose</option>
                         <option value="golden">Golden</option>
                         <option value="silver">Silver</option>
+                        <option value="purple">Purple</option>
                     </select>
                     <br>
                     <label for="size">ALL SIZES :</label>
@@ -231,6 +235,9 @@ if (isset($_POST['search'])) {
 
                         <label for="formal">Formal</label>
                         <input type="checkbox" id="formal" name="tags" value="formal">
+
+                        <label for="non-formal">Non Formal</label>
+                        <input type="checkbox" id="non-formal" name="tags" value="non-formal">
 
                         <label for="casual">Casual</label>
                         <input type="checkbox" id="casual" name="tags" value="casual">

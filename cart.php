@@ -166,7 +166,7 @@ function calculateTotalCart(){
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="blog.html">BLOG</a>
+          <a class="nav-link" href="blog.php">BLOG</a>
         </li>
 
         <li class="nav-item">

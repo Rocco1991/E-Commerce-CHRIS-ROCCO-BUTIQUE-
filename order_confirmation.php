@@ -8,6 +8,8 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
+// GREŠKA
+
 $order_id = 'Your order id here'; // Get the order id here. This might be from a form submission, database, or other source
 $product_number = 'Your product number here'; // Get the product number here. This might be from a form submission, database, or other source
 $_SESSION['total'] = 'Your total here'; // Get the total amount here. This might be from a form submission, database, or other source
@@ -79,11 +81,11 @@ $mysqli->close();
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../../blog.html">BLOG</a>
+                        <a class="nav-link" href="../../blog.php">BLOG</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../../contact.html">CONTACT US</a>
+                        <a class="nav-link" href="../../contact.php">CONTACT US</a>
                     </li>
 
 
@@ -117,16 +119,23 @@ $mysqli->close();
  <!--CONFIRMATION THANK YOU & PAYMENT-->
 
  <div class="order-confirmation-container">
-    <h1>THANK YOU FOR YOUR ORDER!</h1>
     <br>
     <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
     <br>
-    <p>Please remember this number: Your order number is: <?php echo $order_id; ?></p>    <br>
+    <h1>THANK YOU FOR YOUR ORDER!</h1>
     <br>
-    <!-- We will send you an email confirmation shortly. -->
+     <img src="/assets/imgs/check-mark.jpg" alt="Confirmation Mark"> 
     <br>
-    <p>Total amount: $ <?php echo $_SESSION['total']; ?> </p>
     <br>
+    <br>
+    <br>
+    <!-- <p>Please, remember this number!</p>
+    <br>
+    <p>Your order number is: <?php echo $order_id; ?></p>
+    <br>
+    <br>
+    <p>Total amount: $ <?php echo $_SESSION['total']; ?></p>
+    <br> -->
     <a href="../payment.php">PAY NOW</a>
     <br>
     <br>
@@ -134,20 +143,7 @@ $mysqli->close();
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <a href="../index.php">BACK TO MAIN PAGE</a> 
-    
   </div>
 
 
@@ -216,16 +212,12 @@ $mysqli->close();
             </div>
 
             <div class="copyright mt-5">
-                <div class="row container mx-auto">
-                    <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-nowrap mb-2">
-                        <img src="assets/imgs/paymentVisa.png" alt="">
-                    </div>
-
-                    <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                        <p>eCommerce CHRIS ROCCO All Rights Reserved JULY 2023</p>
-                    </div>
+            <div class="row container mx-auto">
+                <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved AUGUST 2023</p>
                 </div>
             </div>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

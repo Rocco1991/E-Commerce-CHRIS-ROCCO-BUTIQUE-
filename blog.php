@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONTACT US</title>
+    <title>CHRIS ROCCO BLOG</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -14,6 +14,7 @@
 
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
+
 
 </head>
 
@@ -74,7 +75,10 @@
         </div>
     </nav>
 
-    <!-- CONTACT US-->
+
+
+    <!--BLOG CONTENT -->
+
     <br>
     <br>
     <br>
@@ -85,76 +89,75 @@
     <br>
     <br>
     <br>
-    <section class="contact1">
-        <div class="content1">
-            <h2>CONTACT US....</h2>
-            <p>Welcome to Chris Rocco Boutique, where fashion meets elegance. We are an e-commerce store that offers a wide range of high-quality clothing and accessories for both men and women. From trendy streetwear to classic formal wear, we have something
-                for everyone. Our team is dedicated to providing excellent customer service and ensuring a seamless shopping experience. Thanks for visiting, happy shopping!</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div class="product-review">
+        <h2>CHRIS ROCCO BUTIQUE NEWS</h2>
+
+        <div class="product-features">
+            <h3>ABOUT PRODUCT</h3>
+            <ul>
+                <li>VINTAGE BROWN SHOES</li>
+            </ul>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="container1">
-            <div class="contactInfo1">
-                <div class="box1">
-                    <div class="icon1"><i class="fa-solid fa-house"></i></div>
-                    <div class="text1">
-                        <h5>ADDRESS</h5>
-                        <p>Via delle Terme di Tito, 72, 00184 Roma RM<br> Italia </p>
-                    </div>
-                </div>
 
-                <div class="box1">
-                    <div class="icon1"><i class="fa-solid fa-phone"></i></div>
-                    <div class="text1">
-                        <h5>PHONE</h5>
-                        <p>+3850981111222</p>
-                    </div>
-                </div>
-
-                <div class="box1">
-                    <div class="icon1"><i class="fa-solid fa-envelope"></i></div>
-                    <div class="text1">
-                        <h5>EMAIL</h5>
-                        <p>user123@gmail.com</p>
-                    </div>
-                </div>
+        <div class="product-video">
+            <video src="assets/video/vintage_shoes_video.mp4" loop autoplay muted></video>
+        </div>
+        <div class="product-rating">
+            <h3>Rating:</h3>
+            <div class="rating-stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
             </div>
-            <div class="contactForm1">
-                <form>
-                    <h2>SEND MESSAGE</h2>
+            <p>4 out of 5 stars</p>
+        </div>
+        <div class="product-review-text">
+            <h3>VINTAGE BROWN SHOES</h3>
+            <p>The brown vintage shoes are a stylish and unique addition to any wardrobe. The vintage style gives the shoes a classic and timeless feel, making them a versatile option for a variety of outfits. The quality of the shoes is exceptional, with
+                a well-crafted design that ensures durability and comfort. The brown color is rich and deep, adding depth to any outfit and making it easy to match with other clothing items. One thing to note is that the sizing may vary, so it's important
+                to make sure you order the right size for your feet. Additionally, the shoes may require a break-in period to fully adjust to your feet. Overall, the brown vintage shoes are a great investment for anyone looking for a high-quality and
+                unique footwear option that will last for years to come.</p>
+            <br>
 
-                    <div class="inputBox1">
-                        <input type="text1" required="required">
-                        <span>FULL NAME</span>
-                    </div>
-
-                    <div class="inputBox1">
-                        <input type="text1" required="required">
-                        <span>EMAIL</span>
-                    </div>
-
-                    <div class="inputBox1">
-                        <textarea required="required"></textarea>
-                        <span>MESSAGE</span>
-                    </div>
-
-                    <div class="inputBox2">
-                        <input type="submit1" value="SEND MAIL">
-                    </div>
-
-                </form>
+            <div class="product-pros-cons">
+                <h3>Pros:</h3>
+                <ul>
+                    <li>MALE DOMINANT PRODUCT</li>
+                    <li>GOOD LOOKING MALE FASHIONABLE VINTAGE PRODUCT</li>
+                    <li>USEFUL FOR BUSSINESS TRIPS AND MEETINGS</li>
+                    <li>COMFORTABLE</li>
+                    <li>STYLISH</li>
+                    <li>SUPER FUNCIONALITY</li>
+                    <li>HIGH QUALITY</li>
+                </ul>
+                <h3>Cons:</h3>
+                <ul>
+                    <li>LIMITED AVAILABILITY</li>
+                    <li>MAY NOT FIT FOR EVERY MANS LEG</li>
+                    <li>NEED TO SEE WHICH SIZE OF LEG FITS BEST FOR YOU</li>
+                    <li>AFTER A YEAR OF USAGE SHOES ARE USED</li>
+                </ul>
             </div>
-
         </div>
-        </div>
+    </div>
 
-    </section>
+
+
+
+
 
     <!-- Footer -->
-    <footer class>
+    <footer class="mt-5 py-5">
         <div class="row container mx-auto pt-5">
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
                 <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
@@ -230,7 +233,7 @@
 
 
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="contact.php"><i class="fa fa-chevron-up"></i></a>
+            <a href="blog.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>

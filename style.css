@@ -1697,6 +1697,12 @@ label {
     text-align: center;
 }
 
+img,
+svg {
+    vertical-align: middle;
+    width: 110px;
+}
+
 .order-confirmation-container h1 {
     text-align: center;
     font-size: xx-large;

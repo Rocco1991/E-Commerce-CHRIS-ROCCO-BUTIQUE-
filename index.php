@@ -44,7 +44,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="blog.html">BLOG</a>
+          <a class="nav-link" href="blog.php">BLOG</a>
         </li>
 
         <li class="nav-item">
@@ -475,7 +475,7 @@
         <div class="container text-center mt-5 py-5">
             <h3> 4. PARFUMES</h3>
             <hr class="mx-auto">
-            <p>Check out our best Parfumes</p>
+            <p>Check out our best smelling Parfumes</p>
         </div>
 
         <div class="row mx-auto container-fluid">
@@ -510,7 +510,7 @@
         <div class="container text-center mt-5 py-5">
             <h3> 5. BAGS</h3>
             <hr class="mx-auto">
-            <p>Check out our best Bags</p>
+            <p>Check out our best looking Bags for women</p>
         </div>
 
         <div class="row mx-auto container-fluid">
@@ -545,7 +545,7 @@
         <div class="container text-center mt-5 py-5">
             <h3>6. GLOVES</h3>
             <hr class="mx-auto">
-            <p>Check out our best Gloves</p>
+            <p>Check out our best Gloves for guys,women & children</p>
         </div>
 
         <div class="row mx-auto container-fluid">
