@@ -709,6 +709,14 @@
             <a href="index.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
+        <div class="whatsapp-chat">
+        <a href="https://api.whatsapp.com/send?phone=+385989200322" target="_blank">
+        <img src="assets/imgs/WhatsApp.png" alt="WhatsApp Chat" class="whatsapp-icon">
+        <span class="tooltip">Chat with us on WhatsApp<span class="tooltip-arrow"></span></span>
+        </a>
+        </div>
+</div>
+
     </footer>
     
    <!-- BOOTSTRAP LINK -->

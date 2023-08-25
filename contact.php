@@ -233,6 +233,13 @@
             <a href="contact.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
+        <div class="whatsapp-chat">
+        <a href="https://api.whatsapp.com/send?phone=+385989200322" target="_blank">
+        <img src="assets/imgs/WhatsApp.png" alt="WhatsApp Chat" class="whatsapp-icon">
+        <span class="tooltip">Chat with us on WhatsApp<span class="tooltip-arrow"></span></span>
+        </a>
+        </div>
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

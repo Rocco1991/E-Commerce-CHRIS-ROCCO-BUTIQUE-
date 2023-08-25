@@ -96,7 +96,7 @@ $_SESSION['cart'][$product_id] = $product_array;
  calculateTotalCart();
 
 }else{
-    // header('location: index.php'); // user sad može ući na car.php
+    // header('location: index.php'); // user sad može ući na cart.php
 }
 
 
