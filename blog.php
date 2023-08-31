@@ -23,57 +23,54 @@
     <!--NAVBAR -->
 
     <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
-        <div class="container">
-            <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
-            <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+  <div class="container">
+    <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
+    <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">HOME</a>
-                    </li>
+    <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">HOME</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.php">SHOP</a>
-                    </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shop.php">SHOP</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.php">BLOG</a>
-                    </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.php">BLOG</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">CONTACT US</a>
-                    </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.php">CONTACT US</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </li>
+        <li class="nav-item">
+          <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
 
-                    <li class="nav-item">
-                        <a href="account.php"><i class="fa-solid fa-user"></i></a>
-                    </li>
+        <li class="nav-item">
+          <a href="account.php"><i class="fa-solid fa-user"></i></a>
+        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="" alt="">
-                            <span>LANGUAGES</span>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                            <li>
-                                <a class="dropdown-item" href="#"><img src="assets/imgs/en.gif" alt="English Flag"> English</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><img src="assets/imgs/hr.gif" alt="Croatian Flag"> Croatian</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="" alt="">
+            <span>LANGUAGES</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+          <li><a class="dropdown-item" href="#"><img class="flag-icon" src="assets/imgs/en.gif" alt="English Flag"> English</a></li>
+            <li><a class="dropdown-item" href="#"><img class="flag-icon" src="assets/imgs/hr.gif" alt="Croatian Flag"> Croatian</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
 
 

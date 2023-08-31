@@ -44,6 +44,7 @@ if (isset($_POST['search'])) {
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- JS CODE  -->
     
 
     
@@ -52,9 +53,9 @@ if (isset($_POST['search'])) {
 
 <body>
 
-   <!--NAVBAR -->
+    <!--NAVBAR -->
 
-   <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
+    <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
   <div class="container">
     <a href="index.php"><img class="logo" src="assets/imgs/Logo.png"></a>
     <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
@@ -94,8 +95,8 @@ if (isset($_POST['search'])) {
             <span>LANGUAGES</span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-            <li><a class="dropdown-item" href="#"><img src="assets/imgs/en.gif" alt="English Flag"> English</a></li>
-            <li><a class="dropdown-item" href="#"><img src="assets/imgs/hr.gif" alt="Croatian Flag"> Croatian</a></li>
+            <li><a class="dropdown-item" href="#"><img class="flag-icon" src="assets/imgs/en.gif" alt="English Flag"> English</a></li>
+            <li><a class="dropdown-item" href="#"><img class="flag-icon" src="assets/imgs/hr.gif" alt="Croatian Flag"> Croatian</a></li>
           </ul>
         </li>
       </ul>
@@ -147,18 +148,33 @@ if (isset($_POST['search'])) {
                         <option value="gloves">Gloves</option>
                     </select>
                     <br>
-                    <hr>
                     <br>
                     <input type="range" name="price" id="price" min="0" max="100000" value="0" step="1" oninput="updatePriceRange(this.value)" />
                     <span id="price-range">0 - 100000 Euros</span>
-                    <hr>
                     <label for="stock-items">In Stock Items</label>
                     <input type="checkbox" id="stock-items" name="stock-items">
                     <label for="sale-items">On Sale Items</label>
                     <input type="checkbox" id="sale-items" name="sale-items">
                     <br>
+                    <label for="rating">Rating products:</label>
+                    <div class="rating-stars">
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5" title="5 stars">5 stars rating</label>
+
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4" title="4 stars">4 stars rating</label>
+
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3" title="3 stars">3 stars rating</label>
+
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2" title="2 stars">2 stars rating</label>
+
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1" title="1 star">1 star rating</label>
+                </div>
+                    <br>
                     <label for="color">COLORS :</label>
-                    <hr>
                     <select name="color" id="color">
                         <option value="all">All Colors</option>
                         <option value="red">Red</option>
@@ -176,7 +192,6 @@ if (isset($_POST['search'])) {
                     </select>
                     <br>
                     <label for="size">ALL SIZES :</label>
-                    <hr>
                     <select name="size" id="size">
                         <option value="All">All Sizes</option>
                         <option value="S">S</option>
@@ -189,7 +204,6 @@ if (isset($_POST['search'])) {
                     </select>
                     <br>
                     <label for="tags">TAGS :</label>
-                    <hr>
                     <form>          
                         <label for="coats">Coats</label>
                         <input type="checkbox" id="coats" name="tags" value="coats">
@@ -244,7 +258,6 @@ if (isset($_POST['search'])) {
 
                         <label for="sport">Sport</label>
                         <input type="checkbox" id="sport" name="tags" value="sport">
-                        <hr>
             
                         <!-- Add other checkbox options here -->
                         <!-- ... -->
