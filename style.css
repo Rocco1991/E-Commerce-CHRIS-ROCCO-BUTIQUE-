@@ -607,7 +607,7 @@
         font-size: 0.9rem;
         font-weight: 900;
         outline: none;
-        border: 2px solid goldenrod;
+        border: 1px solid goldenrod;
         background-color: white;
         color: black;
         padding: 13px 30px;
@@ -621,7 +621,7 @@
     
     .search-container button:hover {
         background-color: goldenrod;
-        border: 4px solid goldenrod;
+        border: 1px solid goldenrod;
         color: black;
     }
     
@@ -681,6 +681,27 @@
     .form-check .form-check-input {
         float: inherit;
         margin-left: -20.5em;
+    }
+    /*SEARCH FILTER NEW ARRIVALS*/
+    
+    .new-arrivals-options {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .new-arrivals-options label {
+        margin-right: 10px;
+    }
+    
+    .new-arrivals-options div {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+    
+    .new-arrivals-options input[type="checkbox"] {
+        margin-right: 5px;
     }
     /*SEARCH FILTER STARS*/
     
@@ -1149,7 +1170,7 @@
         font-style: italic;
     }
     
-    .rating-stars i {
+    .rating-stars-blog i {
         color: goldenrod;
         font-size: 20px;
     }

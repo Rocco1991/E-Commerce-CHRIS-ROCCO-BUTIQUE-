@@ -121,13 +121,20 @@ if (isset($_POST['search'])) {
                 <div class="search-container">
                     <input type="text" id="search-input" placeholder="Search for products..." oninput="searchFunction()" />
                     <br>
-                    <label for="discount">On discount</label>
-                    <input type="checkbox" id="discount" name="discount">
+                    <label for="discount">ON DISCOUNT (select percentage):</label>
+                    <input type="range" id="discount" name="discount" min="0" max="100" step="10" value="0">
+                    <span id="discount-label">0 %</span>
                     <br>
-                    <label for="newArrivals">New Arrivals</label>
-                    <input type="checkbox" id="newArrivals" name="newArrivals">
+                    <label for="newArrivals">NEW ARRIVALS :</label>
+                    <div class="new-arrivals-options">
+                        <input type="checkbox" id="last30Days" name="last30Days">
+                        <label for="last30Days">Last 30 Days</label>
+
+                        <input type="checkbox" id="last90Days" name="last90Days">
+                        <label for="last90Days">Last 90 Days</label>
+                    </div>
                     <br>
-                    <label for="sort-by">Sort by:</label>
+                    <label for="sort-by">SORT BY :</label>
                     <select id="sort-by" name="sort-by">
                         <option value="featured">Featured</option>
                         <option value="newest">Newest</option>
@@ -137,6 +144,11 @@ if (isset($_POST['search'])) {
                         <option value="price-high">Price High to Low</option>
                         <!-- Add more sorting options as needed -->
                     </select>
+                    <br>
+                    <label for="price">PRICES :</label>
+                    <br>
+                    <input type="range" name="price" id="price" min="0" max="100000" value="0" step="1" oninput="updatePriceRange(this.value)" />
+                    <span id="price-range">0 - 100000 Euros</span>
                     <br>
                     <select name="category" id="category">
                         <option value="all">All Categories</option>
@@ -148,15 +160,12 @@ if (isset($_POST['search'])) {
                         <option value="gloves">Gloves</option>
                     </select>
                     <br>
-                    <br>
-                    <input type="range" name="price" id="price" min="0" max="100000" value="0" step="1" oninput="updatePriceRange(this.value)" />
-                    <span id="price-range">0 - 100000 Euros</span>
                     <label for="stock-items">In Stock Items</label>
                     <input type="checkbox" id="stock-items" name="stock-items">
                     <label for="sale-items">On Sale Items</label>
                     <input type="checkbox" id="sale-items" name="sale-items">
                     <br>
-                    <label for="rating">Rating products:</label>
+                    <label for="rating">RATING PRODUCTS :</label>
                     <div class="rating-stars">
                     <input type="radio" id="star5" name="rating" value="5">
                     <label for="star5" title="5 stars">5 stars rating</label>
@@ -172,7 +181,7 @@ if (isset($_POST['search'])) {
 
                     <input type="radio" id="star1" name="rating" value="1">
                     <label for="star1" title="1 star">1 star rating</label>
-                </div>
+                    </div>
                     <br>
                     <label for="color">COLORS :</label>
                     <select name="color" id="color">
@@ -201,6 +210,8 @@ if (isset($_POST['search'])) {
                         <option value="3XL">3XL</option>
                         <option value="4XL">4XL</option>
                         <option value="XXL">XXL</option>
+                        <option value="XS-S">XS-S</option>
+                        <option value="M-L">M-L</option>
                     </select>
                     <br>
                     <label for="tags">TAGS :</label>
@@ -258,18 +269,34 @@ if (isset($_POST['search'])) {
 
                         <label for="sport">Sport</label>
                         <input type="checkbox" id="sport" name="tags" value="sport">
-            
                         <!-- Add other checkbox options here -->
-                        <!-- ... -->
-
+                        <br>
+                        <br>
+                         <!-- Shop by Theme -->
+                        <label for="theme">SHOP BY THEME :</label>
+                        <select name="theme" id="theme">
+                            <option value="all">All Themes</option>
+                            <option value="spring">Spring</option>
+                            <option value="modern">Modern</option>
+                            <option value="summer">Summer</option>
+                            <option value="minimalist">Minimalist</option>
+                            <option value="winter">Winter</option>
+                            <option value="retro">Retro</option>
+                            <option value="autumn">Autumn</option>
+                            <option value="holiday">Holiday</option>
+                            <!-- Add more theme options as needed -->
+                        </select>
+                        <br>
                         <button type="submit" name="search" value="search" class="btn btn-primary">Search</button>
                     </form>
+                    <!--  Reset Filters button -->
+                <button type="button" id="reset-filters-btn" class="btn btn-secondary">Reset All Filters</button>
                 </div>
             </div>
 
             <div class="col-lg-9">
                 <hr class="horizontal-line">
-                <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS:</p>
+                <p id="center-text">HERE YOU CAN CHECK THE PRODUCTS :</p> 
                 <hr class="horizontal-line">
                 <br>
                 <br>

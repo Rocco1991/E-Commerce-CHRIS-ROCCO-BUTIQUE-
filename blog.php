@@ -109,7 +109,7 @@
         </div>
         <div class="product-rating">
             <h3>Rating:</h3>
-            <div class="rating-stars">
+            <div class="rating-stars-blog">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>

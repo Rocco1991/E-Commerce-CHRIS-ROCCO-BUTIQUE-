@@ -10,9 +10,11 @@ if ($mysqli->connect_error) {
 
 // GREŠKA
 
-$order_id = 'Your order id here'; // Get the order id here. This might be from a form submission, database, or other source
-$product_number = 'Your product number here'; // Get the product number here. This might be from a form submission, database, or other source
-$_SESSION['total'] = 'Your total here'; // Get the total amount here. This might be from a form submission, database, or other source
+$order_id = ''; 
+$product_number = '36'; 
+$_SESSION['total'] = '';
+
+
 
 // Check if payment has been made
 if (isset($_POST['payment_id'])) {
@@ -45,7 +47,7 @@ $mysqli->close();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORDER CONFIRMATION</title>
+    <title>ORDER CONFIRMATION PAGE</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -96,31 +98,27 @@ $mysqli->close();
                     <li class="nav-item">
                         <a href="../../account.php"><i class="fa-solid fa-user"></i></a>
                     </li>
+
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="" alt="">
+                        <span>LANGUAGES</span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                    <li><a class="dropdown-item" href="#"><img class="flag-icon" src="../assets/imgs/en.gif" alt="English Flag"> English</a></li>
+                        <li><a class="dropdown-item" href="#"><img class="flag-icon" src="../assets/imgs/hr.gif" alt="Croatian Flag"> Croatian</a></li>
+                    </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
  <!--CONFIRMATION THANK YOU & PAYMENT-->
 
  <div class="order-confirmation-container">
     <br>
-    <h2 class="brand">CHRIS ROCCO BUTIQUE</h2>
     <br>
     <h1>THANK YOU FOR YOUR ORDER!</h1>
     <br>
@@ -129,13 +127,12 @@ $mysqli->close();
     <br>
     <br>
     <br>
-    <!-- <p>Please, remember this number!</p>
     <br>
     <p>Your order number is: <?php echo $order_id; ?></p>
     <br>
     <br>
     <p>Total amount: $ <?php echo $_SESSION['total']; ?></p>
-    <br> -->
+    <br>
     <a href="../payment.php">PAY NOW</a>
     <br>
     <br>
