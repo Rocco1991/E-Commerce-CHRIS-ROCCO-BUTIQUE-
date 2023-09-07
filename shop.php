@@ -44,10 +44,37 @@ if (isset($_POST['search'])) {
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- JS CODE  -->
+    <!-- JQUERY  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
+    <!-- JS code for filtering functionality  -->
+    <script>
+        function searchFunction() {
+    var category = document.getElementById("category").value;
+    var price = document.getElementById("price").value;
+    var color = document.getElementById("color").value;
+    var formData = {
+        category: category,
+        price: price,
+        color: color,
+    };
 
-    
+    // Use AJAX to fetch filtered products
+    $.ajax({
+        type: "POST",
+        url: "server/get_filtered_products.php", // Update the URL accordingly
+        data: formData,
+        success: function(response) {
+            // Update the product container with the new product listings
+            $("#products-container").html(response);
+        },
+        error: function(error) {
+            console.error("Error fetching products: " + error);
+        }
+    });
+}
+
+    </script>
 
 </head>
 
@@ -103,8 +130,7 @@ if (isset($_POST['search'])) {
     </div>
   </div>
 </nav>
-    
- <br>
+<br>
 <br>
 <br>
 <br>
@@ -304,7 +330,7 @@ if (isset($_POST['search'])) {
                 <br>
                 <br>
                 <br>
-                <div class="row">
+                <div class="row" id="products-container">
                     <?php include('server/get_featured_products.php'); ?>
                     <?php while ($row = $featured_products->fetch_assoc()) { ?>
                         <!-- Loop for displaying products -->
@@ -445,7 +471,7 @@ if (isset($_POST['search'])) {
 <script>
     // Function to handle the search functionality
     function searchFunction() {
-        var form = document.getElementById("search-form");
+        var form = document.getElementById("search-input");
         var category = form.category.value;
         var price = form.price.value;
         var color = form.color.value;

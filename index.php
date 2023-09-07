@@ -21,8 +21,6 @@
 <body>
 
 
-
-
     <!--NAVBAR -->
 
     <nav class="navbar navbar-expand-lg py-3 fixed-top navbar-light">
@@ -34,6 +32,7 @@
     </button>
 
     <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="index.php">HOME</a>
@@ -702,6 +701,7 @@
             </div>
         </div>
 
+    
 
 
 
@@ -742,8 +742,11 @@
     }
 
     displayNextImage(); // Display the first image immediately
-    setInterval(displayNextImage, 4000); // Change image every 4 seconds
+    setInterval(displayNextImage, 3000); // Change image every 3 seconds
 </script>
+
+
+
 
 </body>
 
