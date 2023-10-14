@@ -605,7 +605,7 @@
     
     .search-container button {
         font-size: 0.9rem;
-        font-weight: 900;
+        font-weight: 100;
         outline: none;
         border: 1px solid goldenrod;
         background-color: white;

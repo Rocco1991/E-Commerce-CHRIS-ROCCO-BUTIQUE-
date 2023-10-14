@@ -244,7 +244,7 @@
 
             <!-- Coats -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Expensive-coats.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/CATEGORIES/Expensive-coats.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -261,7 +261,7 @@
 
             <!-- Shoes  -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Expensive-shoes.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/CATEGORIES/Expensive-shoes.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -278,7 +278,7 @@
 
             <!-- Watches -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Expensive-watch.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/CATEGORIES/Expensive-watch.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -295,7 +295,7 @@
             
             <!-- Parfumes -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Expensive-parfume.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/CATEGORIES/Expensive-parfume.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -312,7 +312,7 @@
 
             <!-- Bags -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Expensive-bags.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/CATEGORIES/Expensive-bags.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -329,7 +329,7 @@
             
             <!-- Gloves -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/Expensive-gloves.jpg" />
+                <img class="img-fluid mb-3" src="assets/imgs/CATEGORIES/Expensive-gloves.jpg" />
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -725,7 +725,7 @@
     <!-- JS LOOP PIC -->
     <script>
     var imageArray = ['assets/imgs/LoopPics/Coats-1.jpg', 'assets/imgs/LoopPics/Coats-2.jpg', 'assets/imgs/LoopPics/Coats-3.jpg', 'assets/imgs/LoopPics/Coats-4.jpg', 'assets/imgs/LoopPics/Coats-5.jpg', 'assets/imgs/LoopPics/Parfume-1.jpg', 'assets/imgs/LoopPics/Parfume-2.jpg', 'assets/imgs/LoopPics/Parfume-3.jpg', 'assets/imgs/LoopPics/Parfume-4.jpg',
-                      'assets/imgs/LoopPics/Parfume-5.jpg', 'assets/imgs/LoopPics/Shoes-1.jpg', 'assets/imgs/LoopPics/Shoes-2.jpg', 'assets/imgs/LoopPics/Shoes-3.jpg', 'assets/imgs/LoopPics/Shoes-4.jpg', ]; // Adjusted paths
+                      'assets/imgs/LoopPics/Parfume-5.jpg', 'assets/imgs/LoopPics/Shoes-1.jpg', 'assets/imgs/LoopPics/Shoes-2.jpg', 'assets/imgs/LoopPics/Shoes-3.jpg', 'assets/imgs/LoopPics/Shoes-4.jpg', 'assets/imgs/LoopPics/Shoes-5.jpg', ]; // Adjusted paths
 
     var imageIndex = 0;
 

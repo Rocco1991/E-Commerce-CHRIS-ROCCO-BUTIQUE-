@@ -4,6 +4,14 @@
 session_start();
 
 if(isset($_POST['add_to_cart'])){
+    $product_quantity = $_POST['product_quantity'];
+    
+    // Check if the quantity is a valid number and not negative
+    if (!is_numeric($product_quantity) || $product_quantity <= 0) {
+        echo '<script>alert("Invalid quantity. Please enter a positive number.");</script>';
+        echo '<script>window.location="index.php";</script>';
+        exit; // Prevent adding the product
+    }
 
 //if user has already added a product to cart
 if(isset($_SESSION['cart'])){
