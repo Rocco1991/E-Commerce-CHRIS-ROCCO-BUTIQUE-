@@ -102,7 +102,7 @@
             <br>
             <br>
             <br>
-            <a href="shop.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>SHOP NOW!</button></a>
+            <a href="shop.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>SHOP NOW </button></a>
             <br>
         </div>
     </section>
@@ -192,7 +192,7 @@
 <br>
 <br>
 <br>
-    <!-- New -->
+    <!-- 3 PRODUCTS IN TOP-->
     <section id="new" class="w-100">
         <div class="row p-0 m-0">
             <!-- One -->
@@ -742,7 +742,7 @@
     }
 
     displayNextImage(); // Display the first image immediately
-    setInterval(displayNextImage, 3000); // Change image every 3 seconds
+    setInterval(displayNextImage, 7000); // Change image every 7 seconds
 </script>
 
 

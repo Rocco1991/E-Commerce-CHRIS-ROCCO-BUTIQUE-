@@ -1,11 +1,10 @@
 <?php
 
-
 session_start();
 
-if(isset($_POST['add_to_cart'])){
+if (isset($_POST['add_to_cart'])) {
     $product_quantity = $_POST['product_quantity'];
-    
+
     // Check if the quantity is a valid number and not negative
     if (!is_numeric($product_quantity) || $product_quantity <= 0) {
         echo '<script>alert("Invalid quantity. Please enter a positive number.");</script>';
@@ -13,108 +12,96 @@ if(isset($_POST['add_to_cart'])){
         exit; // Prevent adding the product
     }
 
-//if user has already added a product to cart
-if(isset($_SESSION['cart'])){
-
-    $products_array_ids = array_column($_SESSION['cart'],"product_id");  //[2,3,4,10,15]
-    //if product has already been added to cart or not
-    if( !in_array($_POST['product_id'], $products_array_ids) ){
-
-        $product_id = $_POST['product_id'];
-
-
-    $product_array = array(
-                    'product_id' => $_POST['product_id'],
-                    'product_name' => $_POST['product_name'],
-                    'product_price' => $_POST['product_price'],
-                    'product_image' => $_POST['product_image'],
-                    'product_quantity' => $_POST['product_quantity']
-    );
-
-     $_SESSION['cart'][$product_id] = $product_array;
- 
+    // If the user has already added a product to the cart
+    if (isset($_SESSION['cart'])) {
+        $products_array_ids = array_column($_SESSION['cart'], "product_id");
         
-     //Product has already been added  
-    }else{
+        // Check if the product has already been added to the cart or not
+        if (!in_array($_POST['product_id'], $products_array_ids)) {
+            $product_id = $_POST['product_id'];
 
+            $product_array = array(
+                'product_id' => $_POST['product_id'],
+                'product_name' => $_POST['product_name'],
+                'product_price' => $_POST['product_price'],
+                'product_image' => $_POST['product_image'],
+                'product_quantity' => $_POST['product_quantity']
+            );
+
+            $_SESSION['cart'][$product_id] = $product_array;
+
+            // Product has already been added
+        } else {
             echo '<script>alert("Product was already added to cart");</script>';
             echo '<script>window.location="index.php";</script>';
-            
+        }
+
+    // If this is the first product
+    } else {
+        $product_id = $_POST['product_id'];
+        $product_name = $_POST['product_name'];
+        $product_price = $_POST['product_price'];
+        $product_image = $_POST['product_image'];
+        $product_quantity = $_POST['product_quantity'];
+
+        $product_array = array(
+            'product_id' => $product_id,
+            'product_name' => $product_name,
+            'product_price' => $product_price,
+            'product_image' => $product_image,
+            'product_quantity' => $product_quantity
+        );
+
+        $_SESSION['cart'][$product_id] = $product_array;
     }
-  
-   //if this is the first product 
-}else{
 
-    $product_id = $_POST['product_id'];
-    $product_name = $_POST['product_name'];
-    $product_price = $_POST['product_price'];
-    $product_image = $_POST['product_image'];
-    $product_quantity = $_POST['product_quantity'];
-
-    $product_array = array(
-                    'product_id' => $product_id,
-                    'product_name' => $product_name,
-                    'product_price' => $product_price,
-                    'product_image' => $product_image,
-                    'product_quantity' => $product_quantity
-    );
-
-    $_SESSION['cart'][$product_id] = $product_array;
-    // [2=>[] , 3=>[] , 5=>[] ]
-
-
-}
-
-//calculate total
+    // Calculate total
     calculateTotalCart();
 
-
-
-
-
-
-
-//remove product from cart
-}else if (isset($_POST['remove_product'])){
+} else if (isset($_POST['remove_product'])) {
 
     $product_id = $_POST['product_id'];
     unset($_SESSION['cart'][$product_id]);
 
-    //calculate total
-     calculateTotalCart();
+    // Calculate total
+    calculateTotalCart();
 
+} else if (isset($_POST['edit_quantity'])) {
 
+    // Get id and quantity from the product
+    $product_id = $_POST['product_id'];
+    $product_quantity = $_POST['product_quantity'];
 
-}else if(isset($_POST['edit_quantity']) ){
+    // Check if the quantity is a valid non-negative number
+    if (!is_numeric($product_quantity) || $product_quantity < 0) {
+        echo '<script>alert("Invalid quantity. Please enter a non-negative number.");</script>';
+        echo '<script>window.location="cart.php";</script>';
+        exit; // Prevent updating the quantity
+    }
 
-//we get id and quantity from the product
-$product_id = $_POST['product_id'];
-$product_quantity = $_POST['product_quantity'];
+    // Get the product array from the session
+    $product_array = $_SESSION['cart'][$product_id];
 
-//get the products array from the session
-$product_array = $_SESSION['cart'][$product_id];
+    // Update the product quantity
+    $product_array['product_quantity'] = $product_quantity;
 
-//update product quantity
-$product_array['product_quantity']= $product_quantity;
+    // Return the array back to its place
+    $_SESSION['cart'][$product_id] = $product_array;
 
-//return array back its place
-$_SESSION['cart'][$product_id] = $product_array;
+    // Calculate total
+    calculateTotalCart();
 
-//calculate total
- calculateTotalCart();
-
-}else{
-    // header('location: index.php'); // user sad može ući na cart.php
+} else {
+    // header('location: index.php'); // User can now enter cart.php
 }
 
-
-function calculateTotalCart(){
+function calculateTotalCart() {
 
     $total = 0;
 
-    foreach($_SESSION['cart'] as $key => $value){
+    foreach ($_SESSION['cart'] as $key => $value) {
 
-        $product = $_SESSION ['cart'][$key];
+        $product = $_SESSION['cart'][$key];
 
         $price = $product['product_price'];
         $quantity = $product['product_quantity'];
@@ -124,7 +111,6 @@ function calculateTotalCart(){
 
     $_SESSION['total'] = $total;
 }
-
 ?>
 
 
