@@ -880,9 +880,9 @@
     
     .checkout-btn {
         font-size: 0.8rem;
-        font-weight: 600;
+        font-weight: 100;
         outline: none;
-        border: 2px solid green;
+        border: 1px solid green;
         background-color: white;
         color: black;
         padding: 13px 30px;
@@ -895,6 +895,7 @@
     .checkout-btn:hover {
         background-color: #9FF086;
     }
+    
     /* LOGIN */
     
     #login-form {
@@ -1243,10 +1244,10 @@
         margin: 5px auto;
         text-align: center;
         padding: 20px;
-        border-top: 4px solid black;
-        border-bottom: 4px solid black;
-        border-left: 4px solid black;
-        border-right: 4px solid black;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
         border-radius: 45px;
         background-color: white;
     }
@@ -1258,9 +1259,9 @@
     
     #checkout-form #checkout-btn {
         font-size: 0.8rem;
-        font-weight: 900;
+        font-weight: 100;
         outline: none;
-        border: 6px solid green;
+        border: 1px solid green;
         background-color: white;
         color: black;
         padding: 13px 30px;
@@ -1283,7 +1284,7 @@
     }
     /* CONTACT */
     /* Media Query for CONTACT form on screens up to 990px */
-    /* Media Query for CONTACT form on screens up to 990px */
+
     
     @media only screen and (max-width: 990px) {
         .contact1 {

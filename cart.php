@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (isset($_POST['add_to_cart'])) {
@@ -73,10 +72,10 @@ if (isset($_POST['add_to_cart'])) {
     $product_quantity = $_POST['product_quantity'];
 
     // Check if the quantity is a valid non-negative number
-    if (!is_numeric($product_quantity) || $product_quantity < 0) {
-        echo '<script>alert("Invalid quantity. Please enter a non-negative number.");</script>';
+    if (!is_numeric($product_quantity) || $product_quantity < 1) {
+        echo '<script>alert("Invalid quantity. Please enter a positive number.");</script>';
         echo '<script>window.location="cart.php";</script>';
-        exit; // Prevent updating the quantity
+        exit; // Prevent updating the quantity to 0 or a negative number
     }
 
     // Get the product array from the session
@@ -190,7 +189,7 @@ function calculateTotalCart() {
   </div>
 </nav>
 
-    <!-- Cart -->
+    <!-- CART -->
 
     <section class="cart container my-5 py-5">
         <div class="container mt-5">
@@ -364,6 +363,7 @@ function calculateTotalCart() {
         <div id="move-to-top" class="scrollToTop filling">
             <a href="cart.php"><i class="fa fa-chevron-up"></i></a>
         </div>
+
 
     </footer>
 
