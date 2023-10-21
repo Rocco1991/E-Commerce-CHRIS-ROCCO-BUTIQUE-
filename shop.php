@@ -47,34 +47,63 @@ if (isset($_POST['search'])) {
     <!-- JQUERY  -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
-    <!-- JS code for filtering functionality  -->
-    <script>
+     <!-- JS code for filtering functionality  -->
+     <script>
         function searchFunction() {
-    var category = document.getElementById("category").value;
-    var price = document.getElementById("price").value;
-    var color = document.getElementById("color").value;
-    var formData = {
-        category: category,
-        price: price,
-        color: color,
-    };
+            var category = document.getElementById("category").value;
+            var price = document.getElementById("price").value;
+            var color = document.getElementById("color").value;
+            var formData = {
+                category: category,
+                price: price,
+                color: color,
+            };
 
-    // Use AJAX to fetch filtered products
-    $.ajax({
-        type: "POST",
-        url: "server/get_filtered_products.php", // Update the URL accordingly
-        data: formData,
-        success: function(response) {
-            // Update the product container with the new product listings
-            $("#products-container").html(response);
-        },
-        error: function(error) {
-            console.error("Error fetching products: " + error);
+            // Use AJAX to fetch filtered products
+            $.ajax({
+                type: "POST",
+                url: "server/get_filtered_products.php", // Update the URL accordingly
+                data: formData,
+                success: function(response) {
+                    // Update the product container with the new product listings
+                    $("#products-container").html(response);
+                },
+                error: function(error) {
+                    console.error("Error fetching products: " + error);
+                }
+            });
         }
-    });
-}
 
+        // Reset filters function
+        function resetFilters() {
+            // Reset filter inputs and fetch all products
+            document.getElementById("category").value = "all";
+            document.getElementById("price").value = 0;
+            document.getElementById("color").value = "all";
+
+            // Use AJAX to fetch all products
+            $.ajax({
+                type: "POST",
+                url: "server/get_filtered_products.php", // Update the URL accordingly
+                data: {
+                    category: "all",
+                    price: 0,
+                    color: "all",
+                },
+                success: function(response) {
+                    // Update the product container with all products
+                    $("#products-container").html(response);
+                },
+                error: function(error) {
+                    console.error("Error fetching products: " + error);
+                }
+            });
+        }
+
+        // Add an event listener to the "Reset All Filters" button
+        document.getElementById("reset-filters-btn").addEventListener("click", resetFilters);
     </script>
+    
 
 </head>
 
@@ -147,8 +176,8 @@ if (isset($_POST['search'])) {
                 <div class="search-container">
                     <input type="text" id="search-input" placeholder="Search for products..." oninput="searchFunction()" />
                     <br>
-                    <label for="discount">ON DISCOUNT (select percentage):</label>
-                    <input type="range" id="discount" name="discount" min="0" max="100" step="10" value="0">
+                    <label for="discount">ON DISCOUNT (select a percentage):</label>
+                    <input type="range" id="discount" name="discount" min="0" max="100" step="1" value="0">
                     <span id="discount-label">0 %</span>
                     <br>
                     <label for="newArrivals">NEW ARRIVALS :</label>
@@ -173,8 +202,8 @@ if (isset($_POST['search'])) {
                     <br>
                     <label for="price">PRICES :</label>
                     <br>
-                    <input type="range" name="price" id="price" min="0" max="100000" value="0" step="1" oninput="updatePriceRange(this.value)" />
-                    <span id="price-range">0 - 100000 Euros</span>
+                    <input type="range" name="price" id="price" min="0" max="10000" value="0" step="1" oninput="updatePriceRange(this.value)" />
+                    <span id="price-range">0 - 10000 Euros</span>
                     <br>
                     <select name="category" id="category">
                         <option value="all">All Categories</option>
@@ -373,7 +402,7 @@ if (isset($_POST['search'])) {
 
 
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="mt-5 py-5">
         <div class="row container mx-auto pt-5">
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
@@ -382,7 +411,7 @@ if (isset($_POST['search'])) {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">FEATURED</p>
+                <p class="pb-2 golden-underline-heading">FEATURED</p>
                 <ul class="text-uppercase">
                     <li><a href="#">Men</a></li>
                     <li><a href="#">Women</a></li>
@@ -394,7 +423,7 @@ if (isset($_POST['search'])) {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">CONTACT US</p>
+                <p class="pb-2 golden-underline-heading">CONTACT US</p>
                 <div>
                     <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
@@ -412,7 +441,7 @@ if (isset($_POST['search'])) {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">SOCIAL MEDIA</p>
+                <p class="pb-2 golden-underline-heading">SOCIAL MEDIA</p>
                 <div class="row">
 
                     <div class>
@@ -467,76 +496,7 @@ if (isset($_POST['search'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-        <!-- JS CODE FOR SHOP -->
-<script>
-    // Function to handle the search functionality
-    function searchFunction() {
-        var form = document.getElementById("search-input");
-        var category = form.category.value;
-        var price = form.price.value;
-        var color = form.color.value;
 
-        // Perform AJAX request to fetch filtered products based on search criteria
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Update the HTML content with the fetched products
-                document.getElementById("products-container").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("POST", "server/get_filtered_products.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("category=" + category + "&price=" + price + "&color=" + color);
-    }
-
-    // Get all the filter elements
-    const tagsCheckboxes = document.querySelectorAll('input[name="tags"]');
-    const colorSelect = document.getElementById('color');
-    const products = document.querySelectorAll('.product');
-
-    // Function to update the product filters
-    function updateFilters() {
-        // Get the selected tags and color
-        const selectedTags = Array.from(tagsCheckboxes)
-            .filter((checkbox) => checkbox.checked)
-            .map((checkbox) => checkbox.value);
-        const selectedColor = colorSelect.value;
-
-        // Loop through all the product elements
-        products.forEach((product) => {
-            const productTags = Array.from(product.querySelectorAll('.product-tag')).map((tag) => tag.dataset.tag);
-            const productColor = product.dataset.color;
-
-            // Check if the product matches the selected filters
-            const showProduct =
-                (selectedTags.length === 0 || selectedTags.some((tag) => productTags.includes(tag))) &&
-                (selectedColor === 'All' || selectedColor === productColor);
-
-            // Show or hide the product based on the filters
-            product.style.display = showProduct ? 'block' : 'none';
-        });
-    }
-
-    // Function to update the price range
-    function updatePriceRange(value) {
-        var priceRangeElement = document.getElementById("price-range");
-        priceRangeElement.textContent = "0 - " + value;
-    }
-
-    // Add event listeners to the filter elements
-    tagsCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', updateFilters);
-    });
-
-    colorSelect.addEventListener('change', updateFilters);
-
-    // Add event listener to the form's onsubmit event
-    const searchForm = document.getElementById("search-form");
-    searchForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form submission
-        searchFunction();
-    });
-</script>
         
 </body>
 

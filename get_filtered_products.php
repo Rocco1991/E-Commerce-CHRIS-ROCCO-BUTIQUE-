@@ -1,7 +1,7 @@
 <?php
 // server/get_filtered_products.php
 
-include('server/connection.php');
+include('connection.php'); // Ensure that the path to connection.php is correct
 
 if (isset($_POST['search'])) {
     $category = $_POST['category'];
@@ -18,10 +18,17 @@ if (isset($_POST['search'])) {
     }
 
     $stmt->execute();
-    $products = $stmt->get_result();
+    $result = $stmt->get_result();
+
+    // Store the filtered products in an array
+    $filteredProducts = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $filteredProducts[] = $row;
+    }
 
     // Return the filtered products as JSON
     header('Content-Type: application/json');
-    echo json_encode($products->fetch_all(MYSQLI_ASSOC));
+    echo json_encode($filteredProducts);
 }
 ?>

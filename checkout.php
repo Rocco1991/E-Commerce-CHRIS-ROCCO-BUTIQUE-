@@ -7,6 +7,12 @@ if ($cartIsEmpty) {
   header('Location: index.php');
   exit(); // stop executing the current script to prevent further code execution
 }
+
+$userIsLoggedIn = isset($_SESSION['user_id']); // Check if the user is logged in
+
+if (!$userIsLoggedIn) {
+  $message = "Please log in to complete your purchase.";
+}
 ?>
 
 <!DOCTYPE html>
@@ -100,6 +106,12 @@ if ($cartIsEmpty) {
         </div>
         <div class="mx-auto container">
             <form id="checkout-form" method="POST" action="server/place_order.php">  <!-- OK  -->
+            
+            <p class="text-center" style="color: red;"></p>
+            <?php if(isset($_GET['message'])) { echo $_GET['message'];}?>
+            <?php if(isset($_GET['message'])) {?>
+                    <a href="login.php" class="btn" >LOGIN</a>
+                <?php }?>
 
                 <div class="form-group ">
                     <label>NAME</label>
@@ -130,6 +142,7 @@ if ($cartIsEmpty) {
                     <p>Total amount: $ <?php echo $_SESSION['total']; ?> </p>
                     </p>
                     <input type="submit" class="btn" id="checkout-btn" name="place_order" value="PLACE ORDER" />  <!-- name i value je različit (checkout_btn i place_order) -->
+
                 </div>
             </form>
         </div>
@@ -146,7 +159,7 @@ if ($cartIsEmpty) {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">FEATURED</p>
+                <p class="pb-2 golden-underline-heading">FEATURED</p>
                 <ul class="text-uppercase">
                     <li><a href="#">Men</a></li>
                     <li><a href="#">Women</a></li>
@@ -158,7 +171,7 @@ if ($cartIsEmpty) {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">CONTACT US</p>
+                <p class="pb-2 golden-underline-heading">CONTACT US</p>
                 <div>
                     <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
@@ -176,7 +189,7 @@ if ($cartIsEmpty) {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">SOCIAL MEDIA</p>
+                <p class="pb-2 golden-underline-heading">SOCIAL MEDIA</p>
                 <div class="row">
 
                     <div class>

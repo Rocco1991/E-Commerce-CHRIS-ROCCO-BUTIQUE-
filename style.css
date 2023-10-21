@@ -406,6 +406,34 @@
         color: goldenrod;
         font-size: 0.7rem
     }
+
+    /* golden moving underline */
+
+.golden-underline-heading {
+    position: relative;
+    text-decoration: none;
+}
+
+.golden-underline-heading::before {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 1px; /* Adjust the height as needed */
+    bottom: 0;
+    left: 0;
+    background: goldenrod; /* Or any other color you prefer */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+/* Apply the animation only to headings with the class 'golden-underline-heading' */
+.golden-underline-heading:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+    
     /* footer .copyright img {
     width: 30%;
 } */
@@ -498,6 +526,7 @@
     .single-product input:focus {
         outline: none;
     }
+
     /* WHATSAPP */
     
     .whatsapp-chat {
@@ -825,7 +854,7 @@
     .cart td input {
         width: 82px;
         height: 30px;
-        padding: 5px;
+        padding: 0px;
         background-color: white;
     }
     
@@ -895,11 +924,11 @@
     .checkout-btn:hover {
         background-color: #9FF086;
     }
-    
+
     /* LOGIN */
     
     #login-form {
-        width: 40%;
+        width: 50%;
         margin: 5px auto;
         text-align: center;
         padding: 20px;
@@ -1280,8 +1309,12 @@
     }
     
     #checkout-form p {
-        color: white;
+        color: Green;
+        font-size: x-large;
+        font-weight: 300;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
     }
+
     /* CONTACT */
     /* Media Query for CONTACT form on screens up to 990px */
 

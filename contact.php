@@ -96,7 +96,7 @@
                     <div class="icon1"><i class="fa-solid fa-house"></i></div>
                     <div class="text1">
                         <h5>ADDRESS</h5>
-                        <p>Via delle Terme di Tito, 72, 00184 Roma RM<br> Italia </p>
+                        <p>Odeska street, Split<br> Croatia </p>
                     </div>
                 </div>
 
@@ -144,6 +144,25 @@
 
         </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Google Map Embed Code -->
+    <div style="width: 60%; height: 600px;">
+        <iframe
+            width="100%"
+            height="100%"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d179065.00002988626!2d16.4390369!3d43.5081323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13354f58d71870db%3A0x4031d612cf3d0df!2sSplit%2C%20Croatia!5e0!3m2!1sen!2sus!4v1578914990195!5m2!1sen!2sus"
+            allowfullscreen
+        >
+        </iframe>
+    </div>
 
     </section>
 
@@ -156,7 +175,7 @@
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">FEATURED</p>
+                <p class="pb-2 golden-underline-heading">FEATURED</p>
                 <ul class="text-uppercase">
                     <li><a href="#">Men</a></li>
                     <li><a href="#">Women</a></li>
@@ -168,7 +187,7 @@
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">CONTACT US</p>
+                <p class="pb-2 golden-underline-heading">CONTACT US</p>
                 <div>
                     <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
@@ -186,7 +205,7 @@
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">SOCIAL MEDIA</p>
+                <p class="pb-2 golden-underline-heading">SOCIAL MEDIA</p>
                 <div class="row">
 
                     <div class>

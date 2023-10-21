@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHRIS ROCCO BUTIQUE</title>
+    <title> MAIN PAGE</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -636,7 +636,7 @@
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">FEATURED</p>
+                <p class="pb-2 golden-underline-heading">FEATURED</p>
                 <ul class="text-uppercase">
                     <li><a href="#">Men</a></li>
                     <li><a href="#">Women</a></li>
@@ -649,7 +649,7 @@
 
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">CONTACT US</p>
+                <p class="pb-2 golden-underline-heading">CONTACT US</p>
                 <div>
                     <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
@@ -667,7 +667,7 @@
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">SOCIAL MEDIA</p>
+                <p class="pb-2 golden-underline-heading">SOCIAL MEDIA</p>
                 <div class="row">
 
                     <div class>

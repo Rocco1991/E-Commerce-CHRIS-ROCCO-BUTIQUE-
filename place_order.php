@@ -4,6 +4,7 @@ session_start();
 
 include('connection.php');
 
+// if user is not logged in 
 if(!isset($_SESSION['logged_in'])){
     header('location: /checkout.php?message=Please login/register to place an order');
 }

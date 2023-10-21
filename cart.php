@@ -280,6 +280,8 @@ function calculateTotalCart() {
                     
                <?php endif; ?>           
            </div>
+
+           <a href="shop.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>BACK TO SHOP</button></a>
     </section>
 
 
@@ -293,7 +295,7 @@ function calculateTotalCart() {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">FEATURED</p>
+                <p class="pb-2 golden-underline-heading">FEATURED</p>
                 <ul class="text-uppercase">
                     <li><a href="#">Men</a></li>
                     <li><a href="#">Women</a></li>
@@ -305,7 +307,7 @@ function calculateTotalCart() {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">CONTACT US</p>
+                <p class="pb-2 golden-underline-heading">CONTACT US</p>
                 <div>
                     <p class="text-uppercase">Address </p>
                     <P>Via delle Terme di Tito, 72, 00184 Roma RM, Italia</P>
@@ -323,7 +325,7 @@ function calculateTotalCart() {
             </div>
 
             <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-                <p class="pb-2">SOCIAL MEDIA</p>
+                <p class="pb-2 golden-underline-heading">SOCIAL MEDIA</p>
                 <div class="row">
 
                     <div class>
