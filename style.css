@@ -1397,6 +1397,18 @@
         font-weight: 500;
         margin-bottom: 20px;
     }
+
+    .google-map {
+        width: 60%;
+        height: 600px;
+    }
+
+    .icon1 {
+        margin-right: 20px;
+    }
+    
+
+    
     /* Input boxes */
     
     .contactForm1 .inputBox1 {
@@ -1427,6 +1439,8 @@
         transition: 0.5s;
         color: #999;
     }
+
+
     
     .contactForm1 .inputBox1 input:focus~span,
     .contactForm1 .inputBox1 input:valid~span,

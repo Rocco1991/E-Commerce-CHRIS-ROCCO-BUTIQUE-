@@ -39,70 +39,13 @@ if (isset($_POST['search'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- FONT AWSOME CDN LINK -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- JQUERY  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-     <!-- JS code for filtering functionality  -->
-     <script>
-        function searchFunction() {
-            var category = document.getElementById("category").value;
-            var price = document.getElementById("price").value;
-            var color = document.getElementById("color").value;
-            var formData = {
-                category: category,
-                price: price,
-                color: color,
-            };
-
-            // Use AJAX to fetch filtered products
-            $.ajax({
-                type: "POST",
-                url: "server/get_filtered_products.php", // Update the URL accordingly
-                data: formData,
-                success: function(response) {
-                    // Update the product container with the new product listings
-                    $("#products-container").html(response);
-                },
-                error: function(error) {
-                    console.error("Error fetching products: " + error);
-                }
-            });
-        }
-
-        // Reset filters function
-        function resetFilters() {
-            // Reset filter inputs and fetch all products
-            document.getElementById("category").value = "all";
-            document.getElementById("price").value = 0;
-            document.getElementById("color").value = "all";
-
-            // Use AJAX to fetch all products
-            $.ajax({
-                type: "POST",
-                url: "server/get_filtered_products.php", // Update the URL accordingly
-                data: {
-                    category: "all",
-                    price: 0,
-                    color: "all",
-                },
-                success: function(response) {
-                    // Update the product container with all products
-                    $("#products-container").html(response);
-                },
-                error: function(error) {
-                    console.error("Error fetching products: " + error);
-                }
-            });
-        }
-
-        // Add an event listener to the "Reset All Filters" button
-        document.getElementById("reset-filters-btn").addEventListener("click", resetFilters);
-    </script>
+    <!-- FONT AWSOME KIT LINK -->
+    <script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
     
 
 </head>
@@ -492,12 +435,12 @@ if (isset($_POST['search'])) {
     </footer>
 
   
-     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <!-- JS LINK  -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
 
-
-        
 </body>
 
 </html>
