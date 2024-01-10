@@ -88,7 +88,7 @@ if (isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTER FORM</title>
+    <title> MAIN PAGE</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -100,6 +100,7 @@ if (isset($_POST['register'])) {
 
     <!-- FONT AWSOME KIT LINK -->
     <script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -288,7 +289,7 @@ if (isset($_POST['register'])) {
         </div>
 
         <div id="move-to-top" class="scrollToTop filling">
-            <a href="register.html"><i class="fa fa-chevron-up"></i></a>
+            <a href="register.php"><i class="fa fa-chevron-up"></i></a>
         </div>
 
     </footer>
