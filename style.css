@@ -1,9 +1,71 @@
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,400;1,100;1,200;1,400;1,500;1,600;1,700&display=swap');
+   /* RESPONSIVE WEB SITE  Default styles for the website */
+
+
+   /* RESPONSIVE WEB SITE */
+    
+   @media only screen and (max-width: 991px) {
+    .nav-buttons {
+        margin: 10px;
+    }
+    .nav-buttons ul {
+        margin: 1rem;
+        justify-content: flex start;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .nav-buttons ul .fa {
+        margin: 20px 5px 10px 20px;
+    }
+}
+
+
+/* CONTACT */
+    /* Media Query for CONTACT form on screens up to 991px */
+
+    
+    @media only screen and (max-width: 991px) {
+        .contact1 {
+            padding: 50px 20px;
+        }
+        .container1 {
+            width: 100%;
+            flex-direction: column;
+        }
+        .contactForm1 {
+            width: 100%;
+        }
+    }
+
+
+     /* Responsive rules for screens smaller than 768px */
+    
+     @media only screen and (max-width: 768px) {
+        .contact1 {
+            padding: 50px 20px;
+        }
+        .container1 {
+            flex-direction: column;
+        }
+        .container1 .contactInfo1 {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .contactForm1 {
+            width: 100%;
+        }
+    }
+   
+
+
+   
+   @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,400;1,100;1,200;1,400;1,500;1,600;1,700&display=swap');
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
+
+    /**************************************/
     
     button {
         font-size: 0.8rem;
@@ -77,12 +139,14 @@
     }
     
     .navbar-light .navbar-nav .nav-link {
-        padding: 0 20px;
+        padding: 0 10px;
         color: black;
         transition: 0.4s ease;
         font-size: 16px;
+
     }
-    
+
+
     .navbar-light .navbar-nav .nav-link:hover,
     .navbar i:hover,
     .navbar-light .navbar-nav .nav-link.active .navbar i:hover {
@@ -97,21 +161,7 @@
         margin-left: 20px;
         color: black;
     }
-    
-    @media only screen and (max-width: 990px) {
-        .nav-buttons {
-            margin: 10px;
-        }
-        .nav-buttons ul {
-            margin: 1rem;
-            justify-content: flex start;
-            align-items: flex-start;
-            text-align: left;
-        }
-        .nav-buttons ul .fa {
-            margin: 20px 5px 10px 20px;
-        }
-    }
+ 
     /* FLAG DROPDOWN */
     
     .flag-icon {
@@ -176,7 +226,7 @@
     
     .testimonial-slider {
         display: flex;
-        flex-direction: row;
+        flex-direction: row;  /* row ili column */
         align-items: center;
         max-width: 900px;
         margin: 0 auto;
@@ -437,6 +487,17 @@
     /* footer .copyright img {
     width: 30%;
 } */
+
+
+/* CLOCK DATE TIME  */
+.clock-date-section {
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 900px; 
+}
+
+
+
     /* BACKTOTOP */
     
     .scrollToTop.filling {
@@ -1315,37 +1376,8 @@
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
     }
 
-    /* CONTACT */
-    /* Media Query for CONTACT form on screens up to 990px */
-
     
-    @media only screen and (max-width: 990px) {
-        .contact1 {
-            padding: 50px 20px;
-        }
-        .container1 {
-            width: 100%;
-            flex-direction: column;
-        }
-        .contactForm1 {
-            width: 100%;
-        }
-    }
-    /* CONTACT */
-    /* Media Query for CONTACT form on screens up to 990px */
     
-    @media only screen and (max-width: 990px) {
-        .contact1 {
-            padding: 50px 20px;
-        }
-        .container1 {
-            width: 100%;
-            flex-direction: column;
-        }
-        .contactForm1 {
-            width: 100%;
-        }
-    }
     /* Main contact section */
     
     .contact1 {
@@ -1506,23 +1538,7 @@
         font-weight: 500;
         color: #333;
     }
-    /* Responsive rules for screens smaller than 768px */
-    
-    @media only screen and (max-width: 768px) {
-        .contact1 {
-            padding: 50px 20px;
-        }
-        .container1 {
-            flex-direction: column;
-        }
-        .container1 .contactInfo1 {
-            width: 100%;
-            margin-bottom: 30px;
-        }
-        .contactForm1 {
-            width: 100%;
-        }
-    }
+   
     /* PAYMENT */
     
     .container3 {
@@ -1776,7 +1792,7 @@
     .order-confirmation-container {
         background-color: white;
         color: black;
-        padding: 400px;
+        padding: 100px;
         text-align: center;
     }
     

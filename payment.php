@@ -1,39 +1,38 @@
 <?php
-session_start();
-
 // Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Retrieve form input
-    $card_number = $_POST['card_number'];
-    $card_holder = $_POST['card_holder'];
-    $expiration_month = $_POST['expiration_month'];
-    $expiration_year = $_POST['expiration_year'];
-
-    // Check if the "cvv" key exists in the $_POST array
-    if (isset($_POST['cvv'])) {
-        $cvv = $_POST['cvv'];
-    } else {
-        $cvv = ''; // Assign an empty value if "cvv" key is not present
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Assuming you have a database connection established
+    // Replace 'your_host', 'your_username', 'your_password', and 'your_database' with your actual database credentials
+    $conn = new mysqli('your_host', 'your_username', 'your_password', 'chris_rocco_butique');
+    
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    // Validate input (you can add more validation rules as needed)
-    if (empty($card_number) || empty($card_holder) || empty($expiration_month) || empty($expiration_year) || empty($cvv)) {
-        $error_message = 'Please fill in all the required fields.';
-        // You can display the error message or redirect the user back to the payment form with an error notification.
-    } else {
-        // Process the payment (using a payment gateway or API)
-        // ...
+    // Prepare and bind the SQL statement
+    $stmt = $conn->prepare("INSERT INTO payments (card_number, card_holder, expiration_month, expiration_year, cvv) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $cardNumber, $cardHolder, $expirationMonth, $expirationYear, $cvv);
 
-        // Set session variable to indicate payment was successful
-        $_SESSION['paid'] = true;
+    // Set parameters
+    $cardNumber = $_POST['card_number'];
+    $cardHolder = $_POST['card_holder'];
+    $expirationMonth = $_POST['expiration_month'];
+    $expirationYear = $_POST['expiration_year'];
+    $cvv = $_POST['cvv'];
 
-        // Redirect to a confirmation page or any desired page indicating successful payment
-        header("Location: confirmation.php");
-        exit;
-    }
+    // Execute the statement
+    $stmt->execute();
+
+    // Close statement and database connection
+    $stmt->close();
+    $conn->close();
+
+    // Redirect to a new page with a success message
+    header("Location: success.php");
+    exit();
 }
 ?>
-
 
 
 <!DOCTYPE html>
@@ -56,6 +55,69 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- FONT AWSOME KIT LINK -->
     <script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
 
+     <!-- JAVASCRIPT for CARD NUMBER, EXPIRES , CARD HOLDER , CVV  -->
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to update the card number
+            function updateCardNumber() {
+                var cardNumberInput = document.querySelector('.card-number-input');
+                var cardNumberBox = document.querySelector('.card-number-box');
+                var cardNumber = cardNumberInput.value.replace(/\D/g, '');
+                var formattedCardNumber = cardNumber.replace(/(.{4})/g, '$1');
+    
+                cardNumberBox.textContent = formattedCardNumber;
+            }
+    
+            // Function to update the card holder
+            function updateCardHolder() {
+                var cardHolderInput = document.querySelector('.card-holder-input');
+                var cardHolderName = document.querySelector('.card-holder-name');
+                cardHolderName.textContent = cardHolderInput.value;
+            }
+    
+            // Function to update the expiration date
+            function updateExpiration() {
+                var monthInput = document.querySelector('.month-input');
+                var yearInput = document.querySelector('.year-input');
+                var expirationMonth = document.querySelector('.exp-month');
+                var expirationYear = document.querySelector('.exp-year');
+                expirationMonth.textContent = monthInput.value.padStart(2, '0');
+                expirationYear.textContent = yearInput.value.slice(-2);
+            }
+    
+            // Function to update the CVV in the back
+            function updateCVV() {
+                var cvvInput = document.querySelector('.cvv-input');
+                var cvvBox = document.querySelector('.cvv-box');
+                cvvBox.textContent = cvvInput.value.padEnd(3, '*');
+            }
+    
+            // Function to handle card rotation on CVV focus
+            function rotateCard() {
+                var card = document.querySelector('.card-container3');
+                card.classList.toggle('rotate');
+            }
+    
+            // Attach event listeners to input fields for card details
+            document.querySelector('.card-number-input').addEventListener('input', updateCardNumber);
+            document.querySelector('.card-holder-input').addEventListener('input', updateCardHolder);
+            document.querySelector('.month-input').addEventListener('change', updateExpiration);
+            document.querySelector('.year-input').addEventListener('change', updateExpiration);
+            document.querySelector('.cvv-input').addEventListener('input', updateCVV);
+            document.querySelector('.cvv-input').addEventListener('focus', rotateCard);
+            document.querySelector('.cvv-input').addEventListener('blur', rotateCard);
+    
+            // Initially update card details
+            updateCardNumber();
+            updateCardHolder();
+            updateExpiration();
+            updateCVV();
+        });
+    </script>
+    
+    
+    
+    
 
 </head>
 
@@ -329,7 +391,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="copyright mt-5">
             <div class="row container mx-auto">
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved AUGUST 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MARCH 2024</p>
                 </div>
             </div>
         </div>

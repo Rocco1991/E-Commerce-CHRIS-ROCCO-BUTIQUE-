@@ -33,7 +33,7 @@ if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> MAIN PAGE</title>
+    <title>ORDER DETAILS</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -123,7 +123,7 @@ if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
         <table class="mt-5 pt-5 mx-auto">
 
             <tr>
-                <th>PRODUCT</th>
+                <th>PRODUCTS</th>
                 <th>PRICE</th>
                 <th>QUANTITY</th>
             </tr>
@@ -250,7 +250,7 @@ if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
         <div class="copyright mt-5">
             <div class="row container mx-auto">
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved AUGUST 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MARCH 2024</p>
                 </div>
             </div>
         </div>

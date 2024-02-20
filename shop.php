@@ -5,7 +5,7 @@ include('server/connection.php');
 if (isset($_POST['search'])) {
     $category = $_POST['category'];
     $price = $_POST['price'];
-    $color = $_POST['color'];
+    $color = $_POST['color']; // Get selected color
 
     // Prepare the SQL statement with color filtering
     if ($color === 'all') {
@@ -13,14 +13,15 @@ if (isset($_POST['search'])) {
         $stmt->bind_param('si', $category, $price);
     } else {
         $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=? AND product_color=?");
-        $stmt->bind_param('sis', $category, $price, $color);
+        $stmt->bind_param('sis', $category, $price, $color); // Bind color parameter
     }
 
     $stmt->execute();
     $products = $stmt->get_result();
 
-    // Fear not, for I shall return all the products!
+    // Fetch and display products
 } else {
+    // If search form is not submitted, fetch all products
     $stmt = $conn->prepare("SELECT * FROM products");
     $stmt->execute();
     $products = $stmt->get_result();
@@ -47,6 +48,8 @@ if (isset($_POST['search'])) {
     <!-- FONT AWSOME KIT LINK -->
     <script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
 
+
+    
 
 </head>
 
@@ -413,7 +416,7 @@ if (isset($_POST['search'])) {
         <div class="copyright mt-5">
             <div class="row container mx-auto">
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved AUGUST 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MARCH 2024</p>
                 </div>
             </div>
         </div>
@@ -434,6 +437,88 @@ if (isset($_POST['search'])) {
 
     </footer>
 
+
+    <!-- Javascript for searchbar  -->
+
+    <script>
+        // Function to handle search
+function searchFunction() {
+    // Get all search parameters
+    var searchInput = document.getElementById('search-input').value;
+    var discount = document.getElementById('discount').value;
+    var last30Days = document.getElementById('last30Days').checked;
+    var last90Days = document.getElementById('last90Days').checked;
+    var sortBy = document.getElementById('sort-by').value;
+    var price = document.getElementById('price').value;
+    var category = document.getElementById('category').value;
+    var stockItems = document.getElementById('stock-items').checked;
+    var saleItems = document.getElementById('sale-items').checked;
+    var rating = document.querySelector('.rating-stars input:checked') ? document.querySelector('.rating-stars input:checked').value : null;
+    var color = document.getElementById('color').value;
+    var size = document.getElementById('size').value;
+    var tags = [];
+    document.querySelectorAll('input[name="tags"]:checked').forEach(function(checkbox) {
+        tags.push(checkbox.value);
+    });
+    var theme = document.getElementById('theme').value;
+
+    // Log the search parameters
+    logSearchParameters(searchInput, discount, last30Days, last90Days, sortBy, price, category, stockItems, saleItems, rating, color, size, tags, theme);
+
+    // Implement your search logic here using the collected search parameters
+}
+
+// Function to log search parameters
+function logSearchParameters(searchInput, discount, last30Days, last90Days, sortBy, price, category, stockItems, saleItems, rating, color, size, tags, theme) {
+    console.log("Search Parameters:");
+    console.log("Search Input:", searchInput);
+    console.log("Discount:", discount);
+    console.log("Last 30 Days:", last30Days);
+    console.log("Last 90 Days:", last90Days);
+    console.log("Sort By:", sortBy);
+    console.log("Price:", price);
+    console.log("Category:", category);
+    console.log("In Stock Items:", stockItems);
+    console.log("On Sale Items:", saleItems);
+    console.log("Rating:", rating);
+    console.log("Color:", color);
+    console.log("Size:", size);
+    console.log("Tags:", tags);
+    console.log("Theme:", theme);
+}
+
+// Function to update discount label
+document.getElementById('discount').addEventListener('input', function() {
+    document.getElementById('discount-label').innerText = this.value + ' %';
+});
+
+// Function to update price range label
+function updatePriceRange(value) {
+    document.getElementById('price-range').innerText = '0 - ' + value + ' Euros';
+}
+
+// Function to handle reset filters
+document.getElementById('reset-filters-btn').addEventListener('click', function() {
+    // Get all input elements within the search container
+    var inputs = document.querySelectorAll('.search-container input, .search-container select');
+
+    // Reset each input element to its default value
+    inputs.forEach(function(input) {
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            input.checked = false;
+        } else {
+            input.value = input.defaultValue;
+        }
+    });
+
+    // Reset the discount label
+    document.getElementById('discount-label').innerText = '0 %';
+
+    // Reset price range label
+    document.getElementById('price-range').innerText = '0 - 10000 Euros';
+});
+
+    </script>
   
      <!-- JS LINK  -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -11,7 +11,7 @@ if ($mysqli->connect_error) {
 // GREŠKA
 
 $order_id = ''; 
-$product_number = '36'; 
+$product_number = ''; 
 $_SESSION['total'] = ''; // You need to set this based on your logic
 
 // Check if payment has been made
@@ -22,8 +22,19 @@ if (isset($_POST['payment_id'])) {
 
     if ($stmt->execute()) {
         // Payment status updated successfully
-        $order_id = ''; // You need to set a value for $order_id
-        // You may want to set $_SESSION['total'] here as well, depending on your logic
+
+        // Retrieve order information from your database based on $payment_id
+        $result = $mysqli->query("SELECT order_id, product_number, total_amount FROM orders WHERE payment_id = $payment_id");
+
+        if ($result && $row = $result->fetch_assoc()) {
+            // Set values for $order_id, $product_number, and $_SESSION['total']
+            $order_id = $row['order_id'];
+            $product_number = $row['product_number'];
+            $_SESSION['total'] = $row['total_amount'];
+        } else {
+            // Handle the case where order information is not found
+            echo "Error: Order information not found";
+        }
 
         // Close database connection
         $stmt->close();
@@ -56,7 +67,7 @@ $mysqli->close();
     <script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Navbar (your existing HTML) -->
+   
 
     <!-- CONFIRMATION THANK YOU & PAYMENT -->
     <div class="order-confirmation-container">
@@ -84,10 +95,29 @@ $mysqli->close();
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <a href="../index.php">BACK</a> 
     </div>
 
     <!-- Footer (your existing HTML) -->
+    
 
     <!-- JS LINK  -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

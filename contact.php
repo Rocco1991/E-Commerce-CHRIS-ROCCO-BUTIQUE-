@@ -92,7 +92,7 @@
     <br>
     <section class="contact1">
         <div class="content1">
-            <h2>CONTACT US</h2>
+            <h2>CONTACT US HERE</h2>
         </div>
         <br>
         <br>
@@ -243,7 +243,7 @@
         <div class="copyright mt-5">
             <div class="row container mx-auto">
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved AUGUST 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MARCH 2024</p>
                 </div>
             </div>
         </div>

@@ -9,15 +9,17 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- FONT AWSOME CDN LINK -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- FONT AWSOME CDN LINK -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <!-- CSS LINK  -->
-    <link rel="stylesheet" href="assets/css/style.css">
+<!-- CSS LINK  -->
+<link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- FONT AWSOME KIT LINK -->
-    <script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
+<!-- FONT AWSOME KIT LINK -->
+<script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
 
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
@@ -94,9 +96,9 @@
             <h3><span>BEST PRICES THIS SEASON</span></h3>
             <br>
             <br>
-            <h4>" Welcome to CHRIS ROCCO BUTIQUE, your one-stop shop for all things fashion and style.</h4>
+            <h4>"CHRIS ROCCO BUTIQUE, your one-stop shop for all things.</h4>
             <br>
-            <h4>  We specialize in a wide range of products including WATCHES, BAGS, GLOVES, VINTAGE SUITS, PARFUMES, and SHOES. </h4>
+            <h4>  We specialize for now in a wide range of products including WATCHES, BAGS, GLOVES, VINTAGE SUITS, PARFUMES, and SHOES. </h4>
             <br>
             <h4> We pride ourselves on offering high-quality products at affordable prices and excellent customer service. </h4>
             <br>
@@ -109,6 +111,16 @@
             <br>
         </div>
     </section>
+
+
+    <!-- CLOCK AND DATE AND YEAR -->
+<div class="clock-date-section">
+    <div class="footer.one col-lg-3 col-md-6 col-sm-12">
+        <p class="pb-2 golden-underline-heading">CURRENT TIME AND DATE</p>
+        <div id="clock"></div>
+        <div id="date"></div>
+    </div>
+</div>
 
     <!-- IMAGES LOOP -->
     <div id="imageContainer"></div>
@@ -204,7 +216,7 @@
                 <div class="details">
                     <h2>BEAUTIFUL SHOES</h2>
                     <a href="#shoes">
-                <button class="text-uppercase buy-btn">SHOP NOWSHOES</button>
+                <button class="text-uppercase buy-btn">SHOP NOW SHOES</button>
                     </a>
                 </div>
             </div>
@@ -628,6 +640,7 @@
 <br>
 <br>
 
+
    
 
     <!-- Footer -->
@@ -699,10 +712,13 @@
         <div class="copyright mt-5">
             <div class="row container mx-auto">
                 <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                    <p>eCommerce CHRIS ROCCO All Rights Reserved AUGUST 2023</p>
+                    <p>eCommerce CHRIS ROCCO All Rights Reserved MARCH 2024</p>
                 </div>
             </div>
         </div>
+
+        
+        
 
 
         <div id="move-to-top" class="scrollToTop filling">
@@ -726,6 +742,56 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
 
+   
+   
+   
+   
+   <!-- JS CLOCK DATE YEAR-->
+   
+   <script>
+    function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    
+    // Pad single digit minutes and seconds with leading zeros
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    var timeString = hours + ':' + minutes + ':' + seconds;
+    
+    document.getElementById('clock').innerHTML = timeString;
+
+    // Update every second
+    setTimeout(updateClock, 1000);
+}
+
+function updateDate() {
+    var now = new Date();
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    var dayOfWeek = days[now.getDay()];
+    var month = months[now.getMonth()];
+    var dayOfMonth = now.getDate();
+    var year = now.getFullYear();
+    
+    var dateString = dayOfWeek + ', ' + month + ' ' + dayOfMonth + ', ' + year;
+    
+    document.getElementById('date').innerHTML = dateString;
+}
+
+// Call the functions to start updating the clock and date
+updateClock();
+updateDate();
+
+   </script>
+   
+
+   
+   
+   
     <!-- JS LOOP PIC -->
     <script>
     var imageArray = ['assets/imgs/LoopPics/Coats-1.jpg', 'assets/imgs/LoopPics/Coats-2.jpg', 'assets/imgs/LoopPics/Coats-3.jpg', 'assets/imgs/LoopPics/Coats-4.jpg', 'assets/imgs/LoopPics/Coats-5.jpg', 'assets/imgs/LoopPics/Parfume-1.jpg', 'assets/imgs/LoopPics/Parfume-2.jpg', 'assets/imgs/LoopPics/Parfume-3.jpg', 'assets/imgs/LoopPics/Parfume-4.jpg',
