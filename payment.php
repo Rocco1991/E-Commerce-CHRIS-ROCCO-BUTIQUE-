@@ -1,8 +1,7 @@
 <?php
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Assuming you have a database connection established
-    // Replace 'your_host', 'your_username', 'your_password', and 'your_database' with your actual database credentials
+    // Replace 'your_host', 'your_username', 'your_password' with your actual database credentials
     $conn = new mysqli('your_host', 'your_username', 'your_password', 'chris_rocco_butique');
     
     // Check connection
@@ -35,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> MAIN PAGE</title>
+    <title>PAYMENT PAGE</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -312,7 +312,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="inputBox2">
                 <br>
                 <span>CVV</span>
-                <input type="text" name="cvv" maxlength="4" class="cvv-input">
+                <input type="text" name="cvv" maxlength="3" class="cvv-input">
             </div>
 
             <input type="submit" value="submit" class="submit-btn">
@@ -401,6 +401,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     </footer>
+    <!-- JS LINK SUBMIT BUTTON -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Assuming the form is valid and all necessary data is filled out
+
+            // Manually redirect to success.php
+            window.location.href = "server/success.php";
+        });
+    });
+        </script>
+
    
     <!-- JS LINK  -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
