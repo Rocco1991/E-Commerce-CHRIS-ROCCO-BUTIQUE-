@@ -1,6 +1,8 @@
 <?php
 // server/get_filtered_products.php
 
+// MOGUCA GRESKA include('server/connection.php');
+
 include('connection.php'); // Ensure that the path to connection.php is correct
 
 if (isset($_POST['search'])) {

@@ -98,16 +98,16 @@
             <br>
             <h4>"CHRIS ROCCO BUTIQUE, your one-stop shop for all things.</h4>
             <br>
-            <h4>  We specialize for now in a wide range of products including WATCHES, BAGS, GLOVES, VINTAGE SUITS, PARFUMES, and SHOES. </h4>
+            <h4>We specialize for now in a wide range of products including WATCHES, BAGS, GLOVES, VINTAGE SUITS, PARFUMES, and SHOES. </h4>
             <br>
-            <h4> We pride ourselves on offering high-quality products at affordable prices and excellent customer service. </h4>
+            <h4>We pride ourselves on offering high-quality products at affordable prices and excellent customer service. </h4>
             <br>
-            <h4> Shop with us today and experience the best of fashion and style at CHRIS ROCCO BUTIQUE."</h4>
-            <br>
-            <br>
+            <h4>Shop with us today and experience the best of fashion and style at CHRIS ROCCO BUTIQUE."</h4>
             <br>
             <br>
-            <a href="shop.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>SHOP NOW </button></a>
+            <br>
+            <br>
+            <a href="shop.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>SHOP NOW</button></a>
             <br>
         </div>
     </section>

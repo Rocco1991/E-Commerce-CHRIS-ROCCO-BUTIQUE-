@@ -12,6 +12,7 @@ if(isset($_POST['order_details_btn']) && isset($_POST['order_id'])){
    $order_result = $stmt->get_result();
    $order = $order_result->fetch_assoc();
 
+   
    $order_status = $order['order_status'];
    $order_delivery_status = $order['order_delivery_status'];
 

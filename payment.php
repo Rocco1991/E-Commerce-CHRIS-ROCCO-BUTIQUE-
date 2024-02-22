@@ -1,8 +1,14 @@
 <?php
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Replace 'your_host', 'your_username', 'your_password' with your actual database credentials
-    $conn = new mysqli('your_host', 'your_username', 'your_password', 'chris_rocco_butique');
+    // Replace 'localhost' with '127.0.0.1' if necessary, and replace 'your_username' and 'your_password' with actual database credentials
+    $host = 'localhost'; // Assuming your MySQL server is running on the same host
+    $username = 'root'; // Your MySQL username
+    $password = ''; // Your MySQL password (leave empty if no password is set)
+    $database = 'chris_rocco_butique'; // Your MySQL database name
+
+    // Create a new MySQLi connection
+    $conn = new mysqli($host, $username, $password, $database);
     
     // Check connection
     if ($conn->connect_error) {
@@ -35,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,65 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- FONT AWSOME KIT LINK -->
     <script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
 
-     <!-- JAVASCRIPT for CARD NUMBER, EXPIRES , CARD HOLDER , CVV  -->
-     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Function to update the card number
-            function updateCardNumber() {
-                var cardNumberInput = document.querySelector('.card-number-input');
-                var cardNumberBox = document.querySelector('.card-number-box');
-                var cardNumber = cardNumberInput.value.replace(/\D/g, '');
-                var formattedCardNumber = cardNumber.replace(/(.{4})/g, '$1');
     
-                cardNumberBox.textContent = formattedCardNumber;
-            }
-    
-            // Function to update the card holder
-            function updateCardHolder() {
-                var cardHolderInput = document.querySelector('.card-holder-input');
-                var cardHolderName = document.querySelector('.card-holder-name');
-                cardHolderName.textContent = cardHolderInput.value;
-            }
-    
-            // Function to update the expiration date
-            function updateExpiration() {
-                var monthInput = document.querySelector('.month-input');
-                var yearInput = document.querySelector('.year-input');
-                var expirationMonth = document.querySelector('.exp-month');
-                var expirationYear = document.querySelector('.exp-year');
-                expirationMonth.textContent = monthInput.value.padStart(2, '0');
-                expirationYear.textContent = yearInput.value.slice(-2);
-            }
-    
-            // Function to update the CVV in the back
-            function updateCVV() {
-                var cvvInput = document.querySelector('.cvv-input');
-                var cvvBox = document.querySelector('.cvv-box');
-                cvvBox.textContent = cvvInput.value.padEnd(3, '*');
-            }
-    
-            // Function to handle card rotation on CVV focus
-            function rotateCard() {
-                var card = document.querySelector('.card-container3');
-                card.classList.toggle('rotate');
-            }
-    
-            // Attach event listeners to input fields for card details
-            document.querySelector('.card-number-input').addEventListener('input', updateCardNumber);
-            document.querySelector('.card-holder-input').addEventListener('input', updateCardHolder);
-            document.querySelector('.month-input').addEventListener('change', updateExpiration);
-            document.querySelector('.year-input').addEventListener('change', updateExpiration);
-            document.querySelector('.cvv-input').addEventListener('input', updateCVV);
-            document.querySelector('.cvv-input').addEventListener('focus', rotateCard);
-            document.querySelector('.cvv-input').addEventListener('blur', rotateCard);
-    
-            // Initially update card details
-            updateCardNumber();
-            updateCardHolder();
-            updateExpiration();
-            updateCVV();
-        });
-    </script>
     
     
     
@@ -401,6 +350,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     </footer>
+
+     <!-- JAVASCRIPT for CARD NUMBER, EXPIRES , CARD HOLDER , CVV  -->
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to update the card number
+            function updateCardNumber() {
+                var cardNumberInput = document.querySelector('.card-number-input');
+                var cardNumberBox = document.querySelector('.card-number-box');
+                var cardNumber = cardNumberInput.value.replace(/\D/g, '');
+                var formattedCardNumber = cardNumber.replace(/(.{4})/g, '$1');
+    
+                cardNumberBox.textContent = formattedCardNumber;
+            }
+    
+            // Function to update the card holder
+            function updateCardHolder() {
+                var cardHolderInput = document.querySelector('.card-holder-input');
+                var cardHolderName = document.querySelector('.card-holder-name');
+                cardHolderName.textContent = cardHolderInput.value;
+            }
+    
+            // Function to update the expiration date
+            function updateExpiration() {
+                var monthInput = document.querySelector('.month-input');
+                var yearInput = document.querySelector('.year-input');
+                var expirationMonth = document.querySelector('.exp-month');
+                var expirationYear = document.querySelector('.exp-year');
+                expirationMonth.textContent = monthInput.value.padStart(2, '0');
+                expirationYear.textContent = yearInput.value.slice(-2);
+            }
+    
+            // Function to update the CVV in the back
+            function updateCVV() {
+                var cvvInput = document.querySelector('.cvv-input');
+                var cvvBox = document.querySelector('.cvv-box');
+                cvvBox.textContent = cvvInput.value.padEnd(3, '*');
+            }
+    
+            // Function to handle card rotation on CVV focus
+            function rotateCard() {
+                var card = document.querySelector('.card-container3');
+                card.classList.toggle('rotate');
+            }
+    
+            // Attach event listeners to input fields for card details
+            document.querySelector('.card-number-input').addEventListener('input', updateCardNumber);
+            document.querySelector('.card-holder-input').addEventListener('input', updateCardHolder);
+            document.querySelector('.month-input').addEventListener('change', updateExpiration);
+            document.querySelector('.year-input').addEventListener('change', updateExpiration);
+            document.querySelector('.cvv-input').addEventListener('input', updateCVV);
+            document.querySelector('.cvv-input').addEventListener('focus', rotateCard);
+            document.querySelector('.cvv-input').addEventListener('blur', rotateCard);
+    
+            // Initially update card details
+            updateCardNumber();
+            updateCardHolder();
+            updateExpiration();
+            updateCVV();
+        });
+    </script>
+
+
+
     <!-- JS LINK SUBMIT BUTTON -->
         <script>
             document.addEventListener("DOMContentLoaded", function() {

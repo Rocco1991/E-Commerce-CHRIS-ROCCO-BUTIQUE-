@@ -35,7 +35,7 @@ if (isset($_POST['search'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> MAIN PAGE</title>
+    <title>SHOP</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -48,6 +48,13 @@ if (isset($_POST['search'])) {
     <!-- FONT AWSOME KIT LINK -->
     <script src="https://kit.fontawesome.com/2660aeb402.js" crossorigin="anonymous"></script>
 
+    <!-- JS LINK  -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+
+    
 
     
 
@@ -154,11 +161,11 @@ if (isset($_POST['search'])) {
                     <select name="category" id="category">
                         <option value="all">All Categories</option>
                         <option value="coats" id="coats">Coats</option>
-                        <option value="shoes">Shoes</option>
-                        <option value="watches">Watches</option>
-                        <option value="perfumes">Perfumes</option>
-                        <option value="bags">Bags</option>
-                        <option value="gloves">Gloves</option>
+                        <option value="shoes" id="shoes">Shoes</option>
+                        <option value="watches"id="watches">Watches</option>
+                        <option value="perfumes" id="parfumes">Perfumes</option>
+                        <option value="bags" id="bags">Bags</option>
+                        <option value="gloves" id="gloves">Gloves</option>
                     </select>
                     <br>
                     <label for="stock-items">In Stock Items</label>
@@ -436,11 +443,9 @@ if (isset($_POST['search'])) {
             </div>
 
     </footer>
-
-
-    <!-- Javascript for searchbar  -->
-
-    <script>
+  
+ <!-- JS searchbar  -->
+ <script>
         // Function to handle search
 function searchFunction() {
     // Get all search parameters
@@ -468,35 +473,6 @@ function searchFunction() {
     // Implement your search logic here using the collected search parameters
 }
 
-// Function to log search parameters
-function logSearchParameters(searchInput, discount, last30Days, last90Days, sortBy, price, category, stockItems, saleItems, rating, color, size, tags, theme) {
-    console.log("Search Parameters:");
-    console.log("Search Input:", searchInput);
-    console.log("Discount:", discount);
-    console.log("Last 30 Days:", last30Days);
-    console.log("Last 90 Days:", last90Days);
-    console.log("Sort By:", sortBy);
-    console.log("Price:", price);
-    console.log("Category:", category);
-    console.log("In Stock Items:", stockItems);
-    console.log("On Sale Items:", saleItems);
-    console.log("Rating:", rating);
-    console.log("Color:", color);
-    console.log("Size:", size);
-    console.log("Tags:", tags);
-    console.log("Theme:", theme);
-}
-
-// Function to update discount label
-document.getElementById('discount').addEventListener('input', function() {
-    document.getElementById('discount-label').innerText = this.value + ' %';
-});
-
-// Function to update price range label
-function updatePriceRange(value) {
-    document.getElementById('price-range').innerText = '0 - ' + value + ' Euros';
-}
-
 // Function to handle reset filters
 document.getElementById('reset-filters-btn').addEventListener('click', function() {
     // Get all input elements within the search container
@@ -516,16 +492,48 @@ document.getElementById('reset-filters-btn').addEventListener('click', function(
 
     // Reset price range label
     document.getElementById('price-range').innerText = '0 - 10000 Euros';
+
+    // Reset color dropdown
+    document.getElementById('color').value = 'all';
+
+    // Reset size dropdown
+    document.getElementById('size').value = 'All';
+
+    // Call search function to apply reset filters
+    searchFunction();
 });
 
-    </script>
-  
-     <!-- JS LINK  -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+// Function to update discount label
+document.getElementById('discount').addEventListener('input', function() {
+    document.getElementById('discount-label').innerText = this.value + ' %';
+});
 
+// Function to update price range label
+function updatePriceRange(value) {
+    document.getElementById('price-range').innerText = '0 - ' + value + ' Euros';
+}
+
+// Function to log search parameters
+function logSearchParameters(searchInput, discount, last30Days, last90Days, sortBy, price, category, stockItems, saleItems, rating, color, size, tags, theme) {
+    console.log("Search Parameters:");
+    console.log("Search Input:", searchInput);
+    console.log("Discount:", discount);
+    console.log("Last 30 Days:", last30Days);
+    console.log("Last 90 Days:", last90Days);
+    console.log("Sort By:", sortBy);
+    console.log("Price:", price);
+    console.log("Category:", category);
+    console.log("In Stock Items:", stockItems);
+    console.log("On Sale Items:", saleItems);
+    console.log("Rating:", rating);
+    console.log("Color:", color);
+    console.log("Size:", size);
+    console.log("Tags:", tags);
+    console.log("Theme:", theme);
+}
+
+     </script>    
+     
 </body>
 
 </html>
