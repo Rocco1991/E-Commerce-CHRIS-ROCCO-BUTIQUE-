@@ -97,7 +97,7 @@ $product_id =  $_GET['product_id'];
   </div>
 </nav>
 
-    <!-- Single Product -->
+    <!-- SINGLE PRODUCT -->
     <br>
     <br>
     <br>
@@ -135,9 +135,16 @@ $product_id =  $_GET['product_id'];
 
 
             <div class="col-lg-6 col-md-12 col-12">
-               
+               <!--  PRODUCT NAME -->
                 <h3 class="py-4"> <?php echo $row['product_name']; ?> </h3>
-                <h2>$<?php echo $row['product_price'];?></h2>
+                <!--  PRODUCT PRICE -->
+                <h3>PRICE: $<?php echo $row['product_price'];?></h3>
+                <!--  PRODUCT CATEGORY -->
+                <h3>CATEGORY: <?php echo $row['product_category'];?></h3>
+                <!-- DISCOUNT PRODUCT SPECIAL OFFER -->
+                <h3 class="py-4">SPECIAL OFFER: <span class="discount"><?php echo $row['product_special_offer']; ?>% OFF</span></h3>
+                
+                
 
                 <form method="POST" action="cart.php">
                 <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
@@ -149,7 +156,7 @@ $product_id =  $_GET['product_id'];
                 <button class="buy-btn" type="submit" name="add_to_cart" >ADD TO CART</button>
                 </form>
 
-                 
+                 <!-- PRODUCT DETAILS -->
                 <h4 class="mt-5 mb-5">PRODUCT DETAILS</h4>
                 <span>  <?php echo $row['product_description']; ?>  </span>
             </div> 

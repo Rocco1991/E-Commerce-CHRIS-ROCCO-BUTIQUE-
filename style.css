@@ -1655,7 +1655,7 @@
     .container3 .card-container3 .front .imagepayment {
         border: 2px solid gray;
         box-shadow: 0 5px 35px black;
-        background: url(../imgs/2.jpeg);
+        background: url(../imgs/CARDBACKGROUND/4.jpeg);
         border-radius: 40px;
         padding-top: 20px;
         padding-bottom: 30px;
@@ -1727,7 +1727,7 @@
         bottom: 109px;
         border: 2px solid gray;
         box-shadow: 0 5px 35px black;
-        background: url(../imgs/2.jpeg);
+        background: url(../imgs/CARDBACKGROUND/4.jpeg);
         border-radius: 40px;
         padding-top: 20px;
         padding-bottom: 260px;
@@ -1848,3 +1848,6 @@
     .pay-now-btn:hover {
         background-color: goldenrod;
     }
+
+
+     
