@@ -96,12 +96,23 @@
     <br>
     <br>
 
-
+     <!-- CLOCK AND DATE AND YEAR -->
+     <div class="clock-date-section">
+            <div class="footer.one col-lg-3 col-md-6 col-sm-12">
+                <p class="pb-2">CURRENT TIME AND DATE</p>
+                <div id="clock"></div>
+                <div id="date"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
     <div class="product-review">
         <h2>CHRIS ROCCO BUTIQUE NEWS</h2>
 
         <div class="product-features">
             <h3>ABOUT PRODUCT</h3>
+
             <ul>
                 <li>VINTAGE BROWN SHOES</li>
             </ul>
@@ -243,6 +254,60 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+
+
+       <!-- JS CLOCK DATE YEAR-->
+   
+   <script>
+    function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    
+    // Pad single digit minutes and seconds with leading zeros
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    var timeString = hours + ':' + minutes + ':' + seconds;
+    
+    document.getElementById('clock').innerHTML = timeString;
+
+    // Update every second
+    setTimeout(updateClock, 1000);
+}
+
+function updateDate() {
+    var now = new Date();
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    var dayOfWeek = days[now.getDay()];
+    var month = months[now.getMonth()];
+    var dayOfMonth = now.getDate();
+    var year = now.getFullYear();
+    
+    var dateString = dayOfWeek + ', ' + month + ' ' + dayOfMonth + ', ' + year;
+    
+    document.getElementById('date').innerHTML = dateString;
+}
+
+// Call the functions to start updating the clock and date
+updateClock();
+updateDate();
+
+   </script>
+   
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

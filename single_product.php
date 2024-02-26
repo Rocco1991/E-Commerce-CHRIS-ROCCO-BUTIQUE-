@@ -109,10 +109,8 @@ $product_id =  $_GET['product_id'];
     <br>
     <br>
     <section class="container single-product my-5 pt-5">
-        <div class="row mt-5">
-
+    <div class="row mt-5">
         <?php while($row = $product->fetch_assoc()){ ?>
-
             <div class="col-lg-5 col-md-6 col-sm-12">
                 <img class="img-fluid w-100 pb-1" src="assets/imgs/<?php echo $row['product_image']; ?>" id="mainImg">
                 <div class="small-img-group">
@@ -129,43 +127,59 @@ $product_id =  $_GET['product_id'];
                         <img src="assets/imgs/<?php echo $row['product_image4']; ?>" width="100" class="small-img" />
                     </div>
                 </div>
+                
+                <!-- STAR RATING-->
+                <div class="star">
+                    <?php
+                        // Get the product rating from the database
+                        $rating = $row['product_rating'];
+
+                        // Display star ratings based on product rating
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($i <= $rating) {
+                                echo '<i class="fa fa-star"></i>';
+                            } else {
+                                echo '<i class="far fa-star"></i>';
+                            }
+                        }
+                    ?>
+                </div>
             </div>
-
-           
-
 
             <div class="col-lg-6 col-md-12 col-12">
                <!--  PRODUCT NAME -->
                 <h3 class="py-4"> <?php echo $row['product_name']; ?> </h3>
                 <!--  PRODUCT PRICE -->
                 <h3>PRICE: $<?php echo $row['product_price'];?></h3>
+                <!--  PRODUCT PRICE -->
+                <h3>PRODUCT QUANTITY: <?php echo $row['product_quantity'];?></h3>
+                <!--  PRODUCT COLOR -->
+                <h3>PRODUCT COLOR: <?php echo $row['product_color'];?></h3>
                 <!--  PRODUCT CATEGORY -->
                 <h3>CATEGORY: <?php echo $row['product_category'];?></h3>
                 <!-- DISCOUNT PRODUCT SPECIAL OFFER -->
                 <h3 class="py-4">SPECIAL OFFER: <span class="discount"><?php echo $row['product_special_offer']; ?>% OFF</span></h3>
                 
-                
-
                 <form method="POST" action="cart.php">
-                <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
-                <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>"/>
-                <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>"/>
-                <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>"/>
+                    <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
+                    <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>"/>
+                    <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>"/>
+                    <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>"/>
 
-                <input type="number" name="product_quantity" value="1"/>
-                <button class="buy-btn" type="submit" name="add_to_cart" >ADD TO CART</button>
+                    <input type="number" name="product_quantity" value="1"/>
+                    <button class="buy-btn" type="submit" name="add_to_cart" >ADD TO CART</button>
                 </form>
 
                  <!-- PRODUCT DETAILS -->
                 <h4 class="mt-5 mb-5">PRODUCT DETAILS</h4>
-                <span>  <?php echo $row['product_description']; ?>  </span>
+                <span><?php echo $row['product_description']; ?></span>
             </div> 
             
             <a href="index.php"><img src="" class="img-fluid w-auto h-auto m-5"><button>BACK TO MAIN PAGE</button></a>
          <?php } ?>
+    </div>
+</section>
 
-        </div>
-    </section>
 
 
 

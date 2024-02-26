@@ -313,25 +313,34 @@ if (isset($_POST['search'])) {
                 <br>
                 <br>
                 <div class="row" id="products-container">
-                    <?php include('server/get_featured_products.php'); ?>
-                    <?php while ($row = $featured_products->fetch_assoc()) { ?>
-                        <!-- Loop for displaying products -->
-                        <div class="product text-center col-lg-4 col-md-6 col-sm-12">
-                            <!-- Product content goes here -->
-                            <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
-                            <div class="star">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
-                            <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
-                            <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
+                <?php include('server/get_featured_products.php'); ?>
+                <?php while ($row = $featured_products->fetch_assoc()) { ?>
+                    <!-- Loop for displaying products -->
+                    <div class="product text-center col-lg-4 col-md-6 col-sm-12">
+                        <!-- Product content goes here -->
+                        <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
+                        <div class="star">
+                            <?php
+                                // Get the product rating from the database
+                                $rating = $row['product_rating'];
+
+                                // Display star ratings based on product rating
+                                for ($i = 1; $i <= 5; $i++) {
+                                    if ($i <= $rating) {
+                                        echo '<i class="fa fa-star"></i>';
+                                    } else {
+                                        echo '<i class="far fa-star"></i>';
+                                    }
+                                }
+                            ?>
                         </div>
-                    <?php } ?>
-                </div>
+                        <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                        <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+                        <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
+                    </div>
+                <?php } ?>
+            </div>
+
 
                 <nav aria-label="Page navigation example">
                     <ul class="pagination mt-5">

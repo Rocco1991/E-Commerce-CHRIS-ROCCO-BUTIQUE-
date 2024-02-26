@@ -112,16 +112,6 @@
         </div>
     </section>
 
-
-    <!-- CLOCK AND DATE AND YEAR -->
-<div class="clock-date-section">
-    <div class="footer.one col-lg-3 col-md-6 col-sm-12">
-        <p class="pb-2 golden-underline-heading">CURRENT TIME AND DATE</p>
-        <div id="clock"></div>
-        <div id="date"></div>
-    </div>
-</div>
-
     <!-- IMAGES LOOP -->
     <div id="imageContainer"></div>
 
@@ -374,8 +364,9 @@
         </div>
     </section>
 
-    <!-- Loop COATS dovršen  OK -->
+    <!-- PROIZVODI FATCHED IZ DB -->
 
+    <!-- Loop COATS dovršen  OK -->
     <section id="clothes" class="my-5">
         <div class="container text-center mt-5 py-5">
             <h3>1. COATS </h3>
@@ -383,210 +374,230 @@
             <p>Here you can check out our amazing coats</p>
         </div>
 
-
         <div class="row mx-auto container-fluid">
+            <?php include('server/get_coats.php'); ?>
+            <?php while ($row = $coat_products->fetch_assoc()) { ?>
+                <!-- Loop COATS dovršen -->
+                <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+                    <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
+                    <div class="star">
+                        <?php
+                        // Get star rating from the database
+                        $rating = $row['product_rating'];
 
-            <?php include('server/get_coats.php');  ?>
-
-            <?php while ($row = $coat_products->fetch_assoc()) { ?>       
-
-
-            <!-- Loop COATS dovršen -->
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                        // Display star icons based on rating
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($i <= $rating) {
+                                echo '<i class="fa fa-star"></i>';
+                            } else {
+                                echo '<i class="far fa-star"></i>';
+                            }
+                        }
+                        ?>
+                    </div>
+                    <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                    <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+                    <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
                 </div>
-                <h5 class="p-name">  <?php echo $row['product_name']; ?>  </h5>
-                <h4 class="p-price">$  <?php echo $row['product_price']; ?>   </h4>
-                <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?> "><button class="text-uppercase buy-btn">Buy Now</button></a>
-            </div>
-            
-           <?php } ?>
-            
+            <?php } ?>
         </div>
     </section>
 
-    <!--loop SHOES dovršen  OK-->
 
-    <section id="shoes" class="my-5">
-        <div class="container text-center mt-5 py-5">
-            <h3> 2. SHOES</h3>
-            <hr class="mx-auto">
-            <p>Here you can check out our amazing shoes</p>
-        </div>
+   <!--loop SHOES dovršen  OK-->
 
+<section id="shoes" class="my-5">
+    <div class="container text-center mt-5 py-5">
+        <h3> 2. SHOES</h3>
+        <hr class="mx-auto">
+        <p>Here you can check out our amazing shoes</p>
+    </div>
 
-        <div class="row mx-auto container-fluid">
-
-            <?php include('server/get_shoes.php');  ?>
-
-            <?php while ($row = $shoe_products->fetch_assoc()) { ?>     
-
+    <div class="row mx-auto container-fluid">
+        <?php include('server/get_shoes.php'); ?>
+        <?php while ($row = $shoe_products->fetch_assoc()) { ?>
             <!-- Loop Shoes 1 dovršen -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
                 <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                    <?php
+                    // Get star rating from the database
+                    $rating = $row['product_rating'];
+
+                    // Display star icons based on rating
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $rating) {
+                            echo '<i class="fa fa-star"></i>';
+                        } else {
+                            echo '<i class="far fa-star"></i>';
+                        }
+                    }
+                    ?>
                 </div>
-                <h5 class="p-name">   <?php echo $row['product_name']; ?>    </h5>
-                <h4 class="p-price">$   <?php echo $row['product_price']; ?>    </h4>
-                <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?> "><button class="text-uppercase buy-btn">Buy Now</button></a>
+                <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+                <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
             </div>
-            
-           <?php } ?> 
-            
-        </div>
-    </section>
+        <?php } ?>
+    </div>
+</section>
+
 
     <!-- loop WATCHES dovršen OK-->
 
-    <section id="watches" class="my-5">
-        <div class="container text-center mt-5 py-5">
-            <h3> 3. WATCHES</h3>
-            <hr class="mx-auto">
-            <p>Check out our unique watches</p>
-        </div>
+<section id="watches" class="my-5">
+    <div class="container text-center mt-5 py-5">
+        <h3> 3. WATCHES</h3>
+        <hr class="mx-auto">
+        <p>Check out our unique watches</p>
+    </div>
 
-
-        <div class="row mx-auto container-fluid">
-
-        <?php include('server/get_watches.php');  ?>
-
-            <?php while ($row = $watch_products->fetch_assoc()) { ?> 
-
+    <div class="row mx-auto container-fluid">
+        <?php include('server/get_watches.php'); ?>
+        <?php while ($row = $watch_products->fetch_assoc()) { ?>
             <!--  Loop WATCHES 1  dovršen-->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
                 <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                    <?php
+                    // Get star rating from the database
+                    $rating = $row['product_rating'];
+
+                    // Display star icons based on rating
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $rating) {
+                            echo '<i class="fa fa-star"></i>';
+                        } else {
+                            echo '<i class="far fa-star"></i>';
+                        }
+                    }
+                    ?>
                 </div>
-                <h5 class="p-name">  <?php echo $row['product_name']; ?>   </h5>
-                <h4 class="p-price">$   <?php echo $row['product_price']; ?>     </h4>
-                <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?> "><button class="text-uppercase buy-btn">Buy Now</button></a>
+                <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+                <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
             </div>
-          
-            <?php } ?>
-           
-        </div>
-    </section>
+        <?php } ?>
+    </div>
+</section>
 
-    <!-- loop PARFUMES dovršen OK  -->
 
-    <section id="parfumes" class="my-5">
-        <div class="container text-center mt-5 py-5">
-            <h3> 4. PARFUMES</h3>
-            <hr class="mx-auto">
-            <p>Check out our best smelling Parfumes</p>
-        </div>
+   <!-- loop PARFUMES dovršen OK -->
 
-        <div class="row mx-auto container-fluid">
+<section id="parfumes" class="my-5">
+    <div class="container text-center mt-5 py-5">
+        <h3> 4. PARFUMES</h3>
+        <hr class="mx-auto">
+        <p>Check out our best smelling Parfumes</p>
+    </div>
 
-               <?php include('server/get_parfumes.php');  ?>
-
-            <?php while ($row = $parfume_products->fetch_assoc()) { ?>    
-
+    <div class="row mx-auto container-fluid">
+        <?php include('server/get_parfumes.php'); ?>
+        <?php while ($row = $parfume_products->fetch_assoc()) { ?>
             <!-- loop PARFUMES 1 dovršen -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
                 <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                    <?php
+                    // Get star rating from the database
+                    $rating = $row['product_rating'];
+
+                    // Display star icons based on rating
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $rating) {
+                            echo '<i class="fa fa-star"></i>';
+                        } else {
+                            echo '<i class="far fa-star"></i>';
+                        }
+                    }
+                    ?>
                 </div>
-                <h5 class="p-name">   <?php echo $row['product_name']; ?>     </h5>
-                <h4 class="p-price">$   <?php echo $row['product_price']; ?>     </h4>
-                <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?> "><button class="text-uppercase buy-btn">Buy Now</button></a>
+                <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+                <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
             </div>
+        <?php } ?>
+    </div>
+</section>
 
-        <?php } ?>              
-            
-        </div>
-    </section>
 
-    <!-- loop BAGS dovršen OK -->
+ <!-- loop BAGS dovršen OK -->
 
-    <section id="bags" class="my-5">
-        <div class="container text-center mt-5 py-5">
-            <h3> 5. BAGS</h3>
-            <hr class="mx-auto">
-            <p>Check out our best looking Bags for women</p>
-        </div>
+<section id="bags" class="my-5">
+    <div class="container text-center mt-5 py-5">
+        <h3> 5. BAGS</h3>
+        <hr class="mx-auto">
+        <p>Check out our best looking Bags for women</p>
+    </div>
 
-        <div class="row mx-auto container-fluid">
-
-               <?php include('server/get_bags.php');  ?>
-
-            <?php while ($row = $bag_products->fetch_assoc()) { ?>    
-
+    <div class="row mx-auto container-fluid">
+        <?php include('server/get_bags.php'); ?>
+        <?php while ($row = $bag_products->fetch_assoc()) { ?>
             <!-- loop BAGS 1 dovršen -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
                 <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class="p-name">   <?php echo $row['product_name']; ?>     </h5>
-                <h4 class="p-price">$   <?php echo $row['product_price']; ?>     </h4>
-                <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?> "><button class="text-uppercase buy-btn">Buy Now</button></a>
-            </div>
+                    <?php
+                    // Get star rating from the database
+                    $rating = $row['product_rating'];
 
-        <?php } ?>              
-            
-        </div>
-    </section>
+                    // Display star icons based on rating
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $rating) {
+                            echo '<i class="fa fa-star"></i>';
+                        } else {
+                            echo '<i class="far fa-star"></i>';
+                        }
+                    }
+                    ?>
+                </div>
+                <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+                <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
+            </div>
+        <?php } ?>
+    </div>
+</section>
+
 
     <!-- loop GLOVES dovršen OK -->
 
-     <section id="gloves" class="my-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>6. GLOVES</h3>
-            <hr class="mx-auto">
-            <p>Check out our best Gloves for guys,women & children</p>
-        </div>
+<section id="gloves" class="my-5">
+    <div class="container text-center mt-5 py-5">
+        <h3>6. GLOVES</h3>
+        <hr class="mx-auto">
+        <p>Check out our best Gloves for guys, women & children</p>
+    </div>
 
-        <div class="row mx-auto container-fluid">
-
-               <?php include('server/get_gloves.php');  ?>
-
-            <?php while ($row = $glove_products->fetch_assoc()) { ?>    
-
+    <div class="row mx-auto container-fluid">
+        <?php include('server/get_gloves.php'); ?>
+        <?php while ($row = $glove_products->fetch_assoc()) { ?>
             <!-- loop GLOVE 1 dovršen -->
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
                 <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class="p-name">   <?php echo $row['product_name']; ?>     </h5>
-                <h4 class="p-price">$   <?php echo $row['product_price']; ?>     </h4>
-                <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?> "><button class="text-uppercase buy-btn">Buy Now</button></a>
-            </div>
+                    <?php
+                    // Get star rating from the database
+                    $rating = $row['product_rating'];
 
-        <?php } ?>              
-            
-        </div>
-    </section>
+                    // Display star icons based on rating
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $rating) {
+                            echo '<i class="fa fa-star"></i>';
+                        } else {
+                            echo '<i class="far fa-star"></i>';
+                        }
+                    }
+                    ?>
+                </div>
+                <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+                <a href="<?php echo "single_product.php?product_id=" . $row['product_id']; ?>"><button class="text-uppercase buy-btn">Buy Now</button></a>
+            </div>
+        <?php } ?>
+    </div>
+</section>
+
 
    <!-- TESTIMONIALS -->
 <div class="testimonial-section">
@@ -741,54 +752,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
-
-   
-   
-   
-   
-   <!-- JS CLOCK DATE YEAR-->
-   
-   <script>
-    function updateClock() {
-    var now = new Date();
-    var hours = now.getHours();
-    var minutes = now.getMinutes();
-    var seconds = now.getSeconds();
-    
-    // Pad single digit minutes and seconds with leading zeros
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    var timeString = hours + ':' + minutes + ':' + seconds;
-    
-    document.getElementById('clock').innerHTML = timeString;
-
-    // Update every second
-    setTimeout(updateClock, 1000);
-}
-
-function updateDate() {
-    var now = new Date();
-    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    
-    var dayOfWeek = days[now.getDay()];
-    var month = months[now.getMonth()];
-    var dayOfMonth = now.getDate();
-    var year = now.getFullYear();
-    
-    var dateString = dayOfWeek + ', ' + month + ' ' + dayOfMonth + ', ' + year;
-    
-    document.getElementById('date').innerHTML = dateString;
-}
-
-// Call the functions to start updating the clock and date
-updateClock();
-updateDate();
-
-   </script>
-   
-
    
    
    
