@@ -52,7 +52,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contact.php">CONTACT US</a>
+          <a class="nav-link" href="contact.php">CONTACT</a>
         </li>
 
         <li class="nav-item">
@@ -111,11 +111,6 @@
             <br>
         </div>
     </section>
-
-    <!-- IMAGES LOOP -->
-    <div id="imageContainer"></div>
-
-     
 
     <!-- BRANDS -->
     <section id="brand" class="container">
@@ -651,7 +646,8 @@
 <br>
 <br>
 
-
+<!-- IMAGES LOOP -->
+<div id="imageContainer"></div>
    
 
     <!-- Footer -->
@@ -698,23 +694,23 @@
                 <div class="row">
 
                     <div class>
-                        <a href="https://www.facebook.com/"><img src="assets/imgs/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
+                        <a href="https://www.facebook.com/"><img src="assets/imgs/SOCIALMEDIA/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.youtube.com/"><img src="assets/imgs/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
+                        <a href="https://www.youtube.com/"><img src="assets/imgs/SOCIALMEDIA/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.instagram.com/"><img src="assets/imgs/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
+                        <a href="https://www.instagram.com/"><img src="assets/imgs/SOCIALMEDIA/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.tiktok.com/"><img src="assets/imgs/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Tik-Tok Link">Tik Tok &#xae;</a>
+                        <a href="https://www.skype.com/"><img src="assets/imgs/SOCIALMEDIA/skype.png" class="img-fluid w-auto h-auto m-2" alt="Skype Link">Skype &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://twitter.com/"><img src="assets/imgs/skype.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
+                        <a href="https://twitter.com/"><img src="assets/imgs/SOCIALMEDIA/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
                     </div>
                 </div>
             </div>

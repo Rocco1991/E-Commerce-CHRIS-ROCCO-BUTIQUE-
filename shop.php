@@ -1,31 +1,37 @@
 <?php
 include('server/connection.php');
 
+// Define pagination parameters
+$items_per_page = 12; // Number of items to display per page
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1; // Get current page number
+
+// Calculate the offset for the SQL query
+$offset = ($current_page - 1) * $items_per_page;
+
 // Behold the magnificent search section
 if (isset($_POST['search'])) {
-    $category = $_POST['category'];
-    $price = $_POST['price'];
-    $color = $_POST['color']; // Get selected color
+    // Your existing code for handling search
 
-    // Prepare the SQL statement with color filtering
+    // Modify the SQL query to include pagination
+    // Append "LIMIT" and "OFFSET" clauses to fetch limited results
     if ($color === 'all') {
-        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price<=?");
-        $stmt->bind_param('si', $category, $price);
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price<=? LIMIT ? OFFSET ?");
+        $stmt->bind_param('siii', $category, $price, $items_per_page, $offset);
     } else {
-        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=? AND product_color=?");
-        $stmt->bind_param('sis', $category, $price, $color); // Bind color parameter
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category=? AND product_price=? AND product_color=? LIMIT ? OFFSET ?");
+        $stmt->bind_param('siiii', $category, $price, $color, $items_per_page, $offset);
     }
 
-    $stmt->execute();
-    $products = $stmt->get_result();
-
-    // Fetch and display products
 } else {
-    // If search form is not submitted, fetch all products
-    $stmt = $conn->prepare("SELECT * FROM products");
-    $stmt->execute();
-    $products = $stmt->get_result();
+    // If search form is not submitted, fetch all products with pagination
+    $stmt = $conn->prepare("SELECT * FROM products LIMIT ? OFFSET ?");
+    $stmt->bind_param('ii', $items_per_page, $offset);
 }
+
+$stmt->execute();
+$products = $stmt->get_result();
+
+// Fetch and display products
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +93,7 @@ if (isset($_POST['search'])) {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contact.php">CONTACT US</a>
+          <a class="nav-link" href="contact.php">CONTACT</a>
         </li>
 
         <li class="nav-item">
@@ -127,7 +133,7 @@ if (isset($_POST['search'])) {
         <div class="row">
             <div class="col-lg-3">
                 <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Search for products..." oninput="searchFunction()" />
+                    <input type="text" id="search-input" placeholder="Search..." oninput="searchFunction()" />
                     <br>
                     <label for="discount">ON DISCOUNT (select a percentage):</label>
                     <input type="range" id="discount" name="discount" min="0" max="100" step="1" value="0">
@@ -342,7 +348,7 @@ if (isset($_POST['search'])) {
             </div>
 
 
-                <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation example">
                     <ul class="pagination mt-5">
                         <!-- Pagination links go here -->
                         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -352,6 +358,9 @@ if (isset($_POST['search'])) {
                         <li class="page-item"><a class="page-link" href="#">Next</a></li>
                     </ul>
                 </nav>
+
+
+
             </div>
         </div>
     </div>
@@ -406,24 +415,24 @@ if (isset($_POST['search'])) {
                 <p class="pb-2 golden-underline-heading">SOCIAL MEDIA</p>
                 <div class="row">
 
-                    <div class>
-                        <a href="https://www.facebook.com/"><img src="assets/imgs/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
+                <div class>
+                        <a href="https://www.facebook.com/"><img src="assets/imgs/SOCIALMEDIA/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.youtube.com/"><img src="assets/imgs/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
+                        <a href="https://www.youtube.com/"><img src="assets/imgs/SOCIALMEDIA/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.instagram.com/"><img src="assets/imgs/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
+                        <a href="https://www.instagram.com/"><img src="assets/imgs/SOCIALMEDIA/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.tiktok.com/"><img src="assets/imgs/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Tik-Tok Link">Tik Tok &#xae;</a>
+                        <a href="https://www.skype.com/"><img src="assets/imgs/SOCIALMEDIA/skype.png" class="img-fluid w-auto h-auto m-2" alt="Skype Link">Skype &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://twitter.com/"><img src="assets/imgs/skype.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
+                        <a href="https://twitter.com/"><img src="assets/imgs/SOCIALMEDIA/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
                     </div>
                 </div>
             </div>
@@ -452,6 +461,9 @@ if (isset($_POST['search'])) {
             </div>
 
     </footer>
+
+    
+   
   
  <!-- JS searchbar  -->
  <script>

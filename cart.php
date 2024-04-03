@@ -11,20 +11,33 @@ if (isset($_POST['add_to_cart'])) {
         exit; // Prevent adding the product
     }
 
+    // Check if the product is on special offer
+    $product_id = $_POST['product_id'];
+    $is_on_special_offer = checkSpecialOffer($product_id);
+
+    // If the product is on special offer
+    if ($is_on_special_offer) {
+        // Apply special offer logic here, such as adjusting the price before adding it to the cart
+        // For example, you can set a special price for the product or add a special tag to indicate the offer
+        // For demonstration purposes, let's assume the price is reduced by 10%
+        $special_price = $_POST['product_price'] * 0.9; // 10% discount
+    } else {
+        // If the product is not on special offer, use the original price
+        $special_price = $_POST['product_price'];
+    }
+
     // If the user has already added a product to the cart
     if (isset($_SESSION['cart'])) {
         $products_array_ids = array_column($_SESSION['cart'], "product_id");
         
         // Check if the product has already been added to the cart or not
-        if (!in_array($_POST['product_id'], $products_array_ids)) {
-            $product_id = $_POST['product_id'];
-
+        if (!in_array($product_id, $products_array_ids)) {
             $product_array = array(
-                'product_id' => $_POST['product_id'],
+                'product_id' => $product_id,
                 'product_name' => $_POST['product_name'],
-                'product_price' => $_POST['product_price'],
+                'product_price' => $special_price, // Use the special price if applicable
                 'product_image' => $_POST['product_image'],
-                'product_quantity' => $_POST['product_quantity']
+                'product_quantity' => $product_quantity
             );
 
             $_SESSION['cart'][$product_id] = $product_array;
@@ -37,17 +50,11 @@ if (isset($_POST['add_to_cart'])) {
 
     // If this is the first product
     } else {
-        $product_id = $_POST['product_id'];
-        $product_name = $_POST['product_name'];
-        $product_price = $_POST['product_price'];
-        $product_image = $_POST['product_image'];
-        $product_quantity = $_POST['product_quantity'];
-
         $product_array = array(
             'product_id' => $product_id,
-            'product_name' => $product_name,
-            'product_price' => $product_price,
-            'product_image' => $product_image,
+            'product_name' => $_POST['product_name'],
+            'product_price' => $special_price, // Use the special price if applicable
+            'product_image' => $_POST['product_image'],
             'product_quantity' => $product_quantity
         );
 
@@ -110,6 +117,18 @@ function calculateTotalCart() {
 
     $_SESSION['total'] = $total;
 }
+
+function checkSpecialOffer($product_id) {
+    // Logic to check if the product is on special offer
+    // You can implement your own logic here, such as querying a database or checking a flag
+    // For demonstration purposes, let's assume product with ID 1 is on special offer
+    if ($product_id == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 ?>
 
 
@@ -166,7 +185,7 @@ function calculateTotalCart() {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contact.php">CONTACT US</a>
+          <a class="nav-link" href="contact.php">CONTACT</a>
         </li>
 
         <li class="nav-item">
@@ -331,24 +350,24 @@ function calculateTotalCart() {
                 <p class="pb-2 golden-underline-heading">SOCIAL MEDIA</p>
                 <div class="row">
 
-                    <div class>
-                        <a href="https://www.facebook.com/"><img src="assets/imgs/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
+                <div class>
+                        <a href="https://www.facebook.com/"><img src="assets/imgs/SOCIALMEDIA/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.youtube.com/"><img src="assets/imgs/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
+                        <a href="https://www.youtube.com/"><img src="assets/imgs/SOCIALMEDIA/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.instagram.com/"><img src="assets/imgs/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
+                        <a href="https://www.instagram.com/"><img src="assets/imgs/SOCIALMEDIA/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.tiktok.com/"><img src="assets/imgs/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Tik-Tok Link">Tik Tok &#xae;</a>
+                        <a href="https://www.skype.com/"><img src="assets/imgs/SOCIALMEDIA/skype.png" class="img-fluid w-auto h-auto m-2" alt="Skype Link">Skype &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://twitter.com/"><img src="assets/imgs/skype.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
+                        <a href="https://twitter.com/"><img src="assets/imgs/SOCIALMEDIA/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
                     </div>
                 </div>
             </div>

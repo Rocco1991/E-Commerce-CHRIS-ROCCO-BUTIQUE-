@@ -2,9 +2,9 @@
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Replace 'localhost' with '127.0.0.1' if necessary, and replace 'your_username' and 'your_password' with actual database credentials
-    $host = 'localhost'; // Assuming your MySQL server is running on the same host
+    $host = '127.0.0.1'; // Assuming your MySQL server is running on the same host
     $username = 'root'; // Your MySQL username
-    $password = ''; // Your MySQL password (leave empty if no password is set)
+    $password = '88888888'; // Your MySQL password (leave empty if no password is set)
     $database = 'chris_rocco_butique'; // Your MySQL database name
 
     // Create a new MySQLi connection
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
     // Redirect to a new page with a success message
-    header("Location: success.php");
+    header("Location: server/success.php");
     exit();
 }
 ?>
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contact.php">CONTACT US</a>
+          <a class="nav-link" href="contact.php">CONTACT</a>
         </li>
 
         <li class="nav-item">
@@ -268,6 +268,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
+    
+    
+
+
 
 
 
@@ -314,24 +318,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p class="pb-2 golden-underline-heading">SOCIAL MEDIA</p>
                 <div class="row">
 
-                    <div class>
-                        <a href="https://www.facebook.com/"><img src="assets/imgs/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
+                <div class>
+                        <a href="https://www.facebook.com/"><img src="assets/imgs/SOCIALMEDIA/facebook.png" class="img-fluid w-auto h-auto m-2" alt="Facebook Link">Facebook &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.youtube.com/"><img src="assets/imgs/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
+                        <a href="https://www.youtube.com/"><img src="assets/imgs/SOCIALMEDIA/youtube.png" class="img-fluid w-auto h-auto m-2" alt="Youtube Link">Youtube &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.instagram.com/"><img src="assets/imgs/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
+                        <a href="https://www.instagram.com/"><img src="assets/imgs/SOCIALMEDIA/instagram.png" class="img-fluid w-auto h-auto m-2" alt="Instagram Link">Instagram &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://www.tiktok.com/"><img src="assets/imgs/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Tik-Tok Link">Tik Tok &#xae;</a>
+                        <a href="https://www.skype.com/"><img src="assets/imgs/SOCIALMEDIA/skype.png" class="img-fluid w-auto h-auto m-2" alt="Skype Link">Skype &#xae;</a>
                     </div>
 
                     <div class>
-                        <a href="https://twitter.com/"><img src="assets/imgs/skype.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
+                        <a href="https://twitter.com/"><img src="assets/imgs/SOCIALMEDIA/twitter.png" class="img-fluid w-auto h-auto m-2" alt="Twitter Link">Twitter &#xae;</a>
                     </div>
                 </div>
             </div>
